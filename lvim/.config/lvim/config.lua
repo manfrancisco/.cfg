@@ -65,6 +65,14 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.builtin.which_key.mappings["q"] = {
     ":confirm q<cr>", "Quit"
 }
+
+local imap = function(k, v)
+    vim.api.nvim_set_keymap('i', k, v, { noremap = true, silent = true })
+end
+
+imap("jk", "<ESC>")
+imap("kj", "<ESC>")
+
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- unmap a default keymapping
