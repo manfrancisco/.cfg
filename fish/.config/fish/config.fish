@@ -1,11 +1,16 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
-    oh-my-posh init fish --config ~/.config/oh-my-posh/themes/gruvbox.toml | source
+    # Oh my posh
+    if type -q oh-my-posh
+        oh-my-posh init fish --config ~/.config/oh-my-posh/themes/gruvbox.toml | source
+    end
 
-    # Don't display a greeting when the shell starts
+    # Environment Variables
+    set -g EDITOR lvim
+    ## Don't display a greeting when the shell starts
     set -g fish_greeting ""
 
     # Abbreviations
+
     ## Cargo
     abbr -ag c cargo
     abbr -ag cb cargo build
@@ -34,6 +39,23 @@ if status is-interactive
     abbr -ag grhh git reset --hard HEAD
     abbr -ag grah "git add -A && git reset --hard HEAD"
 
+    ## Exa
+    if type -q exa
+        abbr -ag ls exa --git -l
+        abbr -ag lsa exa --git -al
+        abbr -ag lst exa --git -lTL2
+        abbr -ag lsta exa --git -laTL2
+    else
+        abbr -ag ls ls -l
+        abbr -ag lsa ls -la
+    end
+
+    ## Other
+    abbr -ag e lvim
+    abbr -ag cls "clear; printf '\e[3J'"
+
+    # Functions
+
     ## Make a directory and move into it
     function mcd
         if test (count $argv) != 1
@@ -55,29 +77,10 @@ if status is-interactive
         git checkout $(git rev-list --topo-order HEAD..$argv | tail -1)
     end
 
-    ## Exa
-    if command -v exa &> /dev/null
-        abbr -ag ls exa --git -l
-        abbr -ag lsa exa --git -al
-        abbr -ag lst exa --git -lTL2
-        abbr -ag lsta exa --git -laTL2
-    else
-        abbr -ag ls ls -l
-        abbr -ag lsa ls -la
-    end
-
-    ## Other
-    abbr -ag cls "clear; printf '\e[3J'"
-
-    ## Fluvio development
-    alias flu "$HOME/code/fluvio/target/debug/fluvio"
-
-    # Environment Variables
-    set -x EDITOR nvim
-    set -x DOCKER_HOST unix:///var/run/docker.sock
-
     # Zoxide
-    zoxide init fish --cmd cd | source
+    if type -q zoxide
+        zoxide init fish --cmd j | source
+    end
     
 end
 
