@@ -1,0 +1,6 @@
+#!/bin/bash
+
+setup-displays
+setup-sound
+
+set-wallpaper

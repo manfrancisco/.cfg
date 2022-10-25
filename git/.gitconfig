@@ -1,0 +1,13 @@
+[user]
+	email = m@mdorst.net
+	name = Michael Dorst
+    user = git
+[core]
+    pager = bat -p
+[color]
+    ui = always
+[credential]
+    helper = store
+
+[init]
+	defaultBranch = main
