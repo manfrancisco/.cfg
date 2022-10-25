@@ -34,6 +34,16 @@ if status is-interactive
     abbr -ag grhh git reset --hard HEAD
     abbr -ag grah "git add -A && git reset --hard HEAD"
 
+    ## Make a directory and move into it
+    function mcd
+        if test (count $argv) != 1
+            echo "Usage: mcd <dir>"
+            return
+        end
+        mkdir -p $argv
+        cd $argv
+    end
+
     ## Checkout next commit in the direction of the argument
     ## Note: only capable of moving forward in history, not backward
     ## Ex: `gmt master` would move one commit towards master
@@ -69,9 +79,5 @@ if status is-interactive
     # Zoxide
     zoxide init fish --cmd cd | source
     
-    # Cargo/Rust
-    fish_add_path $HOME/.cargo/bin
-    # My custom scripts
-    fish_add_path $HOME/scripts
 end
 
