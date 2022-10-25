@@ -71,10 +71,6 @@ if status is-interactive
     
     # Cargo/Rust
     fish_add_path $HOME/.cargo/bin
-    # Fluvio
-    fish_add_path $HOME/.fluvio/bin
-    # Rancher Desktop
-    fish_add_path $HOME/.rd/bin
     # My custom scripts
     fish_add_path $HOME/scripts
 end
