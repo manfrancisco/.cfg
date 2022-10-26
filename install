@@ -5,20 +5,12 @@ if ! command -v stow &> /dev/null; then
     exit 1
 fi
 
+./install-base
+
 pushd ~/.cfg > /dev/null
-stow -v fish
 stow -v gestures
-stow -v git
 stow -v i3
 stow -v kitty
-stow -v lvim
-stow -v nushell
-stow -v nvim
-stow -v omp
 stow -v polybar
-stow -v tmux
-stow -v vim
-stow -v vscode
 stow -v xmodmap
-stow -v zsh
 popd > /dev/null
