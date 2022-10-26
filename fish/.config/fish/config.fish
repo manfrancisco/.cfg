@@ -82,7 +82,7 @@ if status is-interactive
     # Scripts
     fish_add_path $HOME/scripts
     # Cargo
-    fish_add_path $HOME/cargo
+    fish_add_path $HOME/.cargo/bin
 
     # Zoxide
     if type -q zoxide
