@@ -5,18 +5,25 @@ if ! command -v stow &> /dev/null; then
     exit 1
 fi
 
-stow fish
-stow gestures
-stow git
-stow i3
-stow kitty
-stow lvim
-stow nushell
-stow nvim
-stow omp
-stow polybar
-stow tmux
-stow vim
-stow vscode
-stow xmodmap
-stow zsh
+function _stow() {
+    echo "Stowing $1"
+    \stow "$1"
+}
+
+pushd ~/.cfg
+_stow fish
+_stow gestures
+_stow git
+_stow i3
+_stow kitty
+_stow lvim
+_stow nushell
+_stow nvim
+_stow omp
+_stow polybar
+_stow tmux
+_stow vim
+_stow vscode
+_stow xmodmap
+_stow zsh
+popd
