@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+if ! command -v stow &> /dev/null; then
+    echo "stow not installed"
+    exit 1
+fi
+
+./install
+
+pushd ~/.cfg > /dev/null
+stow -v hidpi
+stow -vD i3
+stow -v i3-leclerc
+stow -vD polybar
+stow -v polybar-hidpi
+popd > /dev/null
