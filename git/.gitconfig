@@ -4,6 +4,7 @@
     user = git
 [core]
     pager = bat -p
+	editor = lvim
 [color]
     ui = always
 [credential]
