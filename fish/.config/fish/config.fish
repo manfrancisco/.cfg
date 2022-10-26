@@ -77,6 +77,13 @@ if status is-interactive
         git checkout $(git rev-list --topo-order HEAD..$argv | tail -1)
     end
 
+    # LunarVim
+    fish_add_path $HOME/.local/bin
+    # Scripts
+    fish_add_path $HOME/scripts
+    # Cargo
+    fish_add_path $HOME/cargo
+
     # Zoxide
     if type -q zoxide
         zoxide init fish --cmd j | source
