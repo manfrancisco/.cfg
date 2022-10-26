@@ -1,8 +1,8 @@
 if status is-interactive
     # Oh my posh
-    if type -q oh-my-posh
-        oh-my-posh init fish --config ~/.config/oh-my-posh/themes/gruvbox.toml | source
-    end
+    # if type -q oh-my-posh
+        # oh-my-posh init fish --config ~/.config/oh-my-posh/themes/gruvbox.toml | source
+    # end
 
     # Environment Variables
     set -g EDITOR lvim
@@ -82,5 +82,9 @@ if status is-interactive
         zoxide init fish --cmd j | source
     end
     
+    # Starship
+    if type -q starship
+        starship init fish | source
+    end
 end
 
