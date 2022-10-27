@@ -101,13 +101,13 @@ window#waybar.hidden {
 }
 
 #battery {
-  color: #a3be8c;
+  color: #1abc9c;
   /* background-color: #90b1b1; */
 }
 
 #battery.charging,
 #battery.plugged {
-  color: #26a65b;
+  color: #ff9e64;
   /* background-color: #26a65b; */
 }
 
@@ -119,8 +119,8 @@ window#waybar.hidden {
 }
 
 #battery.critical:not(.charging) {
-  background-color: #f53c3c;
-  color: #abb2bf;
+  /* background-color: #f53c3c; */
+  color: #b2555b;
   animation-name: blink;
   animation-duration: 0.5s;
   animation-timing-function: linear;
@@ -151,7 +151,7 @@ label:focus {
 }
 
 #network {
-  color: #1abc9c;
+  color: #6a92d7;
 }
 
 #network.disconnected {
