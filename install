@@ -12,5 +12,6 @@ stow -v gestures
 stow -v i3
 stow -v kitty
 stow -v polybar
+stow -v sway
 stow -v xmodmap
 popd > /dev/null
