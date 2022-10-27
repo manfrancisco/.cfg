@@ -9,9 +9,11 @@ fi
 
 pushd ~/.cfg > /dev/null
 stow -v gestures
+stow -v hyprland
 stow -v i3
 stow -v kitty
 stow -v polybar
 stow -v sway
+stow -v waybar
 stow -v xmodmap
 popd > /dev/null
