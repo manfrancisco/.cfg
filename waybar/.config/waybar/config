@@ -28,8 +28,8 @@
         "spacing": 10
     },
     "clock": {
-        "format": "<span color='#b2555b'></span> {:%a %b %d}",
-        "format-alt": "<span color='#b2555b'></span> {:%I:%M %p}"
+        "format": "<span color='#b2555b'></span> {:%I:%M %p}",
+        "format-alt": "<span color='#b2555b'></span> {:%a %b %d}",
     },
     // "clock": {
     //     // "timezone": "America/New_York",
@@ -44,7 +44,7 @@
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
 
-        "format-wifi": "直 {signalStrength}%",
+        "format-wifi": "直 {essid}",
         // "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
         // "format-ethernet": " {ifname}",
         "format-ethernet": " wired",
