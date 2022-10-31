@@ -6,6 +6,7 @@ if ! command -v stow &> /dev/null; then
 fi
 
 pushd ~/.cfg > /dev/null
+stow -v bash
 stow -v fish
 stow -v git
 stow -v lvim
