@@ -12,9 +12,12 @@ shopt -s histappend
 shopt -s checkwinsize
 
 # Environment variables
-EDITOR=lvim
 HISTSIZE=10000
 HISTFILESIZE=20000
+
+# Environment exports
+export EDITOR=lvim
+export VISUAL=lvim
 
 # Aliases
 
