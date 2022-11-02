@@ -90,125 +90,57 @@ SAVEHIST=1000000000
 # Get rid of all the aliases OMZ adds
 unalias -m '*'
 
-#
 # Aliases
-#
 
-# vim/nvim
-if command -v nvim &> /dev/null; then
-    alias vim='nvim'
-    alias v='nvim'
-else
-    alias v='vim'
-fi
-
-# Sudoedit
-alias se='sudoedit'
-
-# Cargo
+## Cargo
 alias c='cargo'
 alias cb='cargo build'
 alias cbr='cargo build --release'
 alias cr='cargo run'
+alias crr='cargo run --release'
 alias ct='cargo test'
-alias ccl='cargo clippy'
 
-# bat
-if command -v bat &> /dev/null; then
-    alias cat='bat'
-    alias b='bat'
-    alias bp='bat -p'
-fi
-
-# ls -> exa
-if command -v exa &> /dev/null; then
-    alias ls='exa -l --git --color=always'
-    alias lsa='exa -al --git --color=always'
-    alias lst='exa -lTL2 --git --color=always'
-    alias lsta='exa -laTL2 --git --color=always'
-else
-    alias ls='ls -l --color=always'
-    alias lsa='ls -la --color=always'
-fi
-
-# Ranger shortcut
-# Be aware, this remaps the shell built-in `r` command.
-# Use `!!` instead.
-if command -v ranger &> /dev/null; then
-    alias r='ranger'
-fi
-
-
-# Git
-#
-
-# Use hub instead of git when available
-if command -v hub &> /dev/null; then
-    alias git='hub'
-fi
-
-alias g='git'
-
-# Status
+## Git
+alias g="git"
 alias gs="git status -su"
-
-# Fetch all, prune, and pull
-alias gp="git fetch --all --prune && git pull"
-
-# Checkout
-alias gco="git checkout"
-
-# Stash
-alias gst="git stash"
-
-# Reset
-alias gr="git reset"
-alias grh="git reset --hard"
-alias grah="git add -A && git reset --hard"
-
-# Branch
-alias gb="git branch"
-alias gba="git branch --all"
-alias gbm="git branch --merged"
-
-# Delete merged branches
-alias gbdm='git branch --color=never --merged | grep -vE "\*|master" | xargs git branch -d'
-
-# Commit
-alias gc="git commit"
-alias gca="git add -A && git commit"
-
-# Add
 alias ga="git add"
 alias gaa="git add -A"
-
-# Diff
+alias gc="git commit"
+alias gca="git add -A && git commit"
+alias gco="git checkout"
+alias gst="git stash"
 alias gd="git diff"
 alias gds="git diff --stat"
-
-# Log
 alias gl="git log --oneline --graph"
 alias gla="git log --oneline --graph --branches --remotes --tags HEAD"
 alias gll="git log --graph"
-alias glla="git log --graph --branches --remotes --tags HEAD"
+alias gb="git branch"
+alias gr="git reset"
+alias grh="git reset --hard"
+alias grhh="git reset --hard HEAD"
+alias grah="git add -A && git reset --hard HEAD"
 
-#
-# Utility
-#
+## Exa
+if command -v exa &> /dev/null; then
+    alias ls="exa --git -l"
+    alias lsa="exa --git -al"
+    alias lst="exa --git -lTL2"
+    alias lsta="exa --git -laTL2"
+else
+    alias ls="ls -l"
+    alias lsa="ls -la"
+fi
 
-# Emacs
-alias e='emacsclient -t'
+## Other
+alias e="lvim"
+alias cls="clear; printf '\e[3J'"
 
-# Restart emacs daemon
-alias re='systemctl restart --user emacs'
-
-# Clear screen
-alias cs="clear && printf '\e[3J'"
+# Functions
 
 # Make a directory and cd into it
 mcd()
 {
-    test -d "$1" || mkdir "$1" && cd "$1"
+    test -d "$1" || mkdir -p "$1" && cd "$1"
 }
 
 export LANG=en_US.UTF-8
@@ -217,8 +149,8 @@ export LANG=en_US.UTF-8
 unsetopt BEEP
 
 # Set default editor
-export VISUAL='nvim'
-export EDITOR='nvim'
+export VISUAL='lvim'
+export EDITOR='lvim'
 
 # Load platform specific rc files
 if [[ -e "$HOME/.zshrc.macos" ]]; then
@@ -237,20 +169,15 @@ fi
 # Rust/Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# LLVM
-export PATH="/usr/local/opt/llvm/bin:$PATH"
-
-# pyenv
-export PATH="$HOME/.pyenv/bin:$PATH"
-
-# Doom Emacs
-export PATH="$HOME/.emacs.d/bin:$PATH"
-
 # Custom scripts
 export PATH="$HOME/scripts:$PATH"
 
+# Local executables
+export PATH="$HOME/.local/bin:$PATH"
+
 if command -v pyenv &> /dev/null; then
     eval "$(pyenv init -)"
+    export PATH="$HOME/.pyenv/bin:$PATH"
 fi
 
 # rbenv
@@ -262,6 +189,12 @@ fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# This should stay at the very end.
-eval "$(starship init zsh)"
+# Starship
+if command -v starship &> /dev/null; then
+    eval "$(starship init zsh)"
+fi
 
+# Zoxide
+if command -v zoxide &> /dev/null; then
+    eval "$(zoxide init zsh --cmd j)"
+fi
