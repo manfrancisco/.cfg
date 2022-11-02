@@ -5,8 +5,16 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Append to the history file, don't overwrite it
+shopt -s histappend
+
+# Change window size if necessary
+shopt -s checkwinsize
+
 # Environment variables
 EDITOR=lvim
+HISTSIZE=10000
+HISTFILESIZE=20000
 
 # Aliases
 
