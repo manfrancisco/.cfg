@@ -20,11 +20,11 @@ lvim.colorscheme = "tokyonight-night"
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
 -- add your own keymapping
-lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
-
 lvim.keys.insert_mode["jk"] = "<esc>"
 lvim.keys.insert_mode["kj"] = "<esc>"
 
+-- Toggleterm
+lvim.builtin.terminal.open_mapping = "<C-`>"
 lvim.builtin.which_key.mappings["q"] = { ":confirm q<cr>", "Quit" }
 -- lvim.keys.normal_mode["<S-l>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
