@@ -1,0 +1,109 @@
+{
+    "files.autoSave": "onFocusChange",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "vim.handleKeys": {
+        "<C-x>": false,
+        "<C-c>": false,
+        "<C-v>": false,
+        "<C-f>": false,
+        "<C-a>": false
+    },
+    "vim.useCtrlKeys": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "u"
+            ],
+            "commands": [
+                "undo"
+            ]
+        },
+        {
+            "before": [
+                "<C-r>"
+            ],
+            "commands": [
+                "redo"
+            ]
+        }
+    ],
+    "vim.insertModeKeyBindings": [
+        {
+            "before": [
+                "j",
+                "k"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        },
+        {
+            "before": [
+                "k",
+                "j"
+            ],
+            "after": [
+                "<Esc>"
+            ]
+        }
+    ],
+    // "editor.multiCursorModifier": "ctrlCmd",
+    "editor.fontSize": 15,
+    "editor.formatOnSave": true,
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.defaultProfile.linux": "fish",
+    "editor.minimap.enabled": false,
+    "editor.rulers": [
+        100
+    ],
+    "editor.tabSize": 4,
+    "[c, c++]": {
+        "editor.defaultFormatter": "xaver.clang-format"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "files.insertFinalNewline": true
+    },
+    "[toml]": {
+        "editor.formatOnSave": false
+    },
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.fontFamily": "FiraCode Nerd Font",
+    "editor.fontLigatures": true,
+    "editor.detectIndentation": false,
+    "workbench.editor.limit.value": 8,
+    "workbench.editor.limit.enabled": true,
+    "workbench.editor.limit.perEditorGroup": true,
+    "C_Cpp.autoAddFileAssociations": false,
+    "explorer.confirmDragAndDrop": false,
+    "terminal.external.linuxExec": "kitty",
+    "tabnine.experimentalAutoImports": true,
+    "rust-analyzer.inlayHints.enable": false,
+    "workbench.iconTheme": "sweet-vscode-icons",
+    "explorer.confirmDelete": false,
+    "editor.inlayHints.enabled": false,
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "zsh"
+        },
+        "fish": {
+            "path": "fish"
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+        },
+        "nu": {
+            "path": "/usr/bin/nu"
+        }
+    },
+    "workbench.colorTheme": "Gruvbox Dark Hard"
+}
