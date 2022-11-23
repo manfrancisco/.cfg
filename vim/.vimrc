@@ -32,13 +32,6 @@ set updatetime=50
 
 let mapleader = " "
 
-" Join lines
-nnoremap <C-j> <S-j>
-
-" Fast scrolling
-nnoremap <S-j> <C-d>
-nnoremap <S-k> <C-u>
-
 " Copy and paste to and from the system clipboard
 vnoremap <C-c> "+y
 vnoremap <C-v> "+p
@@ -46,16 +39,8 @@ nnoremap <C-v> "+p
 inoremap <C-v> <Esc>"+pi
 
 " Escape to normal mode
-inoremap jj <Esc>
-
-call plug#begin('~/.vim/plugged')
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
-Plug 'gruvbox-community/gruvbox'
-call plug#end()
-
-colorscheme gruvbox
+inoremap jk <Esc>
+inoremap kj <Esc>
 
 " Fuzzy find
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
