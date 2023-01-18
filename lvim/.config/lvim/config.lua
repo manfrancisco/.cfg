@@ -9,6 +9,7 @@ an executable
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 vim.opt.colorcolumn = "100"
 vim.opt.relativenumber = true
+vim.opt.textwidth = 99
 
 -- general
 lvim.log.level = "warn"
@@ -172,10 +173,10 @@ lvim.builtin.treesitter.highlight.enable = true
 
 -- Additional Plugins
 lvim.plugins = {
-    {
-      "folke/trouble.nvim",
-      cmd = "TroubleToggle",
-    },
+  {
+    "folke/trouble.nvim",
+    cmd = "TroubleToggle",
+  },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
