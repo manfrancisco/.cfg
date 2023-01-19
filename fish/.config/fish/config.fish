@@ -50,6 +50,9 @@ if status is-interactive
         abbr -ag lsa ls -la
     end
 
+    ## Tmux
+    abbr -ag ta tmux new -As
+
     ## Other
     abbr -ag e lvim
     abbr -ag cls "clear; printf '\e[3J'"
