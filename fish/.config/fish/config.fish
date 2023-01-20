@@ -5,7 +5,7 @@ if status is-interactive
     # end
 
     # Environment Variables
-    set -g EDITOR lvim
+    set -g EDITOR nvim
     ## Don't display a greeting when the shell starts
     set -g fish_greeting ""
 
