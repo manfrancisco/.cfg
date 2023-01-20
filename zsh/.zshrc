@@ -131,6 +131,9 @@ else
     alias lsa="ls -la"
 fi
 
+## Tmux
+alias ta="tmux new -As"
+
 ## Other
 alias e="lvim"
 alias cls="clear; printf '\e[3J'"
