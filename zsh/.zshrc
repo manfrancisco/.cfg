@@ -92,9 +92,6 @@ unsetopt BEEP
 export VISUAL='lvim'
 export EDITOR='lvim'
 
-# Set terminal color mode
-export TERM='screen-256color'
-
 # Load platform specific rc files
 if [[ -e "$HOME/.zshrc.macos" ]]; then
     source "$HOME/.zshrc.macos"
