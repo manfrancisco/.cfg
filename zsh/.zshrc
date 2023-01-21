@@ -93,7 +93,7 @@ export VISUAL='lvim'
 export EDITOR='lvim'
 
 # Set terminal color mode
-export TERM='xterm-256color'
+export TERM='screen-256color'
 
 # Load platform specific rc files
 if [[ -e "$HOME/.zshrc.macos" ]]; then
