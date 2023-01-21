@@ -31,4 +31,4 @@ expand-abbr-and-accept-line() {
     zle .backward-delete-char
     zle .accept-line
 }
-zle -N expand-abbr-and-accept-line
+zle -N accept-line expand-abbr-and-accept-line
