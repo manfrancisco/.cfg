@@ -5,19 +5,26 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
-    use { 'nvim-telescope/telescope.nvim', tag = '0.1.0', requires = {{'nvim-lua/plenary.nvim'}} }
-    use('theprimeagen/harpoon')
-    use('mbbill/undotree')
-    use('tpope/vim-fugitive')
-    use('numToStr/Comment.nvim')
-    use('Pocco81/auto-save.nvim')
-    use {
-        'rose-pine/neovim',
-        as = 'rose-pine',
-        config = function() vim.cmd('colorscheme rose-pine') end
-    }
-    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+    use {'wbthomason/packer.nvim', commit = '1d0cf98a561f7fd654c970c49f917d74fafe1530'}
+
+    -- Navigation
+    use {'theprimeagen/harpoon', commit = '21d0d1bfa3000e4384740bfaefa0ebc51c773786'}
+    use {'nvim-telescope/telescope.nvim', tag = '0.1.1', requires = {'nvim-lua/plenary.nvim'}}
+
+    -- Editing
+    use {'Pocco81/auto-save.nvim', commit = '979b6c82f60cfa80f4cf437d77446d0ded0addf0'}
+    use {'nvim-treesitter/nvim-treesitter', tag = 'v0.8.1', { run = ':TSUpdate' }}
+    use {'mbbill/undotree', tag = 'rel_6.1'}
+    use {'numToStr/Comment.nvim', tag = 'v0.7.0'}
+
+    -- Git
+    use {'tpope/vim-fugitive', tag = 'v3.7'}
+
+    -- Colorschemes
+    use {'rose-pine/neovim', as = 'rose-pine', tag = 'v1.1.0'}
+    use {'folke/tokyonight.nvim', tag = 'v1.0.0'}
+
+    -- LSP
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
@@ -37,7 +44,7 @@ return require('packer').startup(function(use)
 
             -- Snippets
             {'L3MON4D3/LuaSnip'},             -- Required
-            {'rafamadriz/friendly-snippets'}, -- Optional
+            -- {'rafamadriz/friendly-snippets'}, -- Optional
         }
     }
 end)
