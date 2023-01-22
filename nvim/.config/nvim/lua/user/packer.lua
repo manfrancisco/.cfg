@@ -34,7 +34,10 @@ return require('packer').startup(function(use)
         commit = 'cacee4828152dd3a83736169ae61bbcd29a3d213'
     }
     use {'mbbill/undotree', tag = 'rel_6.1'}
+    -- Clses parentheses, brackets, etc.
     use {'windwp/nvim-autopairs', commit = '31042a5823b55c4bfb30efcbba2fc1b5b53f90dc'}
+    -- Closes XML tags
+    use {'windwp/nvim-ts-autotag', commit = 'fdefe46c6807441460f11f11a167a2baf8e4534b'}
     -- Highlights other occurrences of the symbol under the cursor, and lets you jump between them
     use {'RRethy/vim-illuminate', commit = 'da80f3877896adcf77f59fb0bf74e9601615d372'}
     -- Comments

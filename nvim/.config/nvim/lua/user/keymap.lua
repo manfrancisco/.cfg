@@ -55,5 +55,3 @@ vim.keymap.set('v', '<', '<gv')
 
 -- Terminal mode - go to Normal mode
 vim.keymap.set('t', '<esc>', [[<C-\><C-N>]])
-vim.keymap.set('t', 'jk', [[<C-\><C-N>]])
-vim.keymap.set('t', 'kj', [[<C-\><C-N>]])
