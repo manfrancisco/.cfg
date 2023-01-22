@@ -35,6 +35,8 @@ return require('packer').startup(function(use)
     }
     use {'mbbill/undotree', tag = 'rel_6.1'}
     use {'windwp/nvim-autopairs', commit = '31042a5823b55c4bfb30efcbba2fc1b5b53f90dc'}
+    -- Highlights other occurrences of the symbol under the cursor, and lets you jump between them
+    use {'RRethy/vim-illuminate', commit = 'da80f3877896adcf77f59fb0bf74e9601615d372'}
     -- Comments
     use {'tpope/vim-commentary', tag = 'v1.3'}
     -- Dynamically changes `commentstring` depending on your location in the file
@@ -52,6 +54,7 @@ return require('packer').startup(function(use)
         requires = {'kyazdani42/nvim-web-devicons', opt = true},
         commit = '0050b308552e45f7128f399886c86afefc3eb988'
     }
+    -- Shows indentation guides
     use {'lukas-reineke/indent-blankline.nvim', tag = 'v2.20.2'}
 
     -- Colorschemes
@@ -83,6 +86,7 @@ return require('packer').startup(function(use)
             -- {'rafamadriz/friendly-snippets'}, -- Optional
         }
     }
+    use {'simrat39/rust-tools.nvim', commit = 'df584e84393ef255f5b8cbd709677d6a3a5bf42f'}
 
     -- If packer was just installed, sync
     if packer_bootstrap then
