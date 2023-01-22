@@ -1,6 +1,6 @@
 local mark_ok, mark = pcall(require, 'harpoon.mark')
 local ui_ok, ui = pcall(require, 'harpoon.ui')
-if not mark_ok and ui_ok then return end
+if not mark_ok or not ui_ok then return end
 
 vim.keymap.set('n', '<leader>a', mark.add_file)
 vim.keymap.set('n', '<leader>h', ui.toggle_quick_menu)

@@ -6,10 +6,13 @@ lsp.preset('recommended')
 lsp.nvim_workspace()
 
 lsp.ensure_installed({
-    'tsserver',
+    'bashls',
     'eslint',
-    'sumneko_lua',
+    'ltex',
+    'marksman',
     'rust_analyzer',
+    'sumneko_lua',
+    'tsserver',
 })
 
 lsp.on_attach(function(_, bufnr)
