@@ -45,6 +45,12 @@ vim.opt.iskeyword:append("-")
 -- Don't show completion messages
 vim.opt.shortmess:append "c"
 
+-- Set indentation for specific file types
+vim.cmd 'autocmd Filetype html setlocal ts=2 sw=2'
+vim.cmd 'autocmd Filetype javascript setlocal ts=2 sw=2'
+vim.cmd 'autocmd Filetype typescript setlocal ts=2 sw=2'
+vim.cmd 'autocmd Filetype typescriptreact setlocal ts=2 sw=2'
+
 for k, v in pairs(options) do
     vim.opt[k] = v
 end
