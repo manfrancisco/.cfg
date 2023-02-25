@@ -9,9 +9,9 @@ lsp.ensure_installed({
     'bashls',
     'eslint',
     'ltex',
+    'lua_ls',
     'marksman',
     'rust_analyzer',
-    'sumneko_lua',
     'tsserver',
 })
 
