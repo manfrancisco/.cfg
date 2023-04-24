@@ -91,6 +91,8 @@ return require('packer').startup(function(use)
     }
     use {'simrat39/rust-tools.nvim', commit = 'df584e84393ef255f5b8cbd709677d6a3a5bf42f'}
 
+    use {'nvim-tree/nvim-tree.lua', commit = '061a05bfd91475a1001f2c972e5331b166e2a437'}
+
     -- If packer was just installed, sync
     if packer_bootstrap then
         require('packer').sync()

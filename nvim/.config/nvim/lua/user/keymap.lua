@@ -41,7 +41,7 @@ vim.keymap.set('n', 'Q', '@@')
 
 -- LSP functions
 vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
-vim.keymap.set('n', '<leader>h', vim.lsp.buf.hover)
+vim.keymap.set('n', '<leader>vh', vim.lsp.buf.hover)
 vim.keymap.set('n', '<leader>gd', vim.lsp.buf.implementation)
 vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references)
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
