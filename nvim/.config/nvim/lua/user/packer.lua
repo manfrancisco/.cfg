@@ -31,7 +31,7 @@ return require('packer').startup(function(use)
     -- Sows the surrounding context in deeply nested code
     use {
         'nvim-treesitter/nvim-treesitter-context',
-        commit = 'cacee4828152dd3a83736169ae61bbcd29a3d213'
+        commit = '8cd25630a4cd69f4baab32086e96b979c50b56e4'
     }
     use {'mbbill/undotree', tag = 'rel_6.1'}
     -- Clses parentheses, brackets, etc.
