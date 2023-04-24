@@ -4,7 +4,7 @@ vim.keymap.set('i', 'jk', '<esc>')
 vim.keymap.set('i', 'kj', '<esc>')
 
 -- Open netrw
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
+vim.keymap.set('n', '<leader>vf', vim.cmd.Ex)
 
 -- Move between splits
 vim.keymap.set('n', '<leader>j', '<C-w>j')
@@ -25,9 +25,11 @@ vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzv')
 
 -- Paste over something without losing your paste buffer
-vim.keymap.set('x', '<leader>p', '"_dP')
+-- vim.keymap.set('x', '<leader>p', '"_dP')
 
--- Copy/cut to system clipboard
+-- Copy/cut/paste to/from system clipboard
+vim.keymap.set('n', '<leader>p', '"+p')
+vim.keymap.set('v', '<leader>p', '"+p')
 vim.keymap.set('n', '<leader>y', '"+y')
 vim.keymap.set('v', '<leader>y', '"+y')
 vim.keymap.set('n', '<leader>Y', '"+Y')
@@ -37,8 +39,12 @@ vim.keymap.set('v', '<leader>d', '"+d')
 -- Get rid of Ex mode - instead, run the last macro you recorded
 vim.keymap.set('n', 'Q', '@@')
 
--- Format your buffer
+-- LSP functions
 vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
+vim.keymap.set('n', '<leader>h', vim.lsp.buf.hover)
+vim.keymap.set('n', '<leader>gd', vim.lsp.buf.implementation)
+vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references)
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
 
 -- Search and replace word under cursor
 vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])

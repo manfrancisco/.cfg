@@ -3,7 +3,7 @@ local ui_ok, ui = pcall(require, 'harpoon.ui')
 if not mark_ok or not ui_ok then return end
 
 vim.keymap.set('n', '<leader>a', mark.add_file)
-vim.keymap.set('n', '<leader>h', ui.toggle_quick_menu)
+vim.keymap.set('n', '<leader>vh', ui.toggle_quick_menu)
 
 vim.keymap.set('n', '<leader>1', function() ui.nav_file(1) end)
 vim.keymap.set('n', '<leader>2', function() ui.nav_file(2) end)
