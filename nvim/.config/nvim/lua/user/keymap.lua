@@ -110,3 +110,22 @@ if mark_ok and ui_ok then
     vim.keymap.set('n', '<leader>7', function() ui.nav_file(7) end)
     vim.keymap.set('n', '<leader>8', function() ui.nav_file(8) end)
 end
+
+-- Fugitive
+vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
+
+-- Telescope
+local ts_ok, ts_builtin = pcall(require, 'telescope.builtin')
+if ts_ok then
+    vim.keymap.set('n', '<leader>pf', ts_builtin.find_files)
+    vim.keymap.set('n', '<C-p>', ts_builtin.git_files)
+    vim.keymap.set('n', '<leader>ps', function()
+        ts_builtin.grep_string({ search = vim.fn.input('Grep > ') })
+    end)
+end
+
+-- Toggleterm
+vim.keymap.set('n', 'tt', ':ToggleTerm<cr>')
+
+-- Undotree
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
