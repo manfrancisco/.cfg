@@ -10,7 +10,7 @@ vim.keymap.set('i', 'kj', '<esc>')
 
 -- Jump to beginning/end of line
 vim.keymap.set('n', 'H', '0')
-vim.keymap.set('n', 'L', '0')
+vim.keymap.set('n', 'L', '$')
 
 -- Create splits
 vim.keymap.set('n', 'sv', ':vsplit<cr>')
