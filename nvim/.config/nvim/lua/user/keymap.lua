@@ -1,10 +1,20 @@
+-- Map leader to <space>
 vim.g.mapleader = ' '
 
+-- Unmap keys we don't want
+vim.keymap.set('n', 's', '<nop>')
+
+-- Pressing j and k together goes to normal mode
 vim.keymap.set('i', 'jk', '<esc>')
 vim.keymap.set('i', 'kj', '<esc>')
 
--- Open netrw
-vim.keymap.set('n', '<leader>vf', vim.cmd.Ex)
+-- Jump to beginning/end of line
+vim.keymap.set('n', 'H', '0')
+vim.keymap.set('n', 'L', '0')
+
+-- Create splits
+vim.keymap.set('n', 'sv', ':vsplit<cr>')
+vim.keymap.set('n', 'sh', ':split<cr>')
 
 -- Move between splits
 vim.keymap.set('n', '<leader>j', '<C-w>j')
@@ -12,9 +22,12 @@ vim.keymap.set('n', '<leader>k', '<C-w>k')
 vim.keymap.set('n', '<leader>h', '<C-w>h')
 vim.keymap.set('n', '<leader>l', '<C-w>l')
 
+-- Close buffer
+vim.keymap.set('n', 'sq', ':q<cr>')
+
 -- Move highlighted lines up or down
-vim.keymap.set('v', 'J', [[:m '>+1<CR>gv=gv]])
-vim.keymap.set('v', 'K', [[:m '<-2<CR>gv=gv]])
+vim.keymap.set('v', 'J', [[:m '>+1<cr>gv=gv]])
+vim.keymap.set('v', 'K', [[:m '<-2<cr>gv=gv]])
 
 -- Keep cursor in the middle when half-page jumping
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
@@ -25,32 +38,23 @@ vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzv')
 
 -- Paste over something without losing your paste buffer
--- vim.keymap.set('x', '<leader>p', '"_dP')
+vim.keymap.set('x', '<C-p>', '"_dP')
 
 -- Copy/cut/paste to/from system clipboard
-vim.keymap.set('n', '<leader>p', '"+p')
-vim.keymap.set('v', '<leader>p', '"+p')
-vim.keymap.set('n', '<leader>y', '"+y')
-vim.keymap.set('v', '<leader>y', '"+y')
+vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p')
+vim.keymap.set({ 'n', 'v' }, '<leader>P', '"+P')
+vim.keymap.set({ 'n', 'v' }, '<leader>d', '"+d')
+vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
 vim.keymap.set('n', '<leader>Y', '"+Y')
-vim.keymap.set('n', '<leader>d', '"+d')
-vim.keymap.set('v', '<leader>d', '"+d')
 
 -- Get rid of Ex mode - instead, run the last macro you recorded
 vim.keymap.set('n', 'Q', '@@')
-
--- LSP functions
-vim.keymap.set('n', '<leader>f', vim.lsp.buf.format)
-vim.keymap.set('n', '<leader>vh', vim.lsp.buf.hover)
-vim.keymap.set('n', '<leader>gd', vim.lsp.buf.implementation)
-vim.keymap.set('n', '<leader>gr', vim.lsp.buf.references)
-vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
 
 -- Search and replace word under cursor
 vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
 -- Make furrent file executable
-vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<CR>', { silent = true })
+vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<cr>', { silent = true })
 
 -- Redo
 vim.keymap.set('n', 'R', '<C-r>')
@@ -61,3 +65,31 @@ vim.keymap.set('v', '<', '<gv')
 
 -- Terminal mode - go to Normal mode
 vim.keymap.set('t', '<esc>', [[<C-\><C-N>]])
+
+-- Plugins
+
+-- LSP functions
+local lsp_ok, lsp = pcall(require, 'lsp-zero')
+if lsp_ok then
+    lsp.on_attach(function()
+        vim.keymap.set('n', '<leader>rf', vim.lsp.buf.format)
+        vim.keymap.set('n', '<leader>vh', vim.lsp.buf.hover)
+        vim.keymap.set('n', '<leader>vd', vim.diagnostic.open_float)
+        vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+        vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+        vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
+        vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename)
+        vim.keymap.set('i', '<C-h>', vim.lsp.buf.signature_help)
+    end)
+end
+
+-- Nvim Tree
+local nvim_tree_ok, _ = pcall(require, 'nvim-tree')
+if nvim_tree_ok then
+    vim.keymap.set('n', '<leader>f', ':NvimTreeToggle<cr>')
+else
+    -- Open netrw
+    vim.keymap.set('n', '<leader>f', vim.cmd.Ex)
+end
