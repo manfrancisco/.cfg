@@ -29,6 +29,9 @@ source $HOME/.config/zsh/abbr.zsh
 
 # Abbreviations
 
+## Lazygit
+abbr lg="lazygit"
+
 ## Git
 abbr g="git"
 abbr gs="git status -su"
