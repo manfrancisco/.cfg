@@ -11,8 +11,8 @@ vim.keymap.set('i', 'jk', '<esc>')
 vim.keymap.set('i', 'kj', '<esc>')
 
 -- Jump to beginning/end of line
-vim.keymap.set('n', 'H', '0')
-vim.keymap.set('n', 'L', '$')
+vim.keymap.set({'n', 'v'}, 'H', '0')
+vim.keymap.set({'n', 'v'}, 'L', '$')
 
 -- Create splits
 vim.keymap.set('n', 'sv', ':vsplit<cr>')
@@ -132,23 +132,4 @@ vim.keymap.set('n', 'tt', ':ToggleTerm<cr>')
 -- Undotree
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
--- Cmp
--- This needs to be laoded after lsp-zero, so we export it as a function to be called later.
-function M.cmp_setup()
-    local cmp_ok, cmp = pcall(require, 'cmp')
-    if cmp_ok then
-        cmp.setup({
-            mapping = {
-                -- select = true: the top option will be selected automatically
-                -- select = false: nothing will be selected automatically
-                ['<cr>'] = cmp.mapping.confirm({ select = true }),
-                -- Show completion dropdown
-                ['<C-Space>'] = cmp.mapping.complete(),
-                ['<Tab>'] = cmp.mapping.select_next_item(),
-                ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-            }
-        })
-    end
-end
-
-return M
+-- Cmp: see ../../after/plugin/lsp.lua

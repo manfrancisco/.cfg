@@ -24,7 +24,18 @@ if lsp_ok then
     lsp.setup()
 end
 
--- Cmp setup here, after lsp-zero setup
-local keymap = require('lua.user.keymap')
-
-keymap.cmp_setup()
+-- Cmp setup here, e.g.
+local cmp_ok, cmp = pcall(require, 'cmp')
+if cmp_ok then
+    cmp.setup({
+        mapping = {
+            -- select = true: the top option will be selected automatically
+            -- select = false: nothing will be selected automatically
+            ['<cr>'] = cmp.mapping.confirm({ select = true }),
+            -- Show completion dropdown
+            ['<C-Space>'] = cmp.mapping.complete(),
+            ['<Tab>'] = cmp.mapping.select_next_item(),
+            ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+        }
+    })
+end
