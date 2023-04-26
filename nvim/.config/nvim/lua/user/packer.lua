@@ -89,7 +89,7 @@ return require('packer').startup(function(use)
             -- {'rafamadriz/friendly-snippets'}, -- Optional
         }
     }
-    use {'simrat39/rust-tools.nvim', commit = 'df584e84393ef255f5b8cbd709677d6a3a5bf42f'}
+    use {'simrat39/rust-tools.nvim'}
 
     use {'nvim-tree/nvim-tree.lua', commit = '061a05bfd91475a1001f2c972e5331b166e2a437'}
 
