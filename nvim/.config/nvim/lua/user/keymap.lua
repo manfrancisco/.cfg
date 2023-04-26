@@ -1,3 +1,5 @@
+local M = {}
+
 -- Map leader to <space>
 vim.g.mapleader = ' '
 
@@ -129,3 +131,24 @@ vim.keymap.set('n', 'tt', ':ToggleTerm<cr>')
 
 -- Undotree
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+
+-- Cmp
+-- This needs to be laoded after lsp-zero, so we export it as a function to be called later.
+function M.cmp_setup()
+    local cmp_ok, cmp = pcall(require, 'cmp')
+    if cmp_ok then
+        cmp.setup({
+            mapping = {
+                -- select = true: the top option will be selected automatically
+                -- select = false: nothing will be selected automatically
+                ['<cr>'] = cmp.mapping.confirm({ select = true }),
+                -- Show completion dropdown
+                ['<C-Space>'] = cmp.mapping.complete(),
+                ['<Tab>'] = cmp.mapping.select_next_item(),
+                ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+            }
+        })
+    end
+end
+
+return M

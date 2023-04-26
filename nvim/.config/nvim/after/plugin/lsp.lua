@@ -24,11 +24,7 @@ if lsp_ok then
     lsp.setup()
 end
 
--- Cmp setup here, e.g.
--- local cmp_ok, cmp = pcall(require, 'cmp')
--- if cmp_ok then
---     cmp.setup({ mapping = {
---         ['<CR>'] = cmp.mapping.confirm({ select = false }),
---         ['<C-Space>'] = cmp.mapping.complete(),
---     } })
--- end
+-- Cmp setup here, after lsp-zero setup
+local keymap = require('lua.user.keymap')
+
+keymap.cmp_setup()
