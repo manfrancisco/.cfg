@@ -132,4 +132,8 @@ vim.keymap.set('n', 'tt', ':ToggleTerm<cr>')
 -- Undotree
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
 
+-- Rust Tools
+local extra = require('user.extra')
+vim.keymap.set('n', '<leader>ta', extra.toggle_inlay_hints)
+
 -- Cmp: see ../../after/plugin/lsp.lua
