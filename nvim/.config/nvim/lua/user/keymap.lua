@@ -3,6 +3,9 @@ vim.g.mapleader = ' '
 
 -- Unmap keys we don't want
 vim.keymap.set('n', 's', '<nop>')
+vim.keymap.set('n', '<space>', '<nop>')
+vim.keymap.set('n', '<cr>', '<nop>')
+vim.keymap.set('n', 't', '<nop>')
 
 -- Pressing j and k together goes to normal mode
 vim.keymap.set('i', 'jk', '<esc>')
@@ -13,8 +16,8 @@ vim.keymap.set({ 'n', 'v' }, 'H', '0')
 vim.keymap.set({ 'n', 'v' }, 'L', '$')
 
 -- Create splits
-vim.keymap.set('n', 'sv', ':vsplit<cr>')
-vim.keymap.set('n', 'sh', ':split<cr>')
+vim.keymap.set('n', '<leader>sv', ':vsplit<cr>')
+vim.keymap.set('n', '<leader>sh', ':split<cr>')
 
 -- Move between splits
 vim.keymap.set('n', '<leader>j', '<C-w>j')
@@ -67,7 +70,7 @@ local lsp_ok, lsp = pcall(require, 'lsp-zero')
 if lsp_ok then
     lsp.on_attach(function()
         vim.keymap.set('n', '<leader>rf', vim.lsp.buf.format)
-        vim.keymap.set('n', '<leader>vh', vim.lsp.buf.hover)
+        vim.keymap.set('n', 'ss', vim.lsp.buf.hover)
         vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
         vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
@@ -92,7 +95,7 @@ local mark_ok, mark = pcall(require, 'harpoon.mark')
 local ui_ok, ui = pcall(require, 'harpoon.ui')
 if mark_ok and ui_ok then
     vim.keymap.set('n', '<leader>a', mark.add_file)
-    vim.keymap.set('n', '<leader>gh', ui.toggle_quick_menu)
+    vim.keymap.set('n', 'sh', ui.toggle_quick_menu)
 
     vim.keymap.set('n', '<leader>1', function() ui.nav_file(1) end)
     vim.keymap.set('n', '<leader>2', function() ui.nav_file(2) end)
@@ -105,26 +108,24 @@ if mark_ok and ui_ok then
 end
 
 -- Fugitive
-vim.keymap.set('n', '<leader>gs', vim.cmd.Git)
+vim.keymap.set('n', 'gs', vim.cmd.Git)
 
 -- Telescope
 local ts_ok, ts_builtin = pcall(require, 'telescope.builtin')
 if ts_ok then
-    vim.keymap.set('n', '<leader>pf', ts_builtin.find_files)
-    vim.keymap.set('n', '<C-p>', ts_builtin.git_files)
-    vim.keymap.set('n', '<leader>ps', function()
-        ts_builtin.grep_string({ search = vim.fn.input('Grep > ') })
-    end)
+    vim.keymap.set('n', '<leader>ff', ts_builtin.find_files)
+    vim.keymap.set('n', '<leader>fg', ts_builtin.git_files)
+    vim.keymap.set('n', '<leader>fs', ts_builtin.grep_string)
 end
 
 -- Toggleterm
 vim.keymap.set('n', 'tt', ':ToggleTerm<cr>')
 
 -- Undotree
-vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+vim.keymap.set('n', 'su', vim.cmd.UndotreeToggle)
 
 -- Rust Tools
 local extra = require('user.extra')
-vim.keymap.set('n', '<leader>ta', extra.toggle_inlay_hints)
+vim.keymap.set('n', 'st', extra.toggle_inlay_hints)
 
 -- Cmp: see ../../after/plugin/lsp.lua
