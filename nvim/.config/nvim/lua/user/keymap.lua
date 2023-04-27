@@ -11,8 +11,8 @@ vim.keymap.set('i', 'jk', '<esc>')
 vim.keymap.set('i', 'kj', '<esc>')
 
 -- Jump to beginning/end of line
-vim.keymap.set({'n', 'v'}, 'H', '0')
-vim.keymap.set({'n', 'v'}, 'L', '$')
+vim.keymap.set({ 'n', 'v' }, 'H', '0')
+vim.keymap.set({ 'n', 'v' }, 'L', '$')
 
 -- Create splits
 vim.keymap.set('n', 'sv', ':vsplit<cr>')
