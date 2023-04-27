@@ -1,5 +1,3 @@
-local M = {}
-
 -- Map leader to <space>
 vim.g.mapleader = ' '
 
@@ -23,9 +21,6 @@ vim.keymap.set('n', '<leader>j', '<C-w>j')
 vim.keymap.set('n', '<leader>k', '<C-w>k')
 vim.keymap.set('n', '<leader>h', '<C-w>h')
 vim.keymap.set('n', '<leader>l', '<C-w>l')
-
--- Close buffer
-vim.keymap.set('n', 'sq', ':q<cr>')
 
 -- Move highlighted lines up or down
 vim.keymap.set('v', 'J', [[:m '>+1<cr>gv=gv]])
@@ -55,9 +50,6 @@ vim.keymap.set('n', 'Q', '@@')
 -- Search and replace word under cursor
 vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
--- Make furrent file executable
-vim.keymap.set('n', '<leader>x', '<cmd>!chmod +x %<cr>', { silent = true })
-
 -- Redo
 vim.keymap.set('n', 'R', '<C-r>')
 
@@ -76,7 +68,6 @@ if lsp_ok then
     lsp.on_attach(function()
         vim.keymap.set('n', '<leader>rf', vim.lsp.buf.format)
         vim.keymap.set('n', '<leader>vh', vim.lsp.buf.hover)
-        vim.keymap.set('n', '<leader>vd', vim.diagnostic.open_float)
         vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
         vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
         vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
