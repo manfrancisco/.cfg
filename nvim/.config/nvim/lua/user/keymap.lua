@@ -6,6 +6,7 @@ vim.keymap.set('n', 's', '<nop>')
 vim.keymap.set('n', '<space>', '<nop>')
 vim.keymap.set('n', '<cr>', '<nop>')
 vim.keymap.set('n', 't', '<nop>')
+vim.keymap.set('n', 'Q', '<nop>')
 
 -- Pressing j and k together goes to normal mode
 vim.keymap.set('i', 'jk', '<esc>')
@@ -24,6 +25,9 @@ vim.keymap.set('n', '<leader>j', '<C-w>j')
 vim.keymap.set('n', '<leader>k', '<C-w>k')
 vim.keymap.set('n', '<leader>h', '<C-w>h')
 vim.keymap.set('n', '<leader>l', '<C-w>l')
+
+-- Close quickfix menu
+vim.keymap.set('n', 'sq', ':cclose<cr>')
 
 -- Move highlighted lines up or down
 vim.keymap.set('v', 'J', [[:m '>+1<cr>gv=gv]])
@@ -46,9 +50,6 @@ vim.keymap.set({ 'n', 'v' }, '<leader>P', '"+P')
 vim.keymap.set({ 'n', 'v' }, '<leader>d', '"+d')
 vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y')
 vim.keymap.set('n', '<leader>Y', '"+Y')
-
--- Get rid of Ex mode - instead, run the last macro you recorded
-vim.keymap.set('n', 'Q', '@@')
 
 -- Search and replace word under cursor
 vim.keymap.set('n', '<leader>s', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
@@ -82,12 +83,27 @@ if lsp_ok then
 end
 
 -- Nvim Tree
-local nvim_tree_ok, _ = pcall(require, 'nvim-tree')
-if nvim_tree_ok then
-    vim.keymap.set('n', '<leader>f', ':NvimTreeToggle<cr>')
-else
+local nvim_tree_ok, nvim_tree = pcall(require, 'nvim-tree')
+if not nvim_tree_ok then
     -- Open netrw
     vim.keymap.set('n', '<leader>f', vim.cmd.Ex)
+else
+    vim.keymap.set('n', '<leader>f', ':NvimTreeToggle<cr>')
+
+    nvim_tree.setup({
+        on_attach = function(bufnr)
+            local api = require('nvim-tree.api')
+
+            api.config.mappings.default_on_attach(bufnr)
+            local opts = { buffer = bufnr }
+
+            -- Unmap keys
+            vim.keymap.set('n', 's', '', opts)
+            vim.keymap.del('n', 's', opts)
+            vim.keymap.set('n', 'q', '', opts)
+            vim.keymap.del('n', 'q', opts)
+        end
+    })
 end
 
 -- Harpoon
@@ -124,8 +140,8 @@ vim.keymap.set('n', 'tt', ':ToggleTerm<cr>')
 -- Undotree
 vim.keymap.set('n', 'su', vim.cmd.UndotreeToggle)
 
--- Rust Tools
+-- Cmp: see ../../after/plugin/lsp.lua
+
+-- Custom scripts
 local extra = require('user.extra')
 vim.keymap.set('n', 'st', extra.toggle_inlay_hints)
-
--- Cmp: see ../../after/plugin/lsp.lua
