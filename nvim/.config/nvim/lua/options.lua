@@ -62,3 +62,9 @@ vim.o.wrap = false
 
 -- Highlight the line the cursor is on
 vim.o.cursorline = true
+
+-- Creates a swapfile
+vim.o.swapfile = false
+
+-- Hides the mode indicator e.g. -- INSERT --
+vim.o.showmode = false
