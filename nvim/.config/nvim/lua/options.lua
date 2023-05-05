@@ -38,3 +38,13 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
+
+-- Enable persistent undo
+vim.o.undofile = true
+-- Set location where undo data is stored
+vim.o.undodir = os.getenv('HOME') .. '/.config/nvim/undodir'
+
+-- Wrap text to 100 characters
+vim.o.textwidth = 99
+-- Show vertical line to indicate line length limit
+vim.o.colorcolumn = "100"
