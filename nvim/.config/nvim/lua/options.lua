@@ -48,3 +48,17 @@ vim.o.undodir = os.getenv('HOME') .. '/.config/nvim/undodir'
 vim.o.textwidth = 99
 -- Show vertical line to indicate line length limit
 vim.o.colorcolumn = "100"
+
+-- -- Convert tabs to spaces
+-- vim.o.expandtab = true
+-- -- Set tabs to 4 spaces
+-- vim.o.tabstop = 4
+-- -- The number of spaces inserted for each indentation
+-- vim.o.shiftwidth = 4
+-- vim.o.numberwidth = 4
+
+-- Word wrap
+vim.o.wrap = false
+
+-- Highlight the line the cursor is on
+vim.o.cursorline = true
