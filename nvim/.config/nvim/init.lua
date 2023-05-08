@@ -17,6 +17,12 @@ vim.keymap.set({ 'n', 'v' }, 's', '<Nop>', { silent = true })
 vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('i', 'kj', '<Esc>')
 
+-- Navigate splits
+vim.keymap.set('n', '<leader>h', '<C-w>h')
+vim.keymap.set('n', '<leader>j', '<C-w>j')
+vim.keymap.set('n', '<leader>k', '<C-w>k')
+vim.keymap.set('n', '<leader>l', '<C-w>l')
+
 -- Jump to beginning/end of line
 vim.keymap.set('n', 'H', '0')
 vim.keymap.set('n', 'L', '$')
