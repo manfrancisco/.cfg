@@ -27,6 +27,9 @@ unalias -m '*'
 # Import abbreviation plugin
 source $HOME/.config/zsh/abbr.zsh
 
+# Aliases
+alias hx="helix"
+
 # Abbreviations
 
 ## Lazygit
