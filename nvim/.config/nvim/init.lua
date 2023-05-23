@@ -299,7 +299,14 @@ cmp.setup {
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 
+
 local group = vim.api.nvim_create_augroup("AutoSaveOnFocusLost", { clear = true })
-local opts = { group = group, command = ":w"}
-vim.api.nvim_create_autocmd("FocusLost", opts)
-vim.api.nvim_create_autocmd("BufLeave", opts)
+vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
+  group = group,
+  callback = function()
+    local buf = vim.api.nvim_get_current_buf()
+    if vim.api.nvim_buf_get_option(buf, "modified") then
+      vim.api.nvim_command("write")
+    end
+  end
+})
