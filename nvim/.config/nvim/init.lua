@@ -30,6 +30,9 @@ vim.keymap.set('n', 'L', '$')
 -- Redo
 vim.keymap.set('n', 'R', '<C-r>')
 
+-- Save
+vim.keymap.set('n', 'ss', ':w<Cr>')
+
 -- Escape to Normal mode from Terminal mode
 vim.keymap.set('t', '<Esc>', [[<C-\><C-N>]])
 
@@ -295,3 +298,8 @@ cmp.setup {
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
+
+local group = vim.api.nvim_create_augroup("AutoSaveOnFocusLost", { clear = true })
+local opts = { group = group, command = ":w"}
+vim.api.nvim_create_autocmd("FocusLost", opts)
+vim.api.nvim_create_autocmd("BufLeave", opts)
