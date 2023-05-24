@@ -305,7 +305,9 @@ vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
   group = group,
   callback = function()
     local buf = vim.api.nvim_get_current_buf()
-    if vim.api.nvim_buf_get_option(buf, "modified") then
+    local is_normal_buf = vim.bo.buftype == ""
+    local is_modified = vim.api.nvim_buf_get_option(buf, "modified")
+    if is_normal_buf and is_modified then
       vim.api.nvim_command("write")
     end
   end
