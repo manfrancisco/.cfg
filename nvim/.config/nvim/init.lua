@@ -51,6 +51,25 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
+-- [[ Configure Harpoon ]]
+local harpoon_mark = require('harpoon.mark')
+local harpoon_ui = require('harpoon.ui')
+vim.keymap.set('n', '<leader>a', harpoon_mark.add_file, { desc = "[A]dd file to Harpoon list"})
+vim.keymap.set('n', '<leader>gh', harpoon_ui.toggle_quick_menu, { desc = "[G]o to [H]arpoon list"})
+vim.keymap.set('n', '<leader>gj', harpoon_ui.nav_next, { desc = "[G]o to next Harpoon mark"})
+vim.keymap.set('n', '<leader>gk', harpoon_ui.nav_prev, { desc = "[G]o to previous Harpoon mark"})
+vim.keymap.set('n', '<leader>1', function() harpoon_ui.nav_file(1) end, { desc = "Go to Harpoon mark [1]"})
+vim.keymap.set('n', '<leader>2', function() harpoon_ui.nav_file(2) end, { desc = "Go to Harpoon mark [2]"})
+vim.keymap.set('n', '<leader>3', function() harpoon_ui.nav_file(3) end, { desc = "Go to Harpoon mark [3]"})
+vim.keymap.set('n', '<leader>4', function() harpoon_ui.nav_file(4) end, { desc = "Go to Harpoon mark [4]"})
+vim.keymap.set('n', '<leader>5', function() harpoon_ui.nav_file(5) end, { desc = "Go to Harpoon mark [5]"})
+vim.keymap.set('n', '<leader>6', function() harpoon_ui.nav_file(6) end, { desc = "Go to Harpoon mark [6]"})
+vim.keymap.set('n', '<leader>7', function() harpoon_ui.nav_file(7) end, { desc = "Go to Harpoon mark [7]"})
+vim.keymap.set('n', '<leader>8', function() harpoon_ui.nav_file(8) end, { desc = "Go to Harpoon mark [8]"})
+vim.keymap.set('n', '<leader>9', function() harpoon_ui.nav_file(9) end, { desc = "Go to Harpoon mark [9]"})
+vim.keymap.set('n', '<leader>0', function() harpoon_ui.nav_file(10) end, { desc = "Go to Harpoon mark 1[0]"})
+
+
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
@@ -141,15 +160,15 @@ require('nvim-treesitter.configs').setup {
         ['[]'] = '@class.outer',
       },
     },
-    swap = {
-      enable = true,
-      swap_next = {
-        ['<leader>a'] = '@parameter.inner',
-      },
-      swap_previous = {
-        ['<leader>A'] = '@parameter.inner',
-      },
-    },
+    -- swap = {
+    --   enable = true,
+    --   swap_next = {
+    --     ['<leader>a'] = '@parameter.inner',
+    --   },
+    --   swap_previous = {
+    --     ['<leader>A'] = '@parameter.inner',
+    --   },
+    -- },
   },
 }
 

@@ -26,7 +26,10 @@ require('lazy').setup({
   'theprimeagen/harpoon',
 
   -- Automatically close parentheses and brackets
-  'windwp/nvim-autopairs',
+  { 'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    opts = {}
+  },
   -- Automatically close xml tags
   'windwp/nvim-ts-autotag',
 
