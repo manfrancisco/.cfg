@@ -26,12 +26,17 @@ require('lazy').setup({
   'theprimeagen/harpoon',
 
   -- Automatically close parentheses and brackets
-  { 'windwp/nvim-autopairs',
+  {
+    'windwp/nvim-autopairs',
     event = "InsertEnter",
     opts = {}
   },
   -- Automatically close xml tags
-  'windwp/nvim-ts-autotag',
+  {
+    'windwp/nvim-ts-autotag',
+    lazy = false,
+    opts = {}
+  },
 
   -- Undotree
   'mbbill/undotree',
@@ -42,6 +47,18 @@ require('lazy').setup({
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
+
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    opts = function()
+      local nls = require('null-ls')
+      return {
+        sources = {
+          nls.builtins.formatting.prettier,
+        }
+      }
+    end
+  },
 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
@@ -59,6 +76,7 @@ require('lazy').setup({
 
       -- Additional lua configuration, makes nvim stuff amazing!
       'folke/neodev.nvim',
+
     },
   },
 

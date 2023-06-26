@@ -17,6 +17,10 @@ vim.keymap.set({ 'n', 'v' }, 's', '<Nop>', { silent = true })
 vim.keymap.set('i', 'jk', '<Esc>')
 vim.keymap.set('i', 'kj', '<Esc>')
 
+-- Copy and paste from clipboard
+vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y', { desc = "[Y]ank to clipboard" })
+vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p', { desc = "[P]aste from clipboard" })
+
 -- Navigate splits
 vim.keymap.set('n', '<leader>h', '<C-w>h')
 vim.keymap.set('n', '<leader>j', '<C-w>j')
@@ -42,6 +46,7 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 
 -- Netrw
 vim.keymap.set('n', '<leader>f', ':Ex<Cr>', { desc = "Browse [F]iles in Netrw" })
+vim.keymap.set('v', '<leader>f', '<Esc>:Ex<Cr>', { desc = "Browse [F]iles in Netrw" })
 
 -- Center cursor when jumping back
 vim.keymap.set('n', '<C-o>', '<C-o>zz')
