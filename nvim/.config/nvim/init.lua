@@ -207,7 +207,10 @@ local on_attach = function(_, bufnr)
   end
 
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-  nmap('<leader>rf', vim.lsp.buf.format, '[R]e[f]ormat')
+  nmap('<leader>rf', function()
+    vim.lsp.buf.format()
+    vim.cmd("write")
+  end, '[R]e[f]ormat')
   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
