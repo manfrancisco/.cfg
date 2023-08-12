@@ -95,8 +95,8 @@ export LANG=en_US.UTF-8
 unsetopt BEEP
 
 # Set default editor
-export VISUAL='lvim'
-export EDITOR='lvim'
+export VISUAL='nvim'
+export EDITOR='nvim'
 
 # Load platform specific rc files
 if [[ -e "$HOME/.zshrc.macos" ]]; then
