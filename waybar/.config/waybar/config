@@ -39,8 +39,8 @@
             "critical": 15
         },
         "format": "{icon} {capacity}% ",
-        "format-charging": "⚡{capacity}% ",
-        "format-plugged": "{capacity}% ",
+        "format-charging": "󱐋 {capacity}% ",
+        "format-plugged": " {capacity}% ",
         "format-alt": "{time} {icon}",
         // "format-good": "", // An empty format will hide the module
         // "format-full": "",
@@ -57,17 +57,17 @@
     // },
     "backlight": {
         // "device": "acpi_video1",
-        "format": "{icon} {percent}%",
+        "format": "{icon}  {percent}%", 
         "format-icons": ["", "", "", "", "", "", "", "", ""]
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
 
-        "format-wifi": "直 {essid}",
-        // "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
-        // "format-ethernet": " {ifname}",
-        "format-ethernet": " wired",
-        "format-disconnected": "睊",
+        "format-wifi": "    {essid}",
+        // "format-ethernet": "󰈀 {ifname}: {ipaddr}/{cidr}",
+        // "format-ethernet": "󰈀 {ifname}",
+        "format-ethernet": "󰈀 wired",
+        "format-disconnected": "󱚼",
         // "on-click": "nmtui"
         // "format-wifi": "{essid} ({signalStrength}%) ",
         // "format-ethernet": "{ipaddr}/{cidr} ",
@@ -80,9 +80,9 @@
         // "scroll-step": 1, // %, can be a float
         // "format": "{volume}% {icon} {format_source}",
         "format": "{icon} {volume}%",
-        "format-bluetooth": "{icon} {volume}% {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": "婢",
+        "format-bluetooth": "{icon}  {volume}% {format_source}",
+        "format-bluetooth-muted": "  {format_source}",
+        "format-muted": "",
         // "format-source": "{volume}% ",
         // "format-source-muted": "",
         "format-icons": {
