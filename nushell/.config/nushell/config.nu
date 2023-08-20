@@ -14,6 +14,7 @@ alias crr = cargo run --release
 
 # Git
 
+alias lg = lazygit
 alias g = git
 alias gs = git status -su
 alias ga = git add
@@ -33,16 +34,8 @@ def gca [] {
 
 # Exa/ls
 
-alias l = if (which exa | length) > 0 {
-    exa --git -l
-} else {
-    ls
-}
-alias la = if (which exa | length) > 0 {
-    exa --git -la
-} else {
-    ls -a
-}
+alias l = if (which exa | length) > 0 { exa --git -l } else { ls }
+alias la = if (which exa | length) > 0 { exa --git -la } else { ls -a }
 alias lst = exa --git -lTL2
 alias lsta = exa --git -laTL2
 
