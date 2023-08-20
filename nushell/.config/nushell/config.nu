@@ -26,21 +26,25 @@ alias gds = git diff --stat
 alias gl = git log --oneline --graph
 alias gla = git log --oneline --graph --branches --remotes --tags HEAD
 alias gll = git log --graph
-
-if (which exa | length) > 0 {
-    alias l = exa --git -l
-    alias la = exa --git -la
-    alias lst = exa --git -lTL2
-    alias lsta = exa --git -laTL2
-} else {
-    alias l = ls
-    alias la = ls -a
-}
-
 def gca [] {
     git add -A
     git commit
 }
+
+# Exa/ls
+
+alias l = if (which exa | length) > 0 {
+    exa --git -l
+} else {
+    ls
+}
+alias la = if (which exa | length) > 0 {
+    exa --git -la
+} else {
+    ls -a
+}
+alias lst = exa --git -lTL2
+alias lsta = exa --git -laTL2
 
 # Zoxide
 source ~/.zoxide.nu
