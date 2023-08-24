@@ -1,14 +1,15 @@
 [user]
-	email = m@mdorst.net
-	name = Michael Dorst
+    email = m@mdorst.net
+    name = Michael Dorst
     user = git
 [core]
     pager = bat -p
-	editor = nvim
+    editor = nvim
 [color]
     ui = always
 [credential]
     helper = store
-
 [init]
-	defaultBranch = main
+    defaultBranch = main
+[pull]
+	rebase = false
