@@ -4,6 +4,7 @@
 
 $env.EDITOR = "nvim"
 $env.PATH = ($env.PATH | prepend "~/.local/share/npm/bin")
+$env.PATH = ($env.PATH | prepend "~/scripts")
 zoxide init nushell --cmd j --hook prompt | save -f ~/.zoxide.nu
 
 def create_left_prompt [] {
