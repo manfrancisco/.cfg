@@ -119,6 +119,9 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.go/bin:$PATH"
 export GOPATH="$HOME/.go"
 
+# Locally installed NPM executables
+export PATH="$HOME/.local/share/npm/bin:$PATH"
+
 # Custom scripts
 export PATH="$HOME/scripts:$PATH"
 
