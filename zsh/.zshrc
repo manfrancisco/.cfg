@@ -112,8 +112,12 @@ if [[ -e "$HOME/.zshrc.local" ]]; then
     source "$HOME/.zshrc.local"
 fi
 
-# Rust/Cargo
+# Rust/Cargo executables
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Go executables
+export PATH="$HOME/.go/bin:$PATH"
+export GOPATH="$HOME/.go"
 
 # Custom scripts
 export PATH="$HOME/scripts:$PATH"
