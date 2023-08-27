@@ -65,8 +65,8 @@ abbr ct='cargo test'
 
 ## Exa
 if command -v exa &> /dev/null; then
-    abbr ls="exa --git -l"
-    abbr lsa="exa --git -al"
+    alias ls="exa --git -l"
+    alias lsa="exa --git -al"
     abbr lst="exa --git -lTL2"
     abbr lsta="exa --git -laTL2"
 else
