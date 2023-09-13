@@ -63,15 +63,15 @@ abbr cr='cargo run'
 abbr crr='cargo run --release'
 abbr ct='cargo test'
 
-## Exa
-if command -v exa &> /dev/null; then
-    alias ls="exa --git -l"
-    alias lsa="exa --git -al"
-    abbr lst="exa --git -lTL2"
-    abbr lsta="exa --git -laTL2"
+## Eza
+if command -v eza &> /dev/null; then
+    alias l="eza --git -l"
+    alias la="eza --git -al"
+    abbr lt="eza --git -lTL2"
+    abbr lta="eza --git -laTL2"
 else
-    abbr ls="ls -l"
-    abbr lsa="ls -la"
+    abbr l="ls -l"
+    abbr la="ls -la"
 fi
 
 ## Tmux
@@ -127,6 +127,13 @@ export PATH="$HOME/scripts:$PATH"
 
 # Local executables
 export PATH="$HOME/.local/bin:$PATH"
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 if command -v pyenv &> /dev/null; then
     eval "$(pyenv init -)"
