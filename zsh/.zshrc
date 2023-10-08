@@ -16,6 +16,9 @@ source $ZSH/oh-my-zsh.sh
 #=== User configuration
 #===--------------------------------------------------------------------------------------------===#
 
+# Variables for convenience
+michaelfrancis_dev=170.187.170.186
+
 # How many lines of history to keep in memory
 HISTSIZE=10000
 # How many lines to keep in the history file
