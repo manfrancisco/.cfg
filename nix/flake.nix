@@ -6,12 +6,17 @@
   };
   outputs = {self, nixpkgs, ...}:
   let
+    system = "x86_64-linux";
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
     lib = nixpkgs.lib;
   in {
     nixosConfigurations = {
       nixos-linode = lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./nixos-linode-configuration.nix ];
+        inherit system;
+        modules = [ ./nixos-linode/configuration.nix ];
       };
     };
   };
