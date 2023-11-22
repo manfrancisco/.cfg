@@ -1,6 +1,4 @@
 {
-  description = "A flake";
-
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
   };
