@@ -16,6 +16,10 @@
         inherit system;
         modules = [ ./nixos-linode/configuration.nix ];
       };
+      nixos-desktop = lib.nixosSystem {
+        inherit system;
+        modules = [ ./nixos-desktop/configuration.nix ];
+      };
     };
   };
 }
