@@ -2,15 +2,23 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.home-manager
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      me = import ../home/me.nix;
+    };
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -38,6 +46,7 @@
     pass
     pinentry
     ripgrep
+    rustup
     starship
     stow
     swaybg
