@@ -11,6 +11,7 @@
       inputs.home-manager.nixosModules.home-manager
       ../common/hyprland.nix
       ../common/plasma.nix
+      ../common/sh.nix
     ];
 
   networking.hostName = "nixos-desktop";
@@ -28,36 +29,14 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     clang
-    bat
-    btop
-    eza
-    fd
-    fantasque-sans-mono
-    fira-code-nerdfont
     firefox
-    git
-    gh
     # gnome.adwaita-icon-theme
     # gnome.gnome-tweaks
     home-manager
-    inotify-tools
-    joypixels
-    kitty
-    lazygit
-    man
-    neovim
     openssh
     pass
     pinentry
-    ripgrep
     rustup
-    starship
-    stow
-    tldr
-    unzip
-    wget
-    zoxide
-    zsh
   ];
 
   programs.browserpass.enable = true;
@@ -122,9 +101,6 @@
 
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.joypixels.acceptLicense = true;
-
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.me = {

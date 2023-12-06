@@ -20,6 +20,9 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
+    inotify-tools
+    fantasque-sans-mono
+    fira-code-nerdfont
     pavucontrol
     pulseaudio
     swaybg
