@@ -10,9 +10,11 @@
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.home-manager
       ../common/hyprland.nix
+      # ../common/gnome.nix
       ../common/plasma.nix
       ../common/sh.nix
     ];
+
 
   networking.hostName = "nixos-desktop";
 
@@ -30,8 +32,6 @@
   environment.systemPackages = with pkgs; [
     clang
     firefox
-    # gnome.adwaita-icon-theme
-    # gnome.gnome-tweaks
     home-manager
     openssh
     pass
@@ -51,31 +51,6 @@
 
   # Set your time zone.
   time.timeZone = "US/Pacific";
-
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
-
-  # services.gnome.gnome-browser-connector.enable = true;
-  # nixpkgs.config.firefox.enableGnomeExtensions = true;
-  # services.gnome.chrome-gnome-shell.enable = true;
-
-  # environment.gnome.excludePackages = (with pkgs; [
-  #   gnome-photos
-  #   gnome-tour
-  # ]) ++ (with pkgs.gnome; [
-  #   cheese
-  #   gnome-music
-  #   gnome-terminal
-  #   gedit
-  #   epiphany
-  #   evince
-  #   gnome-characters
-  #   totem
-  #   tali
-  #   iagno
-  #   hitori
-  #   atomix
-  # ]);
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
