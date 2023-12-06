@@ -9,7 +9,11 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.home-manager
+      ../common/hyprland.nix
+      ../common/plasma.nix
     ];
+
+  networking.hostName = "nixos-desktop";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -33,8 +37,8 @@
     firefox
     git
     gh
-    gnome.adwaita-icon-theme
-    gnome.gnome-tweaks
+    # gnome.adwaita-icon-theme
+    # gnome.gnome-tweaks
     home-manager
     inotify-tools
     joypixels
@@ -44,20 +48,14 @@
     neovim
     openssh
     pass
-    pavucontrol
     pinentry
-    pulseaudio
     ripgrep
     rustup
     starship
     stow
-    swaybg
     tldr
     unzip
-    waybar
     wget
-    wl-clipboard
-    wofi
     zoxide
     zsh
   ];
@@ -68,33 +66,12 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos-desktop"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
   # Set your time zone.
   time.timeZone = "US/Pacific";
-
-  services.xserver = {
-    enable = true;
-    displayManager = {
-      sddm.enable = true;
-      defaultSession = "plasmawayland";
-    };
-    desktopManager.plasma5.enable = true;
-  };
-
-  environment.plasma5.excludePackages = with pkgs.libsForQt5; [
-    elisa
-    gwenview
-    okular
-    oxygen
-    khelpcenter
-    konsole
-    plasma-browser-integration
-    print-manager
-  ];
 
   # services.xserver.displayManager.gdm.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
@@ -149,19 +126,10 @@
   programs.zsh.enable = true;
   users.defaultUserShell = pkgs.zsh;
 
-  programs.gnupg.agent.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.me = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [];
-  };
-
-  programs.hyprland = {
-    enable = true;
-    enableNvidiaPatches = true;
-    xwayland.enable = true;
   };
 
   # Desktop portals handle app interactions like file opening, etc.
@@ -177,10 +145,10 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  programs.gnupg.agent = {
+    enable = true;
+    # enableSSHSupport = true;
+  };
 
   # List services that you want to enable:
 
