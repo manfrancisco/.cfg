@@ -44,7 +44,9 @@
     neovim
     openssh
     pass
+    pavucontrol
     pinentry
+    pulseaudio
     ripgrep
     rustup
     starship
@@ -59,6 +61,8 @@
     zoxide
     zsh
   ];
+
+  programs.browserpass.enable = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
