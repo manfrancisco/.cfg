@@ -2,8 +2,12 @@
 let
   inherit (lib) mkDefault;
 in {
-  services.xserver.displayManager.gdm.enable = mkDefault true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver = {
+    displayManager.gdm.enable = mkDefault true;
+    desktopManager.gnome.enable = true;
+    # Touchpad support
+    libinput.enable = true;
+  };
 
   # services.gnome.gnome-browser-connector.enable = true;
   # nixpkgs.config.firefox.enableGnomeExtensions = true;

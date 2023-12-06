@@ -8,6 +8,8 @@ in {
       sddm.enable = mkDefault true;
     };
     desktopManager.plasma5.enable = true;
+    # Touchpad support
+    libinput.enable = true;
   };
 
   environment.plasma5.excludePackages = with pkgs.libsForQt5; [
