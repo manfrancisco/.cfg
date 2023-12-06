@@ -6,6 +6,8 @@
   home.username = "me";
   home.homeDirectory = "/home/me";
 
+  programs.browserpass.enable = true;
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [

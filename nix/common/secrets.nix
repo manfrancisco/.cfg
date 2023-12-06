@@ -4,9 +4,5 @@
     pass
     pinentry
   ];
-
-  programs = {
-    browserpass.enable = true;
-    gnupg.agent.enable = true;
-  };
+  programs.gnupg.agent.enable = true;
 }
