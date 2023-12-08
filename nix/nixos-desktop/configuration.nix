@@ -20,6 +20,9 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  # Autologin is currently borked with Hyprland and SDDM
+  services.xserver.displayManager.autoLogin.enable = false;
+
   users.users.me = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];

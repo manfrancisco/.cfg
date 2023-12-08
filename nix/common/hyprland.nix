@@ -33,6 +33,7 @@ in {
     fira-code-nerdfont
     pavucontrol
     pulseaudio
+    psmisc # killall
     swaybg
     waybar
     wl-clipboard

@@ -12,6 +12,7 @@
     lazygit
     man
     neovim
+    psmisc # killall
     ripgrep
     starship
     stow
