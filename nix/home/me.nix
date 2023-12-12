@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
-
-{
+let
+  configHome = config.xdg.configHome;
+in {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "me";
@@ -32,6 +33,15 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
+    ".gitconfig".source = ../../git/.gitconfig;
+    ".tmux.conf".source = ../../tmux/.tmux.conf;
+    ".vimrc".source = ../../vim/.vimrc;
+    ".zshrc".source = ../../zsh/.zshrc;
+    "${configHome}/hypr/hyprland.conf".source = ../../hyprland-nix/.config/hypr/hyprland.conf;
+    # "${configHome}/nvim/".source = ../../nvim/.config/nvim;
+    "${configHome}/waybar".source = ../../waybar/.config/waybar;
+    "${configHome}/wofi".source = ../../wofi/.config/wofi;
+    "${configHome}/zsh".source = ../../zsh/.config/zsh;
 
     ".gnupg/gpg-agent.conf".text = ''
       default-cache-ttl 604800
