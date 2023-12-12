@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.home-manager
       ../common/hyprland.nix
+      ../common/mullvad.nix
       ../common/plasma.nix
       ../common/secrets.nix
       ../common/sh.nix
@@ -39,6 +40,7 @@
     clang
     firefox
     home-manager
+    mullvad-vpn
     rustup
   ];
 
