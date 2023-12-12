@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       inputs.home-manager.nixosModules.home-manager
+      ../common/desktop.nix
       ../common/hyprland.nix
       ../common/mullvad.nix
       ../common/plasma.nix
