@@ -14,6 +14,7 @@
     lazygit
     man
     neovim
+    ouch
     psmisc # killall
     ripgrep
     rustup
