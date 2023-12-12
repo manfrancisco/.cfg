@@ -36,14 +36,6 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    clang
-    firefox
-    home-manager
-    mullvad-vpn
-    rustup
-  ];
-
   services.openssh.enable = true;
 
   # Pick only one of the below networking options.

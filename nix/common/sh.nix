@@ -3,10 +3,12 @@
   environment.systemPackages = with pkgs; [
     bat
     btop
+    clang
     eza
     fd
-    git
     gh
+    git
+    home-manager
     joypixels
     kitty
     lazygit
@@ -14,6 +16,7 @@
     neovim
     psmisc # killall
     ripgrep
+    rustup
     starship
     stow
     tldr
