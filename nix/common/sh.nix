@@ -9,7 +9,6 @@
     gh
     git
     home-manager
-    joypixels
     kitty
     lazygit
     man

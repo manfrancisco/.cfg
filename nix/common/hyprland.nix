@@ -28,9 +28,10 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    inotify-tools
     fantasque-sans-mono
     fira-code-nerdfont
+    inotify-tools
+    joypixels
     pavucontrol
     pulseaudio
     psmisc # killall
