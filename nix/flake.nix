@@ -16,7 +16,7 @@
   in {
     nixosConfigurations = {
       nixos-linode = nixpkgs.lib.nixosSystem {
-        inherit system;
+        specialArgs = { inherit inputs system; };
         modules = [ ./nixos-linode/configuration.nix ];
       };
       nixos-desktop = nixpkgs.lib.nixosSystem {

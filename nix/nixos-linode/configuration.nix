@@ -2,28 +2,21 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      inputs.home-manager.nixosModules.home-manager
+      ../common/secrets.nix
+      ../common/sh.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-
   networking.hostName = "nixos-linode";
 
-  # Set your time zone.
-  time.timeZone = "America/Los_Angeles";
-
-  programs.zsh.enable = true;
-  users.defaultUserShell = pkgs.zsh;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.me = {
     isNormalUser = true;
     home = "/home/me";
@@ -33,62 +26,33 @@
     ];
   };
 
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users.me = import ../home/me.nix;
+  };
+
   security.sudo.wheelNeedsPassword = false;
 
-  # Symlink /bin/sh to dash
-  environment.binsh = "${pkgs.dash}/bin/dash";
+  services.openssh = {
+    enable = true;
+    settings.PermitRootLogin = "no";
+  };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  boot.loader.grub.enable = true;
+
+  # Important for networking on Linode
+  networking.usePredictableInterfaceNames = false;
+  networking.useDHCP = false;
+  networking.interfaces.eth0.useDHCP = true;
+
   environment.systemPackages = with pkgs; [
-    clang
-    bash
-    bat
-    btop
-    eza
-    fd
-    gh
-    git
-    kitty
-    lazygit
-    neovim
-    pass
-    ripgrep
-    starship
-    stow
-    tldr
-    unzip
-    vim
-    wget
-    zoxide
-    zip
-    
     # Recomended for Linode network troubleshooting
     inetutils
     mtr
     sysstat
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  programs.gnupg.agent = {
-    enable = true;
-  };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-  services.openssh = {
-    enable=true;
-    settings.PermitRootLogin = "no";
-  };
-
-  # Important for networking on Linode
-  networking.usePredictableInterfaceNames = false;
-  networking.useDHCP = false;
-  networking.interfaces.eth0.useDHCP = true;
+  time.timeZone = "America/Los_Angeles";
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
