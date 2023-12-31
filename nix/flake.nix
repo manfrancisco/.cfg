@@ -6,7 +6,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = {self, nixpkgs, ...}@inputs:
+  outputs = {self, nixpkgs, home-manager, ...}@inputs:
   let
     system = "x86_64-linux";
     pkgs = import nixpkgs {
@@ -24,9 +24,11 @@
         modules = [ ./nixos-desktop/configuration.nix ];
       };
     };
-    # homeConfigurations.me = home-manager.lib.homeManagerConfiguration {
-    #   inherit pkgs;
-    #   modules = [ ./home/me.nix ];
-    # };
+    homeConfigurations = {
+      me = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        modules = [ ./home/me.nix ];
+      };
+    };
   };
 }
