@@ -1,14 +1,9 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running `nixos-help`).
-
-{ inputs, config, pkgs, ... }:
-
+{ home-manager, pkgs, ... }:
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      home-manager.nixosModules.home-manager
       ./hardware-configuration.nix
-      inputs.home-manager.nixosModules.home-manager
       ../common/secrets.nix
       ../common/sh.nix
     ];
@@ -26,10 +21,7 @@
     ];
   };
 
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users.me = import ../home/me.nix;
-  };
+  home-manager.users.me = import ../home/me.nix;
 
   security.sudo.wheelNeedsPassword = false;
 

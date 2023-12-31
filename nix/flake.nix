@@ -6,21 +6,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = {self, nixpkgs, home-manager, ...}@inputs:
+  outputs = {nixpkgs, home-manager, ...}:
   let
-    system = "x86_64-linux";
     pkgs = import nixpkgs {
-      inherit system;
+      system = "x86_64-linux";
       config.allowUnfree = true;
     };
   in {
     nixosConfigurations = {
       nixos-linode = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs system; };
+        specialArgs = { inherit home-manager; };
         modules = [ ./nixos-linode/configuration.nix ];
       };
       nixos-desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs system; };
+        specialArgs = { inherit home-manager; };
         modules = [ ./nixos-desktop/configuration.nix ];
       };
     };
