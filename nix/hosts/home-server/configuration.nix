@@ -4,8 +4,8 @@
     [
       home-manager.nixosModules.home-manager
       ./hardware-configuration.nix
-      ../common/secrets.nix
-      ../common/sh.nix
+      ../../common/secrets.nix
+      ../../common/sh.nix
     ];
 
   networking.hostName = "nixos-home-server";
@@ -21,7 +21,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  home-manager.users.me = import ../home/me.nix;
+  home-manager.users.me = import ../../home/me.nix;
 
   services.getty.autologinUser = "me";
 

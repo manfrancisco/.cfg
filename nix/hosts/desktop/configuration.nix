@@ -4,13 +4,13 @@
     [
       home-manager.nixosModules.home-manager
       ./hardware-configuration.nix
-      ../common/desktop.nix
-      ../common/hyprland.nix
-      ../common/mullvad.nix
-      ../common/plasma.nix
-      ../common/secrets.nix
-      ../common/sh.nix
-      ../common/sound.nix
+      ../../common/desktop.nix
+      ../../common/hyprland.nix
+      ../../common/mullvad.nix
+      ../../common/plasma.nix
+      ../../common/secrets.nix
+      ../../common/sh.nix
+      ../../common/sound.nix
     ];
 
   networking.hostName = "nixos-desktop";
@@ -25,7 +25,7 @@
     extraGroups = [ "wheel" ];
   };
 
-  home-manager.users.me = import ../home/me.nix;
+  home-manager.users.me = import ../../home/me.nix;
 
   services.openssh.enable = true;
 

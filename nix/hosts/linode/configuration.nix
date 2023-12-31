@@ -4,8 +4,8 @@
     [
       home-manager.nixosModules.home-manager
       ./hardware-configuration.nix
-      ../common/secrets.nix
-      ../common/sh.nix
+      ../../common/secrets.nix
+      ../../common/sh.nix
     ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -21,7 +21,7 @@
     ];
   };
 
-  home-manager.users.me = import ../home/me.nix;
+  home-manager.users.me = import ../../home/me.nix;
 
   security.sudo.wheelNeedsPassword = false;
 
