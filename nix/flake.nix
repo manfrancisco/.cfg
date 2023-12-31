@@ -22,6 +22,10 @@
         specialArgs = { inherit home-manager; };
         modules = [ ./nixos-desktop/configuration.nix ];
       };
+      nixos-home-server = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit home-manager; };
+        modules = [ ./nixos-home-server/configuration.nix ];
+      };
     };
     homeConfigurations = {
       me = home-manager.lib.homeManagerConfiguration {
