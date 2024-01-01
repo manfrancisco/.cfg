@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ../../common/secrets.nix
       ../../common/sh.nix
+      ../../common/sops.nix
     ];
 
   networking.hostName = "nixos-home-server";
@@ -22,8 +23,6 @@
   };
 
   home-manager.users.me = import ../../home/me.nix;
-
-  services.getty.autologinUser = "me";
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
