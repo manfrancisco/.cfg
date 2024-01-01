@@ -9,18 +9,6 @@ in {
     xwayland.enable = true;
   };
 
-  services.xserver = {
-    enable = true;
-    displayManager = {
-      sddm.enable = mkDefault true;
-      defaultSession = mkOverride 900 "hyprland";
-      autoLogin.enable = mkDefault true;
-      autoLogin.user = "me";
-    };
-    # Touchpad support
-    libinput.enable = true;
-  };
-
   hardware = {
     opengl.enable = true;
     # Most wayland compositors need this
