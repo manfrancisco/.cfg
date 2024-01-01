@@ -16,8 +16,6 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    fantasque-sans-mono
-    fira-code-nerdfont
     inotify-tools
     joypixels
     pavucontrol
@@ -27,6 +25,10 @@ in {
     waybar
     wl-clipboard
     wofi
+  ];
+
+  fonts.packages = with pkgs; [
+    (nerdfonts.override { fonts = [ "FantasqueSansMono" "FiraCode" ]; })
   ];
 
   nixpkgs.config.joypixels.acceptLicense = true;
