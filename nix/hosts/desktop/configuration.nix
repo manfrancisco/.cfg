@@ -7,7 +7,6 @@
       ../../common/desktop.nix
       ../../common/hyprland.nix
       ../../common/mullvad.nix
-      ../../common/plasma.nix
       ../../common/secrets.nix
       ../../common/sh.nix
       ../../common/sound.nix
@@ -17,8 +16,7 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  # Autologin is currently borked with Hyprland and SDDM
-  services.xserver.displayManager.autoLogin.enable = false;
+  services.getty.autologinUser = "me";
 
   users.users.me = {
     isNormalUser = true;
