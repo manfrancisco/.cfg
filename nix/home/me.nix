@@ -6,7 +6,7 @@ in {
   imports = [
     ./common/desktop.nix
     ./common/gpg.nix
-    ./common/hyprland.nix
+    ./common/hyprland
     ./common/pass.nix
     ./common/ranger.nix
     ./common/sh.nix
