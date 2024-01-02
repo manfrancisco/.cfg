@@ -4,7 +4,6 @@
     [
       home-manager.nixosModules.home-manager
       ./hardware-configuration.nix
-      ../../common/desktop.nix
       ../../common/hyprland.nix
       ../../common/mullvad.nix
       ../../common/secrets.nix
