@@ -4,10 +4,11 @@ let
 in {
 
   imports = [
-    ./common/ranger.nix
     ./common/desktop.nix
     ./common/gpg.nix
     ./common/hyprland.nix
+    ./common/pass.nix
+    ./common/ranger.nix
   ];
 
   home = {

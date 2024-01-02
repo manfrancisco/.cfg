@@ -7,4 +7,6 @@
   ];
 
   programs.browserpass.enable = true;
+
+  services.gpg-agent.pinentryFlavor = "qt";
 }

@@ -6,7 +6,6 @@
       ./hardware-configuration.nix
       ../../common/hyprland.nix
       ../../common/mullvad.nix
-      ../../common/secrets.nix
       ../../common/sh.nix
       ../../common/sound.nix
     ];

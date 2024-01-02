@@ -1,7 +1,15 @@
-{ ... }:
-{
-  home.file.".gnupg/gpg-agent.conf".text = ''
-    default-cache-ttl 604800
-    max-cache-ttl 604800
-  '';
+{ lib, pkgs, ... }:
+let
+  inherit (lib) mkDefault;
+in {
+  home.packages = [ pkgs.pinentry ];
+
+  programs.gpg.enable = true;
+
+  services.gpg-agent = {
+    enable = true;
+    defaultCacheTtl = 604800;
+    maxCacheTtl = 604800;
+    pinentryFlavor = mkDefault "curses";
+  };
 }

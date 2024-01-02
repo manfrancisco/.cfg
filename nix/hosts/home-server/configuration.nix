@@ -4,7 +4,6 @@
     [
       home-manager.nixosModules.home-manager
       ./hardware-configuration.nix
-      ../../common/secrets.nix
       ../../common/sh.nix
       ../../common/sops.nix
     ];
