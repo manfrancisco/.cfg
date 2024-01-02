@@ -8,7 +8,6 @@
     fd
     gh
     git
-    home-manager
     kitty
     lazygit
     man
