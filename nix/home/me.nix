@@ -9,6 +9,7 @@ in {
     ./common/hyprland.nix
     ./common/pass.nix
     ./common/ranger.nix
+    ./common/sh.nix
   ];
 
   home = {
