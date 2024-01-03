@@ -4,7 +4,7 @@ let
 in {
 
   imports = [
-    ./common/desktop.nix
+    ./common/desktop
     ./common/gpg.nix
     ./common/hyprland
     ./common/pass.nix
