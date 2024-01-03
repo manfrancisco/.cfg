@@ -27,6 +27,8 @@
       zoxide
     ];
     file = {
+      ".bash_profile".source = ./bash_profile;
+      ".bashrc".source = ./bashrc;
       ".gitconfig".source = ./gitconfig;
       ".tmux.conf".source = ./tmux.conf;
       ".vimrc".source = ./vimrc;
