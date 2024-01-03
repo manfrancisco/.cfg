@@ -17,11 +17,6 @@ in {
     homeDirectory = "/home/me";
 
     file = {
-      ".gitconfig".source = ../../git/.gitconfig;
-      ".tmux.conf".source = ../../tmux/.tmux.conf;
-      ".vimrc".source = ../../vim/.vimrc;
-      ".zshrc".source = ../../zsh/.zshrc;
-      # "${configHome}/nvim/".source = ../../nvim/.config/nvim;
       "${configHome}/waybar".source = ../../waybar/.config/waybar;
       "${configHome}/wofi".source = ../../wofi/.config/wofi;
       "${configHome}/zsh".source = ../../zsh/.config/zsh;
