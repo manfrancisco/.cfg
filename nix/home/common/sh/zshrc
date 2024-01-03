@@ -71,7 +71,11 @@ if command -v eza &> /dev/null; then
     alias l="eza --git -l"
     alias la="eza --git -al"
     abbr lt="eza --git -lTL2"
+    abbr lt3="eza --git -lTL3"
+    abbr lt4="eza --git -lTL4"
     abbr lta="eza --git -laTL2"
+    abbr lta3="eza --git -laTL3"
+    abbr lta4="eza --git -laTL4"
 else
     abbr l="ls -l"
     abbr la="ls -la"
