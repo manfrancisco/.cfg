@@ -31,11 +31,5 @@
         modules = [ ./hosts/home-server/configuration.nix ];
       };
     };
-    homeConfigurations = {
-      me = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./home/me.nix ];
-      };
-    };
   };
 }
