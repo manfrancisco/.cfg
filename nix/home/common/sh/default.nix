@@ -1,5 +1,7 @@
-{ pkgs, ... }:
-{
+{ config, pkgs, ... }:
+let
+  configHome = config.xdg.configHome;
+in {
   programs.zsh.enable = true;
 
   home = {
@@ -33,6 +35,7 @@
       ".tmux.conf".source = ./tmux.conf;
       ".vimrc".source = ./vimrc;
       ".zshrc".source = ./zshrc;
+      "${configHome}/zsh/abbr.zsh".source = ./abbr.zsh;
     };
   };
 }

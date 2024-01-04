@@ -18,7 +18,6 @@ in {
 
     file = {
       "${configHome}/wofi".source = ../../wofi/.config/wofi;
-      "${configHome}/zsh".source = ../../zsh/.config/zsh;
     };
 
     stateVersion = "23.05";
