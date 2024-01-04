@@ -17,7 +17,6 @@ in {
     homeDirectory = "/home/me";
 
     file = {
-      "${configHome}/waybar".source = ../../waybar/.config/waybar;
       "${configHome}/wofi".source = ../../wofi/.config/wofi;
       "${configHome}/zsh".source = ../../zsh/.config/zsh;
     };

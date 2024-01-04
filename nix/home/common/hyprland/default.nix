@@ -1,9 +1,8 @@
-{ pkgs, ... }:
+{config, pkgs, ... }:
 {
-  wayland.windowManager.hyprland = {
-    enable = true;
-    extraConfig = builtins.readFile ./hyprland.conf;
-  };
+  imports = [
+    ../waybar
+  ];
 
   home.packages = with pkgs; [
     inotify-tools
@@ -13,7 +12,6 @@
     pulseaudio
     psmisc # killall
     swaybg
-    waybar
     wl-clipboard
     wofi
   ];
@@ -23,5 +21,13 @@
   nixpkgs.config = {
     allowUnfree = true;
     joypixels.acceptLicense = true;
+  };
+
+  wayland.windowManager.hyprland = {
+    enable = true;
+    extraConfig = builtins.readFile ./hyprland.conf;
+    settings = {
+      exec-once = "waybar-launch";
+    };
   };
 }
