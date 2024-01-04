@@ -2,6 +2,7 @@
 {
   imports = [
     ../waybar
+    ../wofi
   ];
 
   home = {
@@ -14,7 +15,6 @@
       psmisc # killall
       swaybg
       wl-clipboard
-      wofi
     ];
 
     file.".zprofile".text = ''

@@ -15,11 +15,6 @@ in {
   home = {
     username = "me";
     homeDirectory = "/home/me";
-
-    file = {
-      "${configHome}/wofi".source = ../../wofi/.config/wofi;
-    };
-
     stateVersion = "23.05";
   };
 
