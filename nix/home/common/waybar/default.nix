@@ -22,8 +22,8 @@ in {
     ];
 
     file = {
-      "${configHome}/waybar/config".source = ./config;
-      "${configHome}/waybar/style.css".source = ./style.css;
+      "${configHome}/waybar/config".source = ./cfg/config;
+      "${configHome}/waybar/style.css".source = ./cfg/style.css;
     };
   };
 }

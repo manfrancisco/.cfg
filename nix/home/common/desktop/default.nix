@@ -8,7 +8,7 @@
     ];
 
     file = {
-      ".config/kitty/kitty.conf".source = ./kitty.conf;
+      ".config/kitty/kitty.conf".source = ./cfg/kitty.conf;
     };
   };
 

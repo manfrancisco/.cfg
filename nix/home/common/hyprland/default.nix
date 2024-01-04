@@ -33,7 +33,7 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    extraConfig = builtins.readFile ./hyprland.conf;
+    extraConfig = builtins.readFile ./cfg/hyprland.conf;
     settings = {
       exec-once = "waybar-launch";
     };

@@ -4,6 +4,6 @@ let
 in {
   home = {
     packages = [ pkgs.wofi ];
-    file."${configHome}/wofi/style.css".source = ./style.css;
+    file."${configHome}/wofi/style.css".source = ./cfg/style.css;
   };
 }

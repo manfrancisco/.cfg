@@ -29,13 +29,13 @@ in {
       zoxide
     ];
     file = {
-      ".bash_profile".source = ./bash_profile;
-      ".bashrc".source = ./bashrc;
-      ".gitconfig".source = ./gitconfig;
-      ".tmux.conf".source = ./tmux.conf;
-      ".vimrc".source = ./vimrc;
-      ".zshrc".source = ./zshrc;
-      "${configHome}/zsh/abbr.zsh".source = ./abbr.zsh;
+      ".bash_profile".source = ./cfg/bash_profile;
+      ".bashrc".source = ./cfg/bashrc;
+      ".gitconfig".source = ./cfg/gitconfig;
+      ".tmux.conf".source = ./cfg/tmux.conf;
+      ".vimrc".source = ./cfg/vimrc;
+      ".zshrc".source = ./cfg/zshrc;
+      "${configHome}/zsh/abbr.zsh".source = ./cfg/abbr.zsh;
     };
   };
 }
