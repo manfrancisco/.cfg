@@ -1,4 +1,4 @@
-{config, pkgs, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ../waybar
@@ -15,6 +15,13 @@
       psmisc # killall
       swaybg
       wl-clipboard
+      (writeShellScriptBin "set-bg" ''
+        # Exit if the wrong number of arguments are passed
+        [ $# -eq 1 ] || exit 1
+
+        ${psmisc}/bin/killall
+        ${swaybg}/bin/swaybg -i "$1" &>/dev/null & disown
+      '')
     ];
 
     file.".zprofile".text = ''
@@ -35,7 +42,10 @@
     enable = true;
     extraConfig = builtins.readFile ./cfg/hyprland.conf;
     settings = {
-      exec-once = "waybar-launch";
+      exec-once = [
+        "waybar-launch"
+        "set-bg ${config.home.homeDirectory}/wallpaper/lo-fi/study-girl.jpg"
+      ];
     };
   };
 }
