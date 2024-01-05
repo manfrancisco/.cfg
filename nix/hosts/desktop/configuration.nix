@@ -21,7 +21,7 @@
     extraGroups = [ "wheel" ];
   };
 
-  home-manager.users.me = import ../../home/me.nix;
+  home-manager.users.me = import ../../home/nixos-desktop.nix;
 
   services.openssh.enable = true;
 

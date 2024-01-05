@@ -1,8 +1,15 @@
 { config, pkgs, ... }:
-let
-  configHome = config.xdg.configHome;
-in {
-  programs.zsh.enable = true;
+{
+  imports = [
+    ./bash
+    ./git
+    ./gpg.nix
+    ./pass.nix
+    ./ranger.nix
+    ./tmux
+    ./vim
+    ./zsh
+  ];
 
   home = {
     packages = with pkgs; [
@@ -11,8 +18,6 @@ in {
       clang
       eza
       fd
-      gh
-      git
       kitty
       lazygit
       man
@@ -24,18 +29,8 @@ in {
       starship
       stow
       tldr
-      unzip
       wget
       zoxide
     ];
-    file = {
-      ".bash_profile".source = ./cfg/bash_profile;
-      ".bashrc".source = ./cfg/bashrc;
-      ".gitconfig".source = ./cfg/gitconfig;
-      ".tmux.conf".source = ./cfg/tmux.conf;
-      ".vimrc".source = ./cfg/vimrc;
-      ".zshrc".source = ./cfg/zshrc;
-      "${configHome}/zsh/abbr.zsh".source = ./cfg/abbr.zsh;
-    };
   };
 }
