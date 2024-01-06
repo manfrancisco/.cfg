@@ -154,17 +154,9 @@ in {
 
       decoration = {
         rounding = 5;
-        active_opacity = 0.9;
-        inactive_opacity = 0.7;
-        fullscreen_opacity = 1.0;
         drop_shadow = true;
         shadow_range = 8;
         shadow_render_power = 3;
-        blur = {
-          size = 8;
-          passes = 3;
-          ignore_opacity = true;
-        };
       };
 
       animations = {
@@ -184,11 +176,6 @@ in {
         pseudotile = true;
         preserve_split = true;
       };
-
-      windowrule = [
-        "noblur, ^(firefox)$"
-        "opacity 1.0 override, ^(firefox)$"
-      ];
     };
   };
 }
