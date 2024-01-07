@@ -21,7 +21,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
-  home-manager.users.me = import ../../home/nixos-home-server.nix
+  home-manager.users.me = import ../../home/nixos-home-server.nix;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
