@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ../common/sh.nix
       ../common/sops.nix
+      ../common/tailscale.nix
     ];
 
   networking.hostName = "nixos-home-server";
