@@ -8,6 +8,7 @@
       ../common/mullvad.nix
       ../common/sh.nix
       ../common/sound.nix
+      ../common/tailscale.nix
     ];
 
   networking.hostName = "nixos-desktop";
