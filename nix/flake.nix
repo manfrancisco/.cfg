@@ -20,15 +20,15 @@
     nixosConfigurations = {
       nixos-linode = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit home-manager; };
-        modules = [ ./hosts/linode/configuration.nix ];
+        modules = [ ./nixos/linode/configuration.nix ];
       };
       nixos-desktop = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit home-manager; };
-        modules = [ ./hosts/desktop/configuration.nix ];
+        modules = [ ./nixos/desktop/configuration.nix ];
       };
       nixos-home-server = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit home-manager sops-nix; };
-        modules = [ ./hosts/home-server/configuration.nix ];
+        modules = [ ./nixos/home-server/configuration.nix ];
       };
     };
   };
