@@ -4,10 +4,10 @@
     [
       home-manager.nixosModules.home-manager
       ./hardware-configuration.nix
-      ../../common/hyprland.nix
-      ../../common/mullvad.nix
-      ../../common/sh.nix
-      ../../common/sound.nix
+      ../common/hyprland.nix
+      ../common/mullvad.nix
+      ../common/sh.nix
+      ../common/sound.nix
     ];
 
   networking.hostName = "nixos-desktop";

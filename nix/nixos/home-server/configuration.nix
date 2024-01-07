@@ -4,8 +4,8 @@
     [
       home-manager.nixosModules.home-manager
       ./hardware-configuration.nix
-      ../../common/sh.nix
-      ../../common/sops.nix
+      ../common/sh.nix
+      ../common/sops.nix
     ];
 
   networking.hostName = "nixos-home-server";
