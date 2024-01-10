@@ -7,6 +7,7 @@
       ../common/sh.nix
       ../common/sops.nix
       ../common/tailscale.nix
+      ../common/ssh-luks.nix
     ];
 
   networking.hostName = "nixos-home-server";
