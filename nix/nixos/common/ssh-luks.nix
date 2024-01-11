@@ -21,7 +21,7 @@
       #   lspci -v | grep -iA8 'network\|ethernet'
       availableKernelModules = [ "r8169" ];
     };
-    # Enable dhcp during boot. Can also be set to a static IP.
+    # Enable DHCP during boot with `ip=dhcp`, or static IP with `ip=<ip>`.
     kernelParams = [ "ip=10.0.0.2" ];
   };
 }
