@@ -22,6 +22,6 @@
       availableKernelModules = [ "r8169" ];
     };
     # Enable dhcp during boot. Can also be set to a static IP.
-    kernelParams = [ "ip=dhcp" ];
+    kernelParams = [ "ip=10.0.0.2" ];
   };
 }
