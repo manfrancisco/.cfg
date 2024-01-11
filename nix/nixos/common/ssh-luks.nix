@@ -21,7 +21,14 @@
       #   lspci -v | grep -iA8 'network\|ethernet'
       availableKernelModules = [ "r8169" ];
     };
-    # Enable DHCP during boot with `ip=dhcp`, or static IP with `ip=<ip>`.
-    kernelParams = [ "ip=10.0.0.2" ];
+    # Enable DHCP during boot. If using NetworkManager, there may be an issue where internet does
+    # not work after booting. To fix this, run
+    #   nmcli
+    # Make note of the active device and conneciton name.
+    # Replace `enp8s0` and `Wired connection 1` below as appropriate.
+    #   nmcli con down enp8s0
+    #   nmcli con mod "Wired connection 1" connection.interface-name enp8s0
+    #   nmcli con mod "Wired connection 1" connection.autoconnect yes
+    kernelParams = [ "ip=dhcp" ];
   };
 }
