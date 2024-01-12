@@ -1,11 +1,10 @@
-{ home-manager, ... }:
+{ home-manager, pkgs, ... }:
 {
   imports = [
     ../nixos/common/sh.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
   services.openssh.enable = true;
 
   users.users.nixos = {
@@ -24,4 +23,14 @@
       homeDirectory = lib.mkForce "/home/nixos";
     };
   };
+
+  # For T2 Linux
+  nix.settings = {
+    trusted-substituters = [ "https://t2linux.cachix.org" ];
+    trusted-public-keys = [ "t2linux.cachix.org-1:P733c5Gt1qTcxsm+Bae0renWnT8OLs0u9+yfaK2Bejw=" ];
+  };
+  environment.systemPackages = with pkgs; [ git python3 ];
+
+  # ZFS is (sometimes) broken and prevents building without this
+  nixpkgs.config.allowBroken = true;
 }
