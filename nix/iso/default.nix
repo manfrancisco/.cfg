@@ -24,12 +24,26 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    git
+    python3
+
+    # Allows you to select a boot target without entering BIOS
+    efibootmgr
+  ];
+
+  networking = {
+    networkmanager.enable = true;
+
+    useDHCP = true;
+    enableIPv6 = false;
+  };
+
   # For T2 Linux
   nix.settings = {
     trusted-substituters = [ "https://t2linux.cachix.org" ];
     trusted-public-keys = [ "t2linux.cachix.org-1:P733c5Gt1qTcxsm+Bae0renWnT8OLs0u9+yfaK2Bejw=" ];
   };
-  environment.systemPackages = with pkgs; [ git python3 ];
 
   # ZFS is (sometimes) broken and prevents building without this
   nixpkgs.config.allowBroken = true;
