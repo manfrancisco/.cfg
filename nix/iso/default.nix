@@ -1,4 +1,4 @@
-{ home-manager, pkgs, ... }:
+{ home-manager, lib, pkgs, ... }:
 {
   imports = [
     ../nixos/common/sh.nix
@@ -7,22 +7,19 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   services.openssh.enable = true;
 
-  users.users.nixos = {
+  services.getty.autologinUser = "me";
+
+  users.users.me = {
+    password = "me";
+    isNormalUser = true;
+    extraGroups = [ "networkmanager" "wheel" ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGRZy5DeVFgpAVGG98rYE9goW++AsHIhriELkOAWjuus me@nixos-desktop"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIApAUfrvdzryjaoVwNFB/GRtx0P3n2/FI5AOWBQ8l6Tf me@michael-laptop-arch"
     ];
   };
 
-  home-manager.users.nixos = { lib, ... }: {
-    imports = [
-      ../home/common
-    ];
-    home = {
-      username = lib.mkForce "nixos";
-      homeDirectory = lib.mkForce "/home/nixos";
-    };
-  };
+  home-manager.users.me = ../home/common;
 
   environment.systemPackages = with pkgs; [
     git
@@ -32,12 +29,7 @@
     efibootmgr
   ];
 
-  networking = {
-    networkmanager.enable = true;
-
-    useDHCP = true;
-    enableIPv6 = false;
-  };
+  networking.networkmanager.enable = true;
 
   # For T2 Linux
   nix.settings = {
@@ -47,4 +39,6 @@
 
   # ZFS is (sometimes) broken and prevents building without this
   nixpkgs.config.allowBroken = true;
+
+  system.stateVersion = "23.11";
 }

@@ -39,7 +39,7 @@
     packages.x86_64-linux = {
       iso = nixos-generators.nixosGenerate {
         system = "x86_64-linux";
-        format = "install-iso";
+        format = "iso";
         specialArgs = { inherit nixos-hardware; };
         modules = [
           home-manager.nixosModules.home-manager
