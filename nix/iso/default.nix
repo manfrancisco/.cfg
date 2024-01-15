@@ -1,4 +1,4 @@
-{ home-manager, lib, pkgs, ... }:
+{ config, home-manager, lib, pkgs, ... }:
 {
   imports = [
     ../nixos/common/sh.nix
@@ -27,9 +27,16 @@
 
     # Allows you to select a boot target without entering BIOS
     efibootmgr
+    # For lspci
+    pciutils
   ];
 
   networking.networkmanager.enable = true;
+
+  # For WiFi on some Macs
+  # boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+  # networking.enableB43Firmware = true;
+  # nixpkgs.config.allowUnfree = true;
 
   # For T2 Linux
   nix.settings = {
