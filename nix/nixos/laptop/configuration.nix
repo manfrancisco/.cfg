@@ -33,7 +33,7 @@
       buildCommand = ''
         dir="$out/lib/firmware/brcm";
         mkdir -p "$dir"
-        cp -r ${../firmware/brcm} "$dir"
+        cp -r ${../firmware/brcm}/* "$dir"
       '';
     })
   ];
