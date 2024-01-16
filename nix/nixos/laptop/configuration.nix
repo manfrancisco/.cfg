@@ -38,8 +38,14 @@
     })
   ];
 
-  # Pick only one of the below networking options.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  # Recommended setup for T2 Macs
+  networking = {
+    wireless.iwd.enable = true;
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "US/Pacific";
