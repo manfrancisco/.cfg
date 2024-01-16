@@ -68,14 +68,6 @@ in {
         ",XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
         ",XF86AudioMute, exec, pactl set-sink-mute @DEFAULT_SINK@ toggle"
 
-        # Brightness controls
-        ",XF86MonBrightnessUp, exec, light -A 10"
-        ",XF86MonBrightnessDown, exec, light -U 10"
-
-        # Keyboard brightness controls
-        '',XF86KbdBrightnessUp, exec, light -As "sysfs/leds/apple::kbd_backlight" 20''
-        '',XF86KbdBrightnessDown, exec, light -Us "sysfs/leds/apple::kbd_backlight" 20''
-
         # Move focus between windows
         "$mod, H, movefocus, l"
         "$mod, L, movefocus, r"
