@@ -35,6 +35,13 @@
         specialArgs = { inherit home-manager sops-nix; };
         modules = [ ./nixos/home-server/configuration.nix ];
       };
+      nixos-laptop = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit home-manager; };
+        modules = [
+          nixos-hardware.nixosModules.apple-t2
+          ./nixos/laptop/configuration.nix
+        ];
+      };
     };
     packages.x86_64-linux = {
       iso = nixos-generators.nixosGenerate {
