@@ -3,6 +3,7 @@
   imports =
     [
       home-manager.nixosModules.home-manager
+      ../../options.nix
       ./hardware-configuration.nix
       ../common/hyprland.nix
       ../common/sh.nix
@@ -11,6 +12,8 @@
     ];
 
   networking.hostName = "nixos-desktop";
+
+  my.desktop-env = "hyprland";
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
