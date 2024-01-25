@@ -29,7 +29,10 @@
       };
       nixos-desktop = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit home-manager; };
-        modules = [ ./nixos/desktop/configuration.nix ];
+        modules = [
+          home-manager.nixosModules.home-manager
+          ./nixos/desktop.nix
+        ];
       };
       nixos-home-server = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit home-manager sops-nix; };
