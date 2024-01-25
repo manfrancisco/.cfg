@@ -1,7 +1,5 @@
-{ pkgs, sops-nix, ... }:
+{ pkgs, ... }:
 {
-  imports = [ sops-nix.nixosModules.sops ];
-
   environment.systemPackages = with pkgs; [ age sops ];
 
   sops = {

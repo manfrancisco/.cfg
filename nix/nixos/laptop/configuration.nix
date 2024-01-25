@@ -1,8 +1,7 @@
-{ home-manager, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports =
     [
-      home-manager.nixosModules.home-manager
       ./hardware-configuration.nix
       ../common/hyprland.nix
       ../common/sh.nix

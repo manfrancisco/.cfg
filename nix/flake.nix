@@ -24,19 +24,21 @@
   in {
     nixosConfigurations = {
       nixos-desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit home-manager; };
         modules = [
           home-manager.nixosModules.home-manager
           ./nixos/desktop.nix
         ];
       };
       nixos-home-server = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit home-manager sops-nix; };
-        modules = [ ./nixos/home-server/configuration.nix ];
+        modules = [
+          home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
+          ./nixos/home-server/configuration.nix
+        ];
       };
       nixos-laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit home-manager; };
         modules = [
+          home-manager.nixosModules.home-manager
           nixos-hardware.nixosModules.apple-t2
           ./nixos/laptop/configuration.nix
         ];
@@ -46,7 +48,6 @@
       iso = nixos-generators.nixosGenerate {
         system = "x86_64-linux";
         format = "iso";
-        specialArgs = { inherit nixos-hardware; };
         modules = [
           home-manager.nixosModules.home-manager
           nixos-hardware.nixosModules.apple-t2
