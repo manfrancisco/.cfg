@@ -1,10 +1,10 @@
 { ... }:
 {
   imports = [
-    ../common/sh.nix
-    ../common/sops.nix
-    ../common/tailscale.nix
-    ../common/ssh-luks.nix
+    ./common/sh.nix
+    ./common/sops.nix
+    ./common/tailscale.nix
+    ./common/ssh-luks.nix
   ];
 
   networking = {
@@ -30,7 +30,7 @@
     ];
   };
 
-  home-manager.users.me = import ../../home/nixos-home-server.nix;
+  home-manager.users.me = import ../home/nixos-home-server.nix;
 
   time.timeZone = "America/Los_Angeles";
 

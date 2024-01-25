@@ -33,7 +33,7 @@
         modules = [
           home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops
-          ./nixos/home-server/configuration.nix
+          ./nixos/home-server.nix
         ];
       };
       nixos-laptop = nixpkgs.lib.nixosSystem {
