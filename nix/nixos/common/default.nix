@@ -45,7 +45,10 @@
     ];
     kernelModules = [ "kvm-amd" "kvm-intel" ];
     loader = {
-      systemd-boot.enable = true;
+      systemd-boot = {
+        enable = true;
+        configurationLimit = 20;
+      };
       efi.canTouchEfiVariables = true;
     };
   };
