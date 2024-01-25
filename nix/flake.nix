@@ -23,10 +23,6 @@
     };
   in {
     nixosConfigurations = {
-      nixos-linode = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit home-manager; };
-        modules = [ ./nixos/linode/configuration.nix ];
-      };
       nixos-desktop = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit home-manager; };
         modules = [
@@ -56,12 +52,6 @@
           nixos-hardware.nixosModules.apple-t2
           ./iso
         ];
-      };
-    };
-    homeConfigurations = {
-      arch-laptop = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        modules = [ ./home/arch-laptop.nix ];
       };
     };
   };
