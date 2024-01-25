@@ -33,22 +33,6 @@
   # networking.interfaces.enp1s0f1u1.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlp2s0.useDHCP = lib.mkDefault true;
 
-  # Proactively helps overheating on Intel CPU's. Works well with other tools.
-  services.thermald.enable = true;
-  services.auto-cpufreq = {
-    enable = true;
-    settings = {
-      battery = {
-        governor = "powersave";
-        turbo = "never";
-      };
-      charger = {
-        governor = "performance";
-        turbo = "auto";
-      };
-    };
-  };
-
   systemd.sleep.extraConfig = ''
     SuspendState=freeze
   '';
