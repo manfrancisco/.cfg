@@ -1,52 +1,16 @@
 { ... }:
 {
   imports = [
-    ./common/sh.nix
+    ./common
     ./common/sops.nix
-    ./common/tailscale.nix
     ./common/ssh-luks.nix
   ];
 
-  networking = {
-    hostName = "nixos-home-server";
-    networkmanager.enable = true;
-  };
-
-  services.openssh = {
-    enable = true;
-    settings = {
-      KbdInteractiveAuthentication = false;
-      PasswordAuthentication = false;
-      PermitRootLogin = "no";
-    };
-  };
-
-  users.users.me = {
-    isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGRZy5DeVFgpAVGG98rYE9goW++AsHIhriELkOAWjuus me@nixos-desktop"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIApAUfrvdzryjaoVwNFB/GRtx0P3n2/FI5AOWBQ8l6Tf me@michael-laptop-arch"
-    ];
-  };
+  networking.hostName = "nixos-home-server";
 
   home-manager.users.me = import ../home/nixos-home-server.nix;
 
-  time.timeZone = "America/Los_Angeles";
-
-  boot = {
-    initrd = {
-      availableKernelModules = [ "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
-      kernelModules = [ ];
-      luks.devices."root".device = "/dev/disk/by-uuid/a4422541-92d3-4c39-8a04-8d06479bd716";
-    };
-    kernelModules = [ "kvm-amd" ];
-    extraModulePackages = [ ];
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
-  };
+  boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/a4422541-92d3-4c39-8a04-8d06479bd716";
 
   fileSystems = {
     "/" = {
@@ -59,19 +23,7 @@
     };
   };
 
-  swapDevices = [ ];
-
-  hardware = {
-    enableRedistributableFirmware = true;
-    cpu.amd.updateMicrocode = true;
-  };
-
-  nixpkgs = {
-    config.allowUnfree = true;
-    hostPlatform = "x86_64-linux";
-  };
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  hardware.cpu.amd.updateMicrocode = true;
 
   system.stateVersion = "23.11";
 }
