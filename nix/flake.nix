@@ -40,7 +40,7 @@
         modules = [
           home-manager.nixosModules.home-manager
           nixos-hardware.nixosModules.apple-t2
-          ./nixos/laptop/configuration.nix
+          ./nixos/laptop.nix
         ];
       };
     };

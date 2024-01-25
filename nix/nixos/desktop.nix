@@ -1,13 +1,12 @@
 { home-manager, ... }:
 {
-  imports =
-    [
-      ../options.nix
-      ./common/hyprland.nix
-      ./common/sh.nix
-      ./common/sound.nix
-      ./common/tailscale.nix
-    ];
+  imports = [
+    ../options.nix
+    ./common/hyprland.nix
+    ./common/sh.nix
+    ./common/sound.nix
+    ./common/tailscale.nix
+  ];
 
   my.desktop-env = "hyprland";
 
