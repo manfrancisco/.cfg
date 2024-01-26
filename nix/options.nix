@@ -1,9 +1,19 @@
 { lib, ... }:
 {
   options = {
-    my.desktop-env = lib.mkOption {
-      type = with lib.types; nullOr (enum [ "gnome" "hyprland" ]);
-      default = "hyprland";
+    my = with lib; with types; {
+      desktop-env = mkOption {
+        type = nullOr (enum [ "gnome" "hyprland" ]);
+        default = "hyprland";
+      };
+      cpu = mkOption {
+        type = enum [ "amd" "intel" ];
+        default = "intel";
+      };
+      arch = mkOption {
+        type = enum [ "x86_64-linux" ];
+        default = "x86_64-linux";
+      };
     };
   };
 }

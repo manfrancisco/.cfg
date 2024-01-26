@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 {
   imports = [
     ./sh.nix
@@ -43,7 +43,7 @@
       "usb_storage"
       "xhci_pci"
     ];
-    kernelModules = [ "kvm-amd" "kvm-intel" ];
+    kernelModules = [ "kvm-${config.my.cpu}" ];
     loader = {
       systemd-boot = {
         enable = true;
@@ -61,14 +61,17 @@
     }
   ];
 
+  hardware = {
+    enableRedistributableFirmware = true;
+    cpu."${config.my.cpu}".updateMicrocode = true;
+  };
+
   nixpkgs = {
     config.allowUnfree = true;
-    hostPlatform = lib.mkDefault "x86_64-linux";
+    hostPlatform = config.my.arch;
   };
 
   time.timeZone = "America/Los_Angeles";
-
-  hardware.enableRedistributableFirmware = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

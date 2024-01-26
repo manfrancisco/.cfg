@@ -10,6 +10,8 @@
 
   home-manager.users.me = import ../home/nixos-home-server.nix;
 
+  my.cpu = "amd";
+
   boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/a4422541-92d3-4c39-8a04-8d06479bd716";
 
   fileSystems = {
@@ -22,8 +24,6 @@
       fsType = "vfat";
     };
   };
-
-  hardware.cpu.amd.updateMicrocode = true;
 
   system.stateVersion = "23.11";
 }
