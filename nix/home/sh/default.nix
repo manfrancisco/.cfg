@@ -22,6 +22,8 @@
       lazygit
       man
       neovim
+      nix-diff
+      nvd
       ouch
       psmisc # killall
       ripgrep
