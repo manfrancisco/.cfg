@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, osConfig, pkgs, ... }:
 let
   inherit (lib) mkDefault;
   homeDir = config.home.homeDirectory;
@@ -8,7 +8,7 @@ in {
     ./wofi
   ];
 
-  config = lib.mkIf (config.my.desktop-env == "hyprland") {
+  config = lib.mkIf (osConfig.my.desktop-env == "hyprland") {
     home = {
       packages = with pkgs; [
         inotify-tools

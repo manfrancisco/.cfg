@@ -1,8 +1,8 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, osConfig, pkgs, ... }:
 let
   configHome = config.xdg.configHome;
 in {
-  config = lib.mkIf (config.my.desktop-env == "hyprland") {
+  config = lib.mkIf (osConfig.my.desktop-env == "hyprland") {
     home = {
       packages = with pkgs; [
         waybar

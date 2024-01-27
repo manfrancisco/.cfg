@@ -8,7 +8,7 @@
 
   networking.hostName = "nixos-home-server";
 
-  home-manager.users.me = import ../home/nixos-home-server.nix;
+  home-manager.users.me = import ../home;
 
   my.cpu = "amd";
 

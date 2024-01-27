@@ -4,7 +4,7 @@
     my = with lib; with types; {
       desktop-env = mkOption {
         type = nullOr (enum [ "gnome" "hyprland" ]);
-        default = "hyprland";
+        default = null;
       };
       cpu = mkOption {
         type = enum [ "amd" "intel" ];

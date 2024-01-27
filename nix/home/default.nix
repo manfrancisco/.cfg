@@ -3,6 +3,7 @@
 
   imports = [
     ./sh
+    ./desktop
   ];
 
   home = {

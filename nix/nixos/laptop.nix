@@ -11,7 +11,24 @@
 
   my.desktop-env = "hyprland";
 
-  home-manager.users.me = import ../home/nixos-laptop.nix;
+  home-manager.users.me = { pkgs, ... }: {
+    imports = [ ./home ];
+
+    wayland.windowManager.hyprland.settings = {
+      "$mod" = "Super";
+      bind = [
+          # Screen backlight controls
+          ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
+          ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+
+          # Keyboard backlight controls
+          '',XF86KbdBrightnessUp, exec, brightnessctl -d "apple::kbd_backlight" set 20%+''
+          '',XF86KbdBrightnessDown, exec, brightnessctl -d "apple::kbd_backlight" set 20%-''
+      ];
+    };
+
+    home.packages = [ pkgs.brightnessctl ];
+  };
 
   fileSystems = {
     "/" = {
