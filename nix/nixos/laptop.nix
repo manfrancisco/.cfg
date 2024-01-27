@@ -12,7 +12,7 @@
   my.desktop-env = "hyprland";
 
   home-manager.users.me = { pkgs, ... }: {
-    imports = [ ./home ];
+    imports = [ ../home ];
 
     wayland.windowManager.hyprland.settings = {
       "$mod" = "Super";
