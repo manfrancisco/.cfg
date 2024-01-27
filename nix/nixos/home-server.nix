@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ../options.nix
     ./common
     ./common/sops.nix
     ./common/ssh-luks.nix
