@@ -11,12 +11,14 @@ in {
   config = lib.mkIf (osConfig.my.desktop-env == "hyprland") {
     home = {
       packages = with pkgs; [
+        grim
         inotify-tools
         joypixels
         (nerdfonts.override { fonts = [ "FantasqueSansMono" "FiraCode" ]; })
         pavucontrol
         pulseaudio
         psmisc # killall
+        slurp
         swaybg
         wl-clipboard
         (writeShellScriptBin "set-bg" ''
