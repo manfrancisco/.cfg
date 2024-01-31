@@ -11,28 +11,26 @@
     ./zsh
   ];
 
-  home = {
-    packages = with pkgs; [
-      bat
-      btop
-      clang
-      eza
-      fd
-      kitty
-      lazygit
-      man
-      neovim
-      nix-diff
-      nvd
-      ouch
-      psmisc # killall
-      ripgrep
-      rustup
-      starship
-      stow
-      tldr
-      wget
-      zoxide
-    ];
-  };
+  home.packages = with pkgs; [
+    bat
+    btop
+    clang
+    eza
+    fd
+    kitty
+    lazygit
+    man
+    neovim
+    nix-diff
+    nvd
+    ouch
+    psmisc # killall
+    ripgrep
+    rustup
+    starship
+    stow
+    tldr
+    wget
+    zoxide
+  ];
 }
