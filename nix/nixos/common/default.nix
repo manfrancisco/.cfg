@@ -4,6 +4,7 @@
     ./hyprland.nix
     ./sh.nix
     ./sound.nix
+    ./steam.nix
     ./tailscale.nix
   ];
 
