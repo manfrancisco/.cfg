@@ -3,8 +3,6 @@
   imports = [
     ../options.nix
     ./common
-    ./common/hyprland.nix
-    ./common/sound.nix
   ];
 
   networking.hostName = "nixos-desktop";

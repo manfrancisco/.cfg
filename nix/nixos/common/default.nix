@@ -1,7 +1,9 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
+    ./hyprland.nix
     ./sh.nix
+    ./sound.nix
     ./tailscale.nix
   ];
 
