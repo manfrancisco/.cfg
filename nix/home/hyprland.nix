@@ -117,7 +117,16 @@ in {
           "$mod Shift, mouse:272, resizewindow"
         ];
 
-        env = [ "XCURSOR_SIZE, 24" ];
+        env = lib.mkMerge [
+          (lib.mkIf (osConfig.my.nvidia.enable == true) [
+          "LIBVA_DRIVER_NAME,nvidia"
+          "XDG_SESSION_TYPE,wayland"
+          "GBM_BACKEND,nvidia-drm"
+          "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+          "WLR_NO_HARDWARE_CURSORS,1"
+          ])
+          [ "XCURSOR_SIZE, 24" ]
+        ];
 
         general = {
           gaps_in = 5;

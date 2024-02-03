@@ -2,6 +2,7 @@
 {
   imports = [
     ./hyprland.nix
+    ./nvidia.nix
     ./sh.nix
     ./sound.nix
     ./steam.nix

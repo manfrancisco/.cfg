@@ -7,20 +7,23 @@
 
   networking.hostName = "nixos-desktop";
 
-  my.desktop-env = "hyprland";
+  my = {
+    desktop-env = "hyprland";
+    nvidia.enable = true;
+  };
 
   home-manager.users.me = { lib, ... }: {
     imports = [ ../home ];
 
     wayland.windowManager.hyprland.settings = {
       monitor = [
-        "DP-1, 1920x1080, 0x0, 1"
+        "DP-3, 1920x1080, 0x0, 1"
         "HDMI-A-1, 1920x1080, 1920x0, 1"
       ];
       workspace = [
-        "1, monitor:DP-1"
-        "2, monitor:DP-1"
-        "3, monitor:DP-1"
+        "1, monitor:DP-3"
+        "2, monitor:DP-3"
+        "3, monitor:DP-3"
         "4, monitor:HDMI-A-1"
         "5, monitor:HDMI-A-1"
         "6, monitor:HDMI-A-1"
