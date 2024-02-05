@@ -9,12 +9,12 @@
 
   my.desktop = {
     enable = true;
-    hyprland.enable = true;
+    gnome.enable = true;
     nvidia.enable = true;
     steam.enable = true;
   };
 
-  home-manager.users.me = { lib, ... }: {
+  home-manager.users.me = { lib, pkgs, ... }: {
     imports = [ ../home ];
 
     home.packages = [ pkgs.chromium ];
