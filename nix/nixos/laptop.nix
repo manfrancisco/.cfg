@@ -9,7 +9,12 @@
 
   my.desktop = {
     enable = true;
-    hyprland.enable = true;
+    cinnamon.enable = true;
+    hyprland = {
+      enable = true;
+      # Not compatible with desktop managers
+      autologin.enable = false;
+    };
   };
 
   home-manager.users.me = { pkgs, ... }: {

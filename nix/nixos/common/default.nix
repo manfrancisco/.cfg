@@ -1,6 +1,7 @@
 { config, lib, pkgs, ... }:
 {
   imports = [
+    ./cinnamon.nix
     ./hyprland.nix
     ./nvidia.nix
     ./sh.nix

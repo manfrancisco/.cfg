@@ -30,11 +30,13 @@ in {
         '')
       ];
 
-      file.".zprofile".text = ''
-        # This script will be run at first login.
-        # If no graphical session is running and we're on tty1, start Hyrland.
-        [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ] && Hyprland
-      '';
+      file.".zprofile" = lib.mkIf osConfig.my.desktop.hyprland.autologin.enable {
+        text = ''
+          # This script will be run at first login.
+          # If no graphical session is running and we're on tty1, start Hyrland.
+          [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ] && Hyprland
+        '';
+      };
     };
 
     fonts.fontconfig.enable = true;
