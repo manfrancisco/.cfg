@@ -1,6 +1,9 @@
 { lib, osConfig, pkgs, ... }:
 {
-  imports = [ ../hyprland.nix ];
+  imports = [
+    ../gnome.nix
+    ../hyprland.nix
+  ];
 
   config = lib.mkIf osConfig.my.desktop.enable {
     home = {

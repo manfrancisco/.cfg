@@ -9,7 +9,7 @@
 
   my.desktop = {
     enable = true;
-    cinnamon.enable = true;
+    gnome.enable = true;
     hyprland = {
       enable = true;
       # Not compatible with desktop managers

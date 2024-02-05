@@ -2,6 +2,7 @@
 {
   imports = [
     ./cinnamon.nix
+    ./gnome.nix
     ./hyprland.nix
     ./nvidia.nix
     ./sh.nix
