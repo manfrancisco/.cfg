@@ -10,13 +10,31 @@
         type = enum [ "amd" "intel" ];
         default = "intel";
       };
-      desktop-env = mkOption {
-        type = nullOr (enum [ "gnome" "hyprland" ]);
-        default = null;
-      };
-      nvidia.enable = mkOption {
-        type = bool;
-        default = false;
+      desktop = {
+        enable = mkOption {
+          type = bool;
+          default = false;
+        };
+        cinnamon.enable = mkOption {
+          type = bool;
+          default = false;
+        };
+        gnome.enable = mkOption {
+          type = bool;
+          default = false;
+        };
+        hyprland.enable = mkOption {
+          type = bool;
+          default = false;
+        };
+        nvidia.enable = mkOption {
+          type = bool;
+          default = false;
+        };
+        steam.enable = mkOption {
+          type = bool;
+          default = false;
+        };
       };
     };
   };

@@ -1,6 +1,6 @@
 { config, lib, ... }:
 {
-  config = lib.mkIf (config.my.nvidia.enable == true) {
+  config = lib.mkIf config.my.desktop.nvidia.enable {
     hardware.opengl = {
       enable = true;
       # Enable accelerated OpenGL rendering through Direct Rendering Interface (DRI).

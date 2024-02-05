@@ -2,10 +2,9 @@
 {
   imports = [ ../hyprland.nix ];
 
-  config = lib.mkIf (osConfig.my.desktop-env != null) {
+  config = lib.mkIf osConfig.my.desktop.enable {
     home = {
       packages = with pkgs; [
-        chromium
         firefox
         gimp
         transmission-gtk

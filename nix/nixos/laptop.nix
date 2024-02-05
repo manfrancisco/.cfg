@@ -7,7 +7,10 @@
 
   networking.hostName = "nixos-laptop";
 
-  my.desktop-env = "hyprland";
+  my.desktop = {
+    enable = true;
+    hyprland.enable = true;
+  };
 
   home-manager.users.me = { pkgs, ... }: {
     imports = [ ../home ];

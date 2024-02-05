@@ -7,13 +7,17 @@
 
   networking.hostName = "nixos-desktop";
 
-  my = {
-    desktop-env = "hyprland";
+  my.desktop = {
+    enable = true;
+    hyprland.enable = true;
     nvidia.enable = true;
+    steam.enable = true;
   };
 
   home-manager.users.me = { lib, ... }: {
     imports = [ ../home ];
+
+    home.packages = [ pkgs.chromium ];
 
     wayland.windowManager.hyprland.settings = {
       monitor = [

@@ -1,6 +1,6 @@
 { config, lib, ... }:
 {
-  config = lib.mkIf (config.my.desktop-env != null) {
+  config = lib.mkIf config.my.desktop.enable {
     security.rtkit.enable = true;
     services.pipewire = {
       enable = true;

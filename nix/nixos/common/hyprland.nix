@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 {
-  config = lib.mkIf (config.my.desktop-env == "hyprland") {
+  config = lib.mkIf config.my.desktop.hyprland.enable {
     hardware = {
       opengl.enable = true;
       # Most wayland compositors need this

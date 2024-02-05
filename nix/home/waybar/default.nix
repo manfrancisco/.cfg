@@ -2,7 +2,7 @@
 let
   configHome = config.xdg.configHome;
 in {
-  config = lib.mkIf (osConfig.my.desktop-env == "hyprland") {
+  config = lib.mkIf osConfig.my.desktop.hyprland.enable {
     home = {
       packages = with pkgs; [
         waybar

@@ -8,7 +8,7 @@ in {
     ./wofi
   ];
 
-  config = lib.mkIf (osConfig.my.desktop-env == "hyprland") {
+  config = lib.mkIf osConfig.my.desktop.hyprland.enable {
     home = {
       packages = with pkgs; [
         grim
@@ -118,7 +118,7 @@ in {
         ];
 
         env = lib.mkMerge [
-          (lib.mkIf (osConfig.my.nvidia.enable == true) [
+          (lib.mkIf osConfig.my.desktop.nvidia.enable [
           "LIBVA_DRIVER_NAME,nvidia"
           "XDG_SESSION_TYPE,wayland"
           "GBM_BACKEND,nvidia-drm"
