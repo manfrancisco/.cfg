@@ -33,6 +33,13 @@
         "6, monitor:HDMI-A-1"
       ];
     };
+    # Gnome settings
+    dconf.settings = {
+      "org/gnome/desktop/input-sources" = {
+        # Switch left Alt with left Win
+        xkb-options = [ "altwin:swap_lalt_lwin" ];
+      };
+    };
   };
 
   fileSystems = {

@@ -13,10 +13,12 @@
     # nixpkgs.config.firefox.enableGnomeExtensions = true;
     # services.gnome.chrome-gnome-shell.enable = true;
 
-    environment.systemPackages = with pkgs.gnome; [
+    environment.systemPackages = (with pkgs.gnome; [
       adwaita-icon-theme
       gnome-tweaks
-    ];
+    ]) ++ (with pkgs.gnome; [
+      dconf-editor
+    ]);
 
     environment.gnome.excludePackages = (with pkgs; [
       gedit
@@ -28,6 +30,7 @@
       epiphany
       evince
       iagno
+      geary
       gnome-characters
       gnome-music
       gnome-terminal
