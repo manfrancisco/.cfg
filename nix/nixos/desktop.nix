@@ -10,6 +10,7 @@
   my.desktop = {
     enable = true;
     hyprland.enable = true;
+    hyprland.autologin.enable = true;
     nvidia.enable = true;
     steam.enable = true;
   };
