@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ lib, ... }:
 let
   mkBool = attrs: lib.mkOption { type = lib.types.bool; default = false; } // attrs;
 in {
