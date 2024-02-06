@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   imports = [
     ./bash
@@ -18,6 +18,7 @@
     clang
     eza
     fd
+    fzf
     kitty
     lazygit
     man
