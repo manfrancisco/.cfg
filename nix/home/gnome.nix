@@ -19,6 +19,10 @@
         # Disable workspaces on secondary monitor
         workspaces-only-on-primary = true;
       };
+      "org/gnome/settings-daemon/plugins/power" = {
+        # Sleep after one hour on AC
+        sleep-inactive-ac-timeout = 3600;
+      };
       "org/gnome/shell/keybindings" = {
         switch-to-application-1 = [];
         switch-to-application-2 = [];
