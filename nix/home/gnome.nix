@@ -4,6 +4,8 @@
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         clock-show-weekday = true;
+        clock-show-seconds = true;
+        clock-format = "12h";
         color-scheme = "prefer-dark";
         enable-hot-corners = false;
         cursor-theme = "Adwaita";
