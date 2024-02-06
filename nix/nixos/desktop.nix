@@ -9,17 +9,21 @@
 
   my.desktop = {
     enable = true;
-    gnome.enable = true;
+    hyprland.enable = true;
     nvidia.enable = true;
     steam.enable = true;
   };
 
-  home-manager.users.me = { lib, pkgs, ... }: {
+  home-manager.users.me = { lib, osConfig, pkgs, ... }:
+  let
+    ifHyprland = lib.mkIf osConfig.my.desktop.hyprland.enable;
+    ifGnome = lib.mkIf osConfig.my.desktop.gnome.enable;
+  in {
     imports = [ ../home ];
 
     home.packages = [ pkgs.chromium ];
 
-    wayland.windowManager.hyprland.settings = {
+    wayland.windowManager.hyprland.settings = ifHyprland {
       monitor = [
         "DP-3, 1920x1080, 0x0, 1"
         "HDMI-A-1, 1920x1080, 1920x0, 1"
@@ -33,8 +37,8 @@
         "6, monitor:HDMI-A-1"
       ];
     };
-    # Gnome settings
-    dconf.settings = {
+
+    dconf.settings = ifGnome {
       "org/gnome/desktop/input-sources" = {
         # Switch left Alt with left Win
         xkb-options = [ "altwin:swap_lalt_lwin" ];
