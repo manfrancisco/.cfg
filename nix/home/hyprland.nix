@@ -20,7 +20,6 @@ in {
         psmisc # killall
         slurp
         swaybg
-        wl-clipboard
         (writeShellScriptBin "set-bg" ''
           # Exit if the wrong number of arguments are passed
           [ $# -eq 1 ] || exit 1

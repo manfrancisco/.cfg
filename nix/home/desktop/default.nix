@@ -11,6 +11,7 @@
         firefox
         gimp
         transmission-gtk
+        wl-clipboard
       ];
 
       file = {
