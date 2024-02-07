@@ -16,12 +16,7 @@
     };
   };
   outputs = {nixpkgs, home-manager, nixos-generators, nixos-hardware, sops-nix, ...}:
-  let
-    pkgs = import nixpkgs {
-      system = "x86_64-linux";
-      config.allowUnfree = true;
-    };
-  in {
+  {
     nixosConfigurations = {
       nixos-desktop = nixpkgs.lib.nixosSystem {
         modules = [
