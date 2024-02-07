@@ -22,7 +22,10 @@
   in {
     imports = [ ../home ];
 
-    home.packages = [ pkgs.chromium ];
+    home.packages = with pkgs; [
+      chromium
+      libreoffice
+    ];
 
     wayland.windowManager.hyprland.settings = ifHyprland {
       monitor = [
