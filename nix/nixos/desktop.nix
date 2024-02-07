@@ -25,6 +25,7 @@
     home.packages = with pkgs; [
       chromium
       libreoffice
+      vscode
     ];
 
     wayland.windowManager.hyprland.settings = ifHyprland {
