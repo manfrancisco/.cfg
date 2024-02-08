@@ -29,7 +29,15 @@
       device = "/dev/disk/by-uuid/79CE-3C58";
       fsType = "vfat";
     };
+    "/data" = {
+      device = "/dev/mapper/data";
+      fsType = "ext4";
+    };
   };
+
+  environment.etc.crypttab.text = ''
+    data /dev/disk/by-uuid/92d5b37e-e417-4a09-9cca-2c78ff15c32e /run/secrets/luks-key-data
+  '';
 
   system.stateVersion = "23.11";
 }
