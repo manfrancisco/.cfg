@@ -39,9 +39,9 @@ alias hx="helix"
 abbr lg="lazygit"
 
 ## Nix
-abbr nrs="sudo nixos-rebuild switch --flake ~/.cfg"
-abbr nrt="sudo nixos-rebuild test --flake ~/.cfg"
-abbr nrb="sudo nixos-rebuild boot --flake ~/.cfg"
+abbr nrs="sudo nixos-rebuild switch --flake ~/.nix"
+abbr nrt="sudo nixos-rebuild test --flake ~/.nix"
+abbr nrb="sudo nixos-rebuild boot --flake ~/.nix"
 abbr ns="nix shell nixpkgs#"
 
 ## Git
