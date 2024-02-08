@@ -164,34 +164,34 @@
         enable = true;
         extensions.fzf-native.enable = true;
         keymaps = {
-          # "<leader><leader>" = {
-          #   action = "find_files";
-          #   desc = "Search files by name";
-          # };
-          # "ss" = {
-          #   action = "live_grep";
-          #   desc = "[S]earch by live grep";
-          # };
-          # "sb" = {
-          #   action = "buffers";
-          #   desc = "[S]earch open [B]uffers by file name";
-          # };
-          # "sh" = {
-          #   action = "help_tags";
-          #   desc = "[S]earch [H]elp";
-          # };
-          # "sw" = {
-          #   action = "grep_string";
-          #   desc = "[S]earch for [W]ord under cursor";
-          # };
-          # "sg" = {
-          #   action = "buffers";
-          #   desc = "[S]earch [G]it files";
-          # };
-          # "sr" = {
-          #   action = "oldfiles";
-          #   desc = "[S]earch [R]ecently opened files by name";
-          # };
+          "<leader><leader>" = {
+            action = "find_files";
+            desc = "Search files by name";
+          };
+          "ss" = {
+            action = "live_grep";
+            desc = "[S]earch by live grep";
+          };
+          "sb" = {
+            action = "buffers";
+            desc = "[S]earch open [B]uffers by file name";
+          };
+          "sh" = {
+            action = "help_tags";
+            desc = "[S]earch [H]elp";
+          };
+          "sw" = {
+            action = "grep_string";
+            desc = "[S]earch for [W]ord under cursor";
+          };
+          "sg" = {
+            action = "buffers";
+            desc = "[S]earch [G]it files";
+          };
+          "sr" = {
+            action = "oldfiles";
+            desc = "[S]earch [R]ecently opened files by name";
+          };
         };
       };
       treesitter.enable = true;
