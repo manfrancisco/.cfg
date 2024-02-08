@@ -4,6 +4,7 @@
   imports = [
     ./sh
     ./desktop
+    ./nvim.nix
   ];
 
   home = {

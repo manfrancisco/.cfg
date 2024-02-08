@@ -30,14 +30,14 @@
   }: {
     nixosConfigurations = {
       nixos-desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit nixvim; };
+        specialArgs = { inherit (nixvim.homeManagerModules) nixvim; };
         modules = [
           home-manager.nixosModules.home-manager
-          nixvim.nixosModules.nixvim
           ./nixos/desktop.nix
         ];
       };
       nixos-home-server = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit (nixvim.homeManagerModules) nixvim; };
         modules = [
           home-manager.nixosModules.home-manager
           sops-nix.nixosModules.sops
@@ -45,6 +45,7 @@
         ];
       };
       nixos-laptop = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit (nixvim.homeManagerModules) nixvim; };
         modules = [
           home-manager.nixosModules.home-manager
           nixos-hardware.nixosModules.apple-t2
@@ -56,6 +57,7 @@
       iso = nixos-generators.nixosGenerate {
         system = "x86_64-linux";
         format = "iso";
+        specialArgs = { inherit (nixvim.homeManagerModules) nixvim; };
         modules = [
           home-manager.nixosModules.home-manager
           nixos-hardware.nixosModules.apple-t2

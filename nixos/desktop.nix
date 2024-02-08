@@ -1,4 +1,4 @@
-{ ... }:
+{ nixvim, ... }:
 {
   imports = [
     ../options.nix
@@ -20,7 +20,7 @@
     ifHyprland = lib.mkIf osConfig.my.desktop.hyprland.enable;
     ifGnome = lib.mkIf osConfig.my.desktop.gnome.enable;
   in {
-    imports = [ ../home ];
+    imports = [ ../home nixvim ];
 
     home.packages = with pkgs; [
       chromium

@@ -35,7 +35,7 @@
       # Wait `timeoutlen` milliseconds for a mapped sequence to complete.
       timeout = true;
       timeoutlen = 300;
-      undodir = "${config.users.users.me.home}/.config/nvim/undodir";
+      undodir = "${config.xdg.configHome}/nvim/undodir";
       undofile = true;
       # Word wrap.
       wrap = true;
