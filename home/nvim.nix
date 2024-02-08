@@ -93,6 +93,8 @@
       autoclose.enable = true;
       comment-nvim.enable = true;
       fidget.enable = true;
+      fugitive.enable = true;
+      gitsigns.enable = true;
       indent-blankline.enable = true;
       intellitab.enable = true;
       lightline.enable = true;
