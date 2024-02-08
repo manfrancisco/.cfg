@@ -22,7 +22,6 @@
     kitty
     lazygit
     man
-    neovim
     nix-diff
     nvd
     ouch

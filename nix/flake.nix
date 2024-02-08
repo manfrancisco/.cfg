@@ -10,17 +10,30 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = {nixpkgs, home-manager, nixos-generators, nixos-hardware, sops-nix, ...}:
-  {
+  outputs = {
+    home-manager,
+    nixos-generators,
+    nixos-hardware,
+    nixpkgs,
+    nixvim,
+    sops-nix,
+    ...
+  }: {
     nixosConfigurations = {
       nixos-desktop = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit nixvim; };
         modules = [
           home-manager.nixosModules.home-manager
+          nixvim.nixosModules.nixvim
           ./nixos/desktop.nix
         ];
       };
