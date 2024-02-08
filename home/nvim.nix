@@ -200,6 +200,7 @@
       treesitter-context.enable = true;
       ts-autotag.enable = true;
       undotree.enable = true;
+      which-key.enable = true;
     };
   };
 }
