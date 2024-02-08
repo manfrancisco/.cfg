@@ -1,4 +1,4 @@
-{ ... }:
+{ nixvim, ... }:
 {
   imports = [
     ../options.nix
@@ -9,7 +9,12 @@
 
   networking.hostName = "nixos-home-server";
 
-  home-manager.users.me = import ../home;
+  home-manager.users.me = { ... }: {
+    imports = [
+      nixvim
+      ../home
+    ];
+  };
 
   my.cpu = "amd";
 

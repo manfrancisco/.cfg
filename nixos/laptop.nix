@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ nixvim, pkgs, ... }:
 {
   imports = [
     ../options.nix
@@ -18,7 +18,7 @@
   };
 
   home-manager.users.me = { pkgs, ... }: {
-    imports = [ ../home ];
+    imports = [ ../home nixvim ];
 
     wayland.windowManager.hyprland.settings = {
       "$mod" = "Super";

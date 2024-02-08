@@ -1,4 +1,4 @@
-{ config, home-manager, lib, pkgs, ... }:
+{ nixvim, pkgs, ... }:
 {
   imports = [
     ../nixos/common/sh.nix
@@ -19,7 +19,9 @@
     ];
   };
 
-  home-manager.users.me = ../home/common;
+  home-manager.users.me = { ... }: {
+    imports = [ ../home nixvim ];
+  };
 
   environment.systemPackages = with pkgs; [
     git
