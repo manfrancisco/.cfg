@@ -26,7 +26,6 @@
     nvd
     ouch
     psmisc # killall
-    python3
     ripgrep
     rustup
     starship
@@ -34,9 +33,5 @@
     tldr
     wget
     zoxide
-  ]) ++ (with pkgs.python311Packages; [
-    matplotlib
-    pandas
-    seaborn
   ]);
 }
