@@ -13,6 +13,7 @@
 
   home.packages = (with pkgs; [
     bat
+    bitwarden
     bitwarden-cli
     btop
     clang
