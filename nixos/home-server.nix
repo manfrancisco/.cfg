@@ -18,6 +18,10 @@
 
   my.cpu = "amd";
 
+  sops.secrets.luks-key-data = {
+    sopsFile = ../secrets/nixos-home-server.yaml;
+  };
+
   boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/a4422541-92d3-4c39-8a04-8d06479bd716";
 
   fileSystems = {

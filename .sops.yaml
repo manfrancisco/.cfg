@@ -1,7 +1,12 @@
 keys:
-  - &primary age19jhgdkfw8gqv5xpl3tucdyekpppcl6v7hsh3klk0qtha0wr883qqpd3u6n
+  - &nixos-desktop age13hzept40qmgcu0pnc86qujypvaer8hw7vq2djapum3yu5pa65e8q3w96yv
+  - &nixos-home-server age19jhgdkfw8gqv5xpl3tucdyekpppcl6v7hsh3klk0qtha0wr883qqpd3u6n
 creation_rules:
-  - path_regex: secrets/secrets.yaml$
+  - path_regex: secrets/nixos-home-server\.yaml$
     key_groups:
-    -age:
-      - *primary
+    - age:
+      - *nixos-home-server
+  - path_regex: secrets/nixos-desktop\.yaml$
+    key_groups:
+    - age:
+      - *nixos-desktop

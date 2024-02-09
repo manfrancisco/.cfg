@@ -33,6 +33,7 @@
         specialArgs = { inherit (nixvim.homeManagerModules) nixvim; };
         modules = [
           home-manager.nixosModules.home-manager
+          sops-nix.nixosModules.sops
           ./nixos/desktop.nix
         ];
       };

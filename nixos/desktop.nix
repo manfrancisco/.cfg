@@ -2,6 +2,7 @@
 {
   imports = [
     ../options.nix
+    ./common/sops.nix
     ./common
   ];
 
@@ -23,6 +24,7 @@
     imports = [ ../home nixvim ];
 
     home.packages = with pkgs; [
+      btrfs-progs
       chromium
       libreoffice
       vscode
@@ -51,6 +53,10 @@
     };
   };
 
+  sops.secrets.luks-key-data = {
+    sopsFile = ../secrets/nixos-desktop.yaml;
+  };
+
   fileSystems = {
     "/" = {
       device = "/dev/disk/by-uuid/932f6805-4b68-4391-92af-1256c022449a";
@@ -60,7 +66,16 @@
       device = "/dev/disk/by-uuid/549B-E4CE";
       fsType = "vfat";
     };
+    "/data" = {
+      device = "/dev/mapper/data";
+      fsType = "btrfs";
+      options = [ "subvol=data" "compress=zstd" "noatime" ];
+    };
   };
+
+  environment.etc.crypttab.text = ''
+    data /dev/disk/by-uuid/d955c8ca-ba4e-4cf7-b487-e93f2bad16d3 /run/secrets/luks-key-data
+  '';
 
   system.stateVersion = "23.05";
 }
