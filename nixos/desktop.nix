@@ -27,7 +27,6 @@
       btrfs-progs
       chromium
       libreoffice
-      vscode
     ];
 
     wayland.windowManager.hyprland.settings = ifHyprland {
