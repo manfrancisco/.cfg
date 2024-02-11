@@ -9,6 +9,11 @@
 
   networking.hostName = "nixos-home-server";
 
+  networking.firewall = {
+    enable = true;
+    allowedTCPPorts = [ 22 80 443 ];
+  };
+
   home-manager.users.me = { ... }: {
     imports = [
       nixvim
