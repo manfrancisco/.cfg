@@ -9,11 +9,10 @@
 
   my.desktop = {
     enable = true;
-    gnome.enable = true;
     hyprland = {
       enable = true;
       # Not compatible with desktop managers
-      autologin.enable = false;
+      autologin.enable = true;
     };
   };
 
