@@ -14,6 +14,7 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    selfhostblocks.url = "github:ibizaman/selfhostblocks";
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -25,6 +26,7 @@
     nixos-hardware,
     nixpkgs,
     nixvim,
+    selfhostblocks,
     sops-nix,
     ...
   }: {
@@ -41,6 +43,7 @@
         specialArgs = { inherit (nixvim.homeManagerModules) nixvim; };
         modules = [
           home-manager.nixosModules.home-manager
+          selfhostblocks.nixosModules.x86_64-linux.default
           sops-nix.nixosModules.sops
           ./nixos/home-server.nix
         ];

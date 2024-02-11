@@ -1,4 +1,4 @@
-{ nixvim, ... }:
+{ config, nixvim, ... }:
 {
   imports = [
     ../options.nix
@@ -23,8 +23,27 @@
 
   my.cpu = "amd";
 
-  sops.secrets.luks-key-data = {
-    sopsFile = ../secrets/nixos-home-server.yaml;
+  sops.secrets = {
+    luks-key-data = {
+      sopsFile = ../secrets/nixos-home-server.yaml;
+    };
+    nextcloud-admin-pass = {
+      sopsFile = ../secrets/nixos-home-server.yaml;
+      mode = "0400";
+      owner = "nextcloud";
+      group = "nextcloud";
+      # Restart units when the password changes
+      restartUnits = [ "phpfpm-nextcloud.service" ];
+    };
+  };
+
+  shb.nextcloud = {
+    enable = true;
+    domain = "mdorst.net";
+    subdomain = "nc";
+    dataDir = "/data/NextCloud";
+    adminPassFile = config.sops.secrets.nextcloud-admin-pass.path;
+    defaultPhoneRegion = "US";
   };
 
   boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/a4422541-92d3-4c39-8a04-8d06479bd716";
