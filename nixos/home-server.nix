@@ -1,7 +1,7 @@
 { nixvim, ... }:
 {
   imports = [
-    ../options.nix
+    ../common/options.nix
     ./common
     ./common/sops.nix
     ./common/ssh-luks.nix
