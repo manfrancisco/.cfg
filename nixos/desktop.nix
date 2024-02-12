@@ -11,6 +11,7 @@
   my.desktop = {
     enable = true;
     hyprland.enable = true;
+    # Do not enable when other DE's are enabled
     hyprland.autologin.enable = true;
     nvidia.enable = true;
     steam.enable = true;

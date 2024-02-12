@@ -22,6 +22,7 @@ in {
           autologin.enable = mkBool {};
         };
         nvidia.enable = mkBool {};
+        plasma5.enable = mkBool {};
         steam.enable = mkBool {};
       };
     };
