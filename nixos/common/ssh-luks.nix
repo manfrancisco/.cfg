@@ -8,10 +8,7 @@
           enable = true;
           port = 22;
           shell = "/bin/cryptsetup-askpass";
-          authorizedKeys = [
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGRZy5DeVFgpAVGG98rYE9goW++AsHIhriELkOAWjuus me@nixos-desktop"
-            "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIApAUfrvdzryjaoVwNFB/GRtx0P3n2/FI5AOWBQ8l6Tf me@michael-laptop-arch"
-          ];
+          authorizedKeys = import ../../common/ssh-keys.nix;
           # Generate a key with:
           #   ssh-keygen -N "" -f /etc/secrets/initrd/ssh_host_ed25519_key
           hostKeys = [ "/etc/secrets/initrd/ssh_host_ed25519_key" ];

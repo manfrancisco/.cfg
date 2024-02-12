@@ -13,10 +13,7 @@
     password = "me";
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGRZy5DeVFgpAVGG98rYE9goW++AsHIhriELkOAWjuus me@nixos-desktop"
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIApAUfrvdzryjaoVwNFB/GRtx0P3n2/FI5AOWBQ8l6Tf me@michael-laptop-arch"
-    ];
+    openssh.authorizedKeys.keys = import ../common/ssh-keys.nix;
   };
 
   home-manager.users.me = { ... }: {

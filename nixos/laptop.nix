@@ -1,7 +1,7 @@
 { nixvim, pkgs, ... }:
 {
   imports = [
-    ../options.nix
+    ../common/options.nix
     ./common
   ];
 
