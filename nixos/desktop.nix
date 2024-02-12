@@ -27,6 +27,12 @@
       btrfs-progs
       chromium
       libreoffice
+      (lutris.override {
+        extraLibraries = pkgs: [ ];
+        extraPkgs = pkgs: [ ];
+      })
+      wineWowPackages.stable
+      winetricks
     ];
 
     wayland.windowManager.hyprland.settings = ifHyprland {
