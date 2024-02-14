@@ -21,6 +21,7 @@ in {
           enable = mkBool {};
           autologin.enable = mkBool {};
         };
+        lutris.enable = mkBool {};
         nvidia.enable = mkBool {};
         plasma5.enable = mkBool {};
         steam.enable = mkBool {};

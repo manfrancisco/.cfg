@@ -13,6 +13,7 @@
     hyprland.enable = true;
     # Do not enable when other DE's are enabled
     hyprland.autologin.enable = true;
+    lutris.enable = true;
     nvidia.enable = true;
     steam.enable = true;
   };
@@ -28,12 +29,6 @@
       btrfs-progs
       chromium
       libreoffice
-      (lutris.override {
-        extraLibraries = pkgs: [ ];
-        extraPkgs = pkgs: [ ];
-      })
-      wineWowPackages.stable
-      winetricks
     ];
 
     wayland.windowManager.hyprland.settings = ifHyprland {

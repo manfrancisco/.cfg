@@ -1,9 +1,10 @@
-{ pkgs, ... }:
+{ ... }:
 {
 
   imports = [
     ./sh
     ./desktop
+    ./lutris.nix
     ./nvim.nix
   ];
 

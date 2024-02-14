@@ -14,6 +14,7 @@
       # Not compatible with desktop managers
       autologin.enable = true;
     };
+    lutris.enable = true;
   };
 
   home-manager.users.me = { pkgs, ... }: {
