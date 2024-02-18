@@ -23,8 +23,22 @@
 
   my.cpu = "amd";
 
-  sops.secrets.luks-key-data = {
-    sopsFile = ../secrets/nixos-home-server.yaml;
+  my.server.nextcloud = {
+    enable = true;
+    domain = "nc.mdorst.net";
+  };
+
+  sops.secrets = {
+    luks-key-data = {
+      sopsFile = ../secrets/nixos-home-server.yaml;
+    };
+    nextcloud-admin-pass = {
+      sopsFile = ../secrets/nixos-home-server.yaml;
+      owner = "nextcloud";
+      group = "nextcloud";
+      # Restart units when the password changes
+      restartUnits = [ "phpfpm-nextcloud.service" ];
+    };
   };
 
   boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/a4422541-92d3-4c39-8a04-8d06479bd716";

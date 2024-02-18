@@ -13,6 +13,15 @@ in {
         type = types.enum [ "amd" "intel" ];
         default = "intel";
       };
+      server = {
+        nextcloud = {
+          enable = mkBool {};
+          domain = mkOption {
+            type = types.str;
+            default = "";
+          };
+        };
+      };
       desktop = {
         enable = mkBool {};
         cinnamon.enable = mkBool {};
