@@ -18,6 +18,8 @@
     steam.enable = true;
   };
 
+  programs.npm.enable = true;
+
   home-manager.users.me = { lib, osConfig, pkgs, ... }:
   let
     ifHyprland = lib.mkIf osConfig.my.desktop.hyprland.enable;
@@ -29,6 +31,7 @@
       btrfs-progs
       chromium
       libreoffice
+      nodejs
     ];
 
     wayland.windowManager.hyprland.settings = ifHyprland {
