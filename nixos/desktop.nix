@@ -11,10 +11,14 @@
   my.desktop = {
     enable = true;
     hyprland.enable = true;
+    # Do not enable when other DE's are enabled
     hyprland.autologin.enable = true;
+    lutris.enable = true;
     nvidia.enable = true;
     steam.enable = true;
   };
+
+  programs.npm.enable = true;
 
   home-manager.users.me = { lib, osConfig, pkgs, ... }:
   let
@@ -27,6 +31,7 @@
       btrfs-progs
       chromium
       libreoffice
+      nodejs
     ];
 
     wayland.windowManager.hyprland.settings = ifHyprland {

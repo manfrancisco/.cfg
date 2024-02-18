@@ -21,6 +21,7 @@
       # Case-insensitive search.
       ignorecase = true;
       number = true;
+      scrolloff = 8;
       shiftwidth = 4;
       # Don't hide the signcolumn when there are no signs to show.
       signcolumn = "yes";
@@ -32,9 +33,9 @@
       tabstop = 4;
       # Wrap text to 100 characters.
       textwidth = 99;
-      # Wait `timeoutlen` milliseconds for a mapped sequence to complete.
-      timeout = true;
-      timeoutlen = 300;
+      # Wait `timeoutlen` milliseconds for a mapped sequence to complete. Useful for `jk` remap.
+      # timeout = true;
+      # timeoutlen = 300;
       undodir = "${config.xdg.configHome}/nvim/undodir";
       undofile = true;
       # Word wrap.
@@ -55,6 +56,10 @@
         ];
         command = "setlocal ts=2 sw=2";
       }
+      {
+        event = [ "TextYankPost" ];
+        command = ''lua vim.highlight.on_yank { higroup="IncSearch", timeout=500 }'';
+      }
     ];
 
     keymaps = let
@@ -69,15 +74,20 @@
       # Unmap keys that aren't useful, or that we want to use for different things
       (nvmap "<Space>" "<Nop>" // silent)
       (nvmap "<Cr>" "<Nop>" // silent)
-      (nvmap "s" "<Nop>" // silent)
+      (nmap "s" "<Nop>" // silent)
       # Leave insert mode by pressing j and k simultaneously
-      (imap "jk" "<Esc>")
-      (imap "kj" "<Esc>")
+      # (imap "jk" "<Esc>")
+      # (imap "kj" "<Esc>")
+      # Leave insert mode by pressing Ctrl+;
+      (imap "<C-;>" "<Esc>")
       # Redo
       (nmap "R" "<C-r>")
       # Copy and paste
-      (nvmap "<leader>y" "\"+y" // desc "Cop[y] to clipboard")
+      (nvmap "<leader>y" "\"+y" // desc "Cop[y] selection to clipboard")
       (nvmap "<leader>p" "\"+p" // desc "[P]aste from clipboard")
+      (nvmap "<leader>P" "\"+P" // desc "[P]aste from clipboard (on line above)")
+      # # Copy to end of line
+      (nmap "Y" "y$")
       # Jump to start/end of line
       (nvmap "H" "0")
       (nvmap "L" "$")
@@ -87,10 +97,17 @@
       # Center cursor when jumping foward or back
       (nmap "<C-o>" "<C-o>zz")
       (nmap "<C-i>" "<C-i>zz")
+      # Switch between windows
+      (nmap "<C-h>" "<C-w>h")
+      (nmap "<C-l>" "<C-w>l")
+      (nmap "<C-j>" "<C-w>j")
+      (nmap "<C-k>" "<C-w>k")
+      # Open neo-tree
+      (nmap "<leader>f" ":Neotree toggle<Cr>" // desc "Open neo-tree")
+      (nmap "<leader>b" ":Neotree buffers<Cr>" // desc "Show open [B]uffers in neo-tree")
     ];
 
     plugins = {
-      autoclose.enable = true;
       comment-nvim.enable = true;
       fidget.enable = true;
       fugitive.enable = true;
@@ -114,10 +131,15 @@
         };
       };
       # lsp-format.enable = true;
+      neo-tree = {
+        enable = true;
+        closeIfLastWindow = true;
+      };
       none-ls = {
         enable = true;
         # enableLspFormat = true;
       };
+      nvim-autopairs.enable = true;
       nvim-cmp = {
         enable = true;
         autoEnableSources = true;

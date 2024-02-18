@@ -5,6 +5,7 @@
     ./gnome.nix
     ./hyprland.nix
     ./nvidia.nix
+    ./plasma5.nix
     ./sh.nix
     ./sound.nix
     ./steam.nix

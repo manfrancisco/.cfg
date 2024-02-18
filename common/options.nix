@@ -19,9 +19,12 @@ in {
         gnome.enable = mkBool {};
         hyprland = {
           enable = mkBool {};
+          # Do not enable when other DE's are enabled
           autologin.enable = mkBool {};
         };
+        lutris.enable = mkBool {};
         nvidia.enable = mkBool {};
+        plasma5.enable = mkBool {};
         steam.enable = mkBool {};
       };
     };
