@@ -25,7 +25,11 @@
 
   my.server.nextcloud = {
     enable = true;
-    domain = "nc.mdorst.net";
+    domain = "nixos-home-server.shetland-pangolin.ts.net";
+    extraTrustedDomains = [
+      "nixos-home-server"
+      "10.0.0.2"
+    ];
   };
 
   sops.secrets = {

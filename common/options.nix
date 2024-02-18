@@ -3,22 +3,26 @@
 let
   mkBool = attrs: lib.mkOption { type = lib.types.bool; default = false; } // attrs;
 in {
-  options = with lib; {
+  options = with lib; with types; {
     my = {
       arch = mkOption {
-        type = types.enum [ "x86_64-linux" ];
+        type = enum [ "x86_64-linux" ];
         default = "x86_64-linux";
       };
       cpu = mkOption {
-        type = types.enum [ "amd" "intel" ];
+        type = enum [ "amd" "intel" ];
         default = "intel";
       };
       server = {
         nextcloud = {
           enable = mkBool {};
           domain = mkOption {
-            type = types.str;
+            type = str;
             default = "";
+          };
+          extraTrustedDomains = mkOption {
+            type = listOf str;
+            default = [];
           };
         };
       };
