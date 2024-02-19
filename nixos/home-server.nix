@@ -9,6 +9,8 @@
 
   networking.hostName = "nixos-home-server";
 
+  my.cpu = "amd";
+
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 22 80 443 ];
@@ -20,8 +22,6 @@
       ../home
     ];
   };
-
-  my.cpu = "amd";
 
   my.server.nextcloud = {
     enable = true;
