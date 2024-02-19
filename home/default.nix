@@ -14,5 +14,7 @@
     stateVersion = "23.05";
   };
 
+  nixpkgs.config.allowUnfree = true;
+
   programs.home-manager.enable = true;
 }
