@@ -30,6 +30,8 @@
     home.packages = with pkgs; [
       btrfs-progs
       chromium
+      discord
+      element-desktop
       libreoffice
       nodejs
     ];

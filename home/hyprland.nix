@@ -40,10 +40,7 @@ in {
 
     fonts.fontconfig.enable = true;
 
-    nixpkgs.config = {
-      allowUnfree = true;
-      joypixels.acceptLicense = true;
-    };
+    nixpkgs.config.joypixels.acceptLicense = true;
 
     wayland.windowManager.hyprland = {
       enable = true;
