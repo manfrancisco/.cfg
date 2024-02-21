@@ -14,22 +14,28 @@
       };
     };
   } // lib.mkIf config.my.server.minecraft.atm9.enable {
-      services.modded-minecraft-servers = {
-        eula = true;
-        instances = {
-          atm9 = {
-            enable = true;
-            jvmPackage = pkgs.jdk17;
-            serverConfig = {
-              server-port = 25565;
-              rcon-port = 25566;
-              rcon-password = "12345";
-              motd = "Welcome to BIG Minecraft";
-            };
-            rsyncSSHKeys = import ../../common/ssh-keys.nix;
+    services.modded-minecraft-servers = {
+      eula = true;
+      instances = {
+        atm9 = {
+          enable = true;
+          jvmPackage = pkgs.jdk17;
+          serverConfig = {
+            server-port = 25565;
+            rcon-port = 25566;
+            rcon-password = "12345";
+            motd = "Welcome to BIG Minecraft";
           };
+          rsyncSSHKeys = import ../../common/ssh-keys.nix;
         };
       };
-      users.users.me.extraGroups = [ "mc-atm9" ];
+    };
+    # users.users.me.extraGroups = [ "mc-atm9" ];
+  } // lib.mkIf true {
+    # Necessary due to a bug in the modded-minecraft-servers flake.
+    services.modded-minecraft-servers = {
+      eula = true;
+      instances = {};
+    };
   };
 }

@@ -35,6 +35,7 @@
         specialArgs = { inherit (nixvim.homeManagerModules) nixvim; };
         modules = [
           home-manager.nixosModules.home-manager
+          modded-minecraft-servers.module
           sops-nix.nixosModules.sops
           ./nixos/desktop.nix
         ];
