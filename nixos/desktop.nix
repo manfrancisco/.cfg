@@ -35,6 +35,7 @@
       libreoffice
       minecraft
       nodejs
+      prismlauncher
       rcon
     ];
 
