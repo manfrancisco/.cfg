@@ -4,6 +4,7 @@
     ./cinnamon.nix
     ./gnome.nix
     ./hyprland.nix
+    ./minecraft.nix
     ./nextcloud-server.nix
     ./nvidia.nix
     ./plasma5.nix

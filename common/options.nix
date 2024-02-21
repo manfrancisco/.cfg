@@ -25,6 +25,10 @@ in {
             default = [];
           };
         };
+        minecraft = {
+          vanilla.enable = mkBool {};
+          atm9.enable = mkBool {};
+        };
       };
       desktop = {
         enable = mkBool {};

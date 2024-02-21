@@ -23,19 +23,7 @@
     ];
   };
 
-  services.minecraft-server = {
-    enable = true;
-    eula = true;
-    dataDir = "/data/Minecraft/Vanilla";
-    openFirewall = true;
-    declarative = true;
-    serverProperties = {
-      server-port = 25565;
-      difficulty = 3;
-      gamemode = 1;
-      motd = "Welcome to Minecraft on NixOS!";
-    };
-  };
+  my.server.minecraft.atm9.enable = true;
 
   my.server.nextcloud = {
     enable = true;
