@@ -33,7 +33,9 @@
       discord
       element-desktop
       libreoffice
+      minecraft
       nodejs
+      rcon
     ];
 
     wayland.windowManager.hyprland.settings = ifHyprland {
