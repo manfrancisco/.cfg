@@ -48,9 +48,13 @@
         "1, monitor:DP-3"
         "2, monitor:DP-3"
         "3, monitor:DP-3"
-        "4, monitor:HDMI-A-1"
-        "5, monitor:HDMI-A-1"
+        "4, monitor:DP-3"
+        "5, monitor:DP-3"
         "6, monitor:HDMI-A-1"
+        "7, monitor:HDMI-A-1"
+        "8, monitor:HDMI-A-1"
+        "9, monitor:HDMI-A-1"
+        "10, monitor:HDMI-A-1"
       ];
     };
 
