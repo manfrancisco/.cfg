@@ -34,6 +34,7 @@
       element-desktop
       libreoffice
       minecraft
+      mpv
       nodejs
       prismlauncher
       rcon
