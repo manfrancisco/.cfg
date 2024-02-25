@@ -10,6 +10,9 @@
         server-port = 25565;
         difficulty = 3;
         gamemode = 1;
+        # 5 minute tick timeout
+        max-tick-time = 5 * 60 * 1000;
+        allow-flight = true;
         motd = "Welcome to Minecraft on NixOS!";
       };
     };
