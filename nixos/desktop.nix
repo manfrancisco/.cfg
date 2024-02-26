@@ -8,14 +8,17 @@
 
   networking.hostName = "nixos-desktop";
 
-  my.desktop = {
-    enable = true;
-    hyprland.enable = true;
-    # Do not enable when other DE's are enabled
-    hyprland.autologin.enable = true;
-    lutris.enable = true;
-    nvidia.enable = true;
-    steam.enable = true;
+  my = {
+    cpu = "amd";
+    desktop = {
+      enable = true;
+      hyprland.enable = true;
+      # Do not enable when other DE's are enabled
+      hyprland.autologin.enable = true;
+      lutris.enable = true;
+      nvidia.enable = true;
+      steam.enable = true;
+    };
   };
 
   programs.npm.enable = true;
