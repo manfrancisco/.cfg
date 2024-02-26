@@ -65,8 +65,8 @@
         specialArgs = { inherit (nixvim.homeManagerModules) nixvim; };
         modules = [
           home-manager.nixosModules.home-manager
-          nixos-hardware.nixosModules.apple-t2
-          ./iso
+          modded-minecraft-servers.module
+          ./iso.nix
         ];
       };
     };
