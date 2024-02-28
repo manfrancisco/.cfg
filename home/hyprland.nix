@@ -49,7 +49,7 @@ in {
 
         exec-once = [
           "waybar-launch"
-          "set-bg ${homeDir}/wallpaper/lo-fi/study-girl.jpg"
+          "set-bg ${homeDir}/walls/mountain/half_dome_yosemite_national_park_elle_zhu.jpg"
         ];
 
         "$mod" = mkDefault "Alt";
