@@ -55,14 +55,14 @@ in {
         "$mod" = mkDefault "Alt";
 
         bind = [
-          "$mod Shift, X, killactive"
-          "$mod Shift, P, exit"
-          "$mod Shift, F, togglefloating"
           "$mod, Return, exec, kitty"
           "$mod, Space, exec, wofi-launch"
+          "$mod Shift, X, killactive"
+          "$mod, F, togglefloating"
+          "$mod Shift, F, fullscreen"
           "$mod, N, togglesplit"
-          "$mod, F, fullscreen"
           "$mod, P, pseudo"
+          "$mod Shift, P, exit"
 
           # Volume controls
           ",XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
