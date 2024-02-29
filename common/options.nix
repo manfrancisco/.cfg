@@ -29,6 +29,7 @@ in {
           vanilla.enable = mkBool {};
           atm9.enable = mkBool {};
         };
+        mysql.enable = mkBool {};
       };
       desktop = {
         enable = mkBool {};

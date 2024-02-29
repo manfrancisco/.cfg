@@ -20,6 +20,7 @@
       steam.enable = true;
     };
   };
+  my.server.mysql.enable = true;
 
   programs.npm.enable = true;
 
