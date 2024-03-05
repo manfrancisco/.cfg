@@ -36,6 +36,7 @@
       chromium
       discord
       element-desktop
+      godot_4
       libreoffice
       minecraft
       mpv
