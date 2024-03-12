@@ -20,6 +20,7 @@
     eza
     fd
     fzf
+    jq
     kitty
     lazygit
     man
