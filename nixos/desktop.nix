@@ -43,6 +43,7 @@
       nodejs
       prismlauncher
       rcon
+      stress
     ];
 
     wayland.windowManager.hyprland.settings = ifHyprland {
