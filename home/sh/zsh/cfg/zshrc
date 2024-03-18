@@ -8,7 +8,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # Set theme
 ZSH_THEME="robbyrussell"
 
-plugins=(rust gitfast)
+plugins=(rust gitfast fzf)
 
 source $ZSH/oh-my-zsh.sh
 
