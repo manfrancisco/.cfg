@@ -25,6 +25,8 @@
 
   programs.npm.enable = true;
 
+  programs.nix-ld.enable = true;
+
   home-manager.users.me = { lib, osConfig, pkgs, ... }:
   let
     ifHyprland = lib.mkIf osConfig.my.desktop.hyprland.enable;
@@ -37,6 +39,7 @@
       chromium
       discord
       element-desktop
+      gnumake # nvim
       godot_4
       insomnia
       libreoffice
@@ -47,6 +50,7 @@
       prismlauncher
       rcon
       stress
+      unzip # nvim
     ];
 
     wayland.windowManager.hyprland.settings = ifHyprland {
