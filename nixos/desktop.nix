@@ -19,6 +19,7 @@
       nvidia.enable = true;
       steam.enable = true;
     };
+    sh.nixvim.enable = false;
   };
   my.server.mysql.enable = true;
 
@@ -42,6 +43,7 @@
       minecraft
       mpv
       nodejs
+      neovim
       prismlauncher
       rcon
       stress
