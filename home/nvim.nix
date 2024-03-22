@@ -134,24 +134,24 @@
         enable = true;
         closeIfLastWindow = true;
       };
-      none-ls = {
-        enable = true;
-        # enableLspFormat = true;
-      };
+      # none-ls = {
+      #   enable = true;
+      #   # enableLspFormat = true;
+      # };
       nvim-autopairs.enable = true;
-      nvim-cmp = {
+      cmp = {
         enable = true;
         autoEnableSources = true;
-        sources = [
+        settings.sources = [
           { name = "buffer"; }
           { name = "luasnip"; }
           { name = "nvim_lsp"; }
           { name = "path"; }
         ];
-        mapping = {
+        settings.mapping = {
           "<CR>" = "cmp.mapping.confirm({ select = true })";
-          "<Tab>" = {
-            action = ''
+          "<Tab>" = ''
+            cmp.mapping(
               function(fallback)
                   luasnip = require('luasnip')
                   if cmp.visible() then
@@ -161,12 +161,12 @@
                   else
                     fallback()
                   end
-              end
-            '';
-            modes = [ "i" "s" ];
-          };
-          "<S-Tab>" = {
-            action = ''
+              end,
+              { 'i', 's'}
+            )
+          '';
+          "<S-Tab>" = ''
+            cmp.mapping(
               function(fallback)
                   luasnip = require('luasnip')
                   if cmp.visible() then
@@ -176,10 +176,10 @@
                   else
                     fallback()
                   end
-              end
-            '';
-            modes = [ "i" "s" ];
-          };
+              end,
+              { 'i', 's' }
+            )
+          '';
         };
       };
       oil.enable = true;
