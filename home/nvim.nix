@@ -73,11 +73,7 @@
     in [
       # Unmap keys that aren't useful, or that we want to use for different things
       (nvmap "<Space>" "<Nop>" // silent)
-      (nvmap "<Cr>" "<Nop>" // silent)
       (nmap "s" "<Nop>" // silent)
-      # Leave insert mode by pressing j and k simultaneously
-      # (imap "jk" "<Esc>")
-      # (imap "kj" "<Esc>")
       # Leave insert mode by pressing Ctrl+;
       (imap "<C-;>" "<Esc>")
       # Redo
@@ -86,8 +82,11 @@
       (nvmap "<leader>y" "\"+y" // desc "Cop[y] selection to clipboard")
       (nvmap "<leader>p" "\"+p" // desc "[P]aste from clipboard")
       (nvmap "<leader>P" "\"+P" // desc "[P]aste from clipboard (on line above)")
-      # # Copy to end of line
+      # Copy to end of line
       (nmap "Y" "y$")
+      # Enter newline without entering insert mode
+      (nvmap "<Cr>" "o<Esc>")
+      (nvmap "<S-Cr>" "O<Esc>")
       # Jump to start/end of line
       (nvmap "H" "0")
       (nvmap "L" "$")
@@ -103,7 +102,7 @@
       (nmap "<C-j>" "<C-w>j")
       (nmap "<C-k>" "<C-w>k")
       # Open neo-tree
-      (nmap "<leader>f" ":Neotree toggle<Cr>" // desc "Open neo-tree")
+      (nmap "<leader>f" ":Neotree toggle<Cr>" // desc "Toggle neo-tree")
       (nmap "<leader>b" ":Neotree buffers<Cr>" // desc "Show open [B]uffers in neo-tree")
     ];
 
