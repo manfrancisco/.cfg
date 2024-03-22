@@ -37,6 +37,7 @@
       discord
       element-desktop
       godot_4
+      insomnia
       libreoffice
       minecraft
       mpv
