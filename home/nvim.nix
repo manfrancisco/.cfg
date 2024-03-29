@@ -11,7 +11,7 @@
     options = {
       # Indent wrapped text.
       breakindent = true;
-      colorcolumn = "100";
+      # colorcolumn = "100";
       # This is the default value. `:help cot` to see the available options.
       completeopt = "menu,preview";
       cursorline = true;
@@ -32,7 +32,7 @@
       swapfile = false;
       tabstop = 4;
       # Wrap text to 100 characters.
-      textwidth = 99;
+      # textwidth = 99;
       # Wait `timeoutlen` milliseconds for a mapped sequence to complete. Useful for `jk` remap.
       # timeout = true;
       # timeoutlen = 300;
