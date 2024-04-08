@@ -19,10 +19,13 @@
       nvidia.enable = true;
       steam.enable = true;
     };
+    sh.nixvim.enable = false;
   };
   my.server.mysql.enable = true;
 
   programs.npm.enable = true;
+
+  programs.nix-ld.enable = true;
 
   home-manager.users.me = { lib, osConfig, pkgs, ... }:
   let
@@ -36,15 +39,18 @@
       chromium
       discord
       element-desktop
+      gnumake # nvim
       godot_4
       insomnia
       libreoffice
       minecraft
       mpv
       nodejs
+      neovim
       prismlauncher
       rcon
       stress
+      unzip # nvim
     ];
 
     wayland.windowManager.hyprland.settings = ifHyprland {
