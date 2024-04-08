@@ -49,7 +49,7 @@ in {
 
         exec-once = [
           "waybar-launch"
-          "set-bg ${homeDir}/walls/mountain/half_dome_yosemite_national_park_elle_zhu.jpg"
+          # "set-bg ${homeDir}/walls/mountain/half_dome_yosemite_national_park_elle_zhu.jpg"
         ];
 
         "$mod" = mkDefault "Alt";
@@ -125,6 +125,11 @@ in {
           ])
           [ "XCURSOR_SIZE, 24" ]
         ];
+
+        misc = {
+          disable_splash_rendering = true;
+          force_default_wallpaper = 2;
+        };
 
         general = {
           gaps_in = 5;
