@@ -45,6 +45,9 @@ in {
         plasma5.enable = mkBool {};
         steam.enable = mkBool {};
       };
+      sh = {
+        nixvim.enable = mkBool { default = true; };
+      };
     };
   };
 }
