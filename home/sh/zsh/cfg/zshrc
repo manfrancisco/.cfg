@@ -70,6 +70,7 @@ abbr grah="git add -A && git reset --hard"
 abbr c='cargo'
 abbr cb='cargo build'
 abbr cbr='cargo build --release'
+abbr ccl='cargo clippy'
 abbr cr='cargo run'
 abbr crr='cargo run --release'
 abbr ct='cargo test'
