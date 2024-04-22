@@ -29,7 +29,6 @@
     ouch
     psmisc # killall
     ripgrep
-    rustup
     starship
     stow
     tldr
