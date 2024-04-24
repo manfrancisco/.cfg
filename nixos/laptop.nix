@@ -7,14 +7,17 @@
 
   networking.hostName = "nixos-laptop";
 
-  my.desktop = {
-    enable = true;
-    hyprland = {
+  my = {
+    desktop = {
       enable = true;
-      # Not compatible with desktop managers
-      autologin.enable = true;
+      hyprland = {
+        enable = true;
+        # Not compatible with desktop managers
+        autologin.enable = true;
+      };
+      lutris.enable = true;
     };
-    lutris.enable = true;
+    sh.nixvim.enable = false;
   };
 
   home-manager.users.me = { pkgs, ... }: {
