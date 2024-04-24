@@ -15,7 +15,7 @@ in {
         '')
       ];
 
-      file."${configHome}/wofi/style.css".source = ./cfg/style.css;
+      file."${configHome}/wofi/style.css".source = ./cfg/wofi.css;
     };
   };
 }

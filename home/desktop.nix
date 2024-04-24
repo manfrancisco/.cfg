@@ -1,8 +1,8 @@
-{ lib, osConfig, pkgs, ... }:
+{ config, lib, osConfig, pkgs, ... }:
 {
   imports = [
-    ../gnome.nix
-    ../hyprland.nix
+    ./gnome.nix
+    ./hyprland.nix
   ];
 
   config = lib.mkIf osConfig.my.desktop.enable {
@@ -19,7 +19,7 @@
       };
     };
 
-    programs.browserpass.enable = true;
+    programs.browserpass.enable = config.my.sh.pass.enable;
 
     services.gpg-agent.pinentryPackage = pkgs.pinentry-qt;
   };

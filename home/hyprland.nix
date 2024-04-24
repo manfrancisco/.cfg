@@ -1,11 +1,7 @@
-{ config, lib, osConfig, pkgs, ... }:
-let
-  inherit (lib) mkDefault;
-  homeDir = config.home.homeDirectory;
-in {
+{ lib, osConfig, pkgs, ... }: {
   imports = [
-    ./waybar
-    ./wofi
+    ./waybar.nix
+    ./wofi.nix
   ];
 
   config = lib.mkIf osConfig.my.desktop.hyprland.enable {
@@ -45,14 +41,14 @@ in {
     wayland.windowManager.hyprland = {
       enable = true;
       settings = {
-        monitor = mkDefault ",preferred, auto, auto";
+        monitor = lib.mkDefault ",preferred, auto, auto";
 
         exec-once = [
           "waybar-launch"
           # "set-bg ${homeDir}/walls/mountain/half_dome_yosemite_national_park_elle_zhu.jpg"
         ];
 
-        "$mod" = mkDefault "Alt";
+        "$mod" = lib.mkDefault "Alt";
 
         bind = [
           "$mod, Return, exec, kitty"

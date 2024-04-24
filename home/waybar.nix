@@ -23,8 +23,8 @@ in {
       ];
 
       file = {
-        "${configHome}/waybar/config".source = ./cfg/config;
-        "${configHome}/waybar/style.css".source = ./cfg/style.css;
+        "${configHome}/waybar/config".source = ./cfg/waybar-config;
+        "${configHome}/waybar/style.css".source = ./cfg/waybar.css;
       };
     };
   };

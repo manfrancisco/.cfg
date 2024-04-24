@@ -3,7 +3,7 @@
 
   imports = [
     ./sh.nix
-    ./desktop
+    ./desktop.nix
     ./lutris.nix
     ./nixvim.nix
   ];
