@@ -227,15 +227,16 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1669478601,
-        "narHash": "sha256-IQcS8IPeXvSoIrQRPgtnLxAs0Pkh8wmglDAtqE4ivNo=",
-        "owner": "mkaito",
+        "lastModified": 1710617898,
+        "narHash": "sha256-C1HZAKfz9SjpBLc2nY3dIpq8EusrubS710WX9NX/ULs=",
+        "owner": "frantisekhanzlikbl",
         "repo": "nixos-modded-minecraft-servers",
-        "rev": "68f2066499c035fd81c9dacfea2f512d6b0b62e5",
+        "rev": "e68caaf082f11896e190aa22036e869475d06553",
         "type": "github"
       },
       "original": {
-        "owner": "mkaito",
+        "owner": "frantisekhanzlikbl",
+        "ref": "patch-1",
         "repo": "nixos-modded-minecraft-servers",
         "type": "github"
       }

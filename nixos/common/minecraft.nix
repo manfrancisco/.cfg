@@ -31,11 +31,5 @@
       };
     };
     # users.users.me.extraGroups = [ "mc-atm9" ];
-  } // lib.mkIf true {
-    # Necessary due to a bug in the modded-minecraft-servers flake.
-    services.modded-minecraft-servers = {
-      eula = true;
-      instances = {};
-    };
   };
 }

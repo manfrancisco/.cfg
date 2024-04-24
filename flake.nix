@@ -14,7 +14,7 @@
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    modded-minecraft-servers.url = "github:mkaito/nixos-modded-minecraft-servers";
+    modded-minecraft-servers.url = "github:frantisekhanzlikbl/nixos-modded-minecraft-servers/patch-1";
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -53,6 +53,7 @@
         specialArgs = { inherit (nixvim.homeManagerModules) nixvim; };
         modules = [
           home-manager.nixosModules.home-manager
+          modded-minecraft-servers.module
           nixos-hardware.nixosModules.apple-t2
           ./nixos/laptop.nix
         ];
