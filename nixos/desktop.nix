@@ -34,23 +34,20 @@
   in {
     imports = [ ../home nixvim ];
 
+    my.sh = {
+      nvim.enable = true;
+      btrfs.enable = true;
+    };
+
     home.packages = with pkgs; [
-      btrfs-progs
-      chromium
-      discord
-      element-desktop
-      gnumake # nvim
       godot_4
-      insomnia
+      insomnia # api endpoint tester
       libreoffice
-      minecraft
-      mpv
+      mpv # video player
       nodejs
-      neovim
-      prismlauncher
-      rcon
-      stress
-      unzip # nvim
+      prismlauncher # modded minecraft launcher
+      rcon # minecraft remote console
+      stress # cpu stress tester
     ];
 
     wayland.windowManager.hyprland.settings = ifHyprland {

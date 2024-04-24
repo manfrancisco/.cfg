@@ -2,7 +2,7 @@
 {
 
   imports = [
-    ./sh
+    ./sh.nix
     ./desktop
     ./lutris.nix
     ./nvim.nix
