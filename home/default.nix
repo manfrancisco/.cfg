@@ -5,7 +5,7 @@
     ./sh.nix
     ./desktop
     ./lutris.nix
-    ./nvim.nix
+    ./nixvim.nix
   ];
 
   home = {
