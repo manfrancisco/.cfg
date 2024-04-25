@@ -1,5 +1,6 @@
-{ config, lib, ... }:
-{
+{ config, lib, ... }: {
+  options.my.cinnamon = lib.my.mkEnableOption false;
+
   config = lib.mkIf config.my.cinnamon.enable {
     services.xserver = {
       enable = true;

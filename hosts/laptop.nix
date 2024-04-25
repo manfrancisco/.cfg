@@ -1,8 +1,7 @@
 { nixvim, pkgs, ... }:
 {
   imports = [
-    ../common/options.nix
-    ./common
+    ./nixos
   ];
 
   networking.hostName = "nixos-laptop";

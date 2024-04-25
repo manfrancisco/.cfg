@@ -1,15 +1,15 @@
 { nixvim, ... }:
 {
   imports = [
-    ../common/options.nix
-    ./common
-    ./common/sops.nix
-    ./common/ssh-luks.nix
+    ./nixos
   ];
 
   networking.hostName = "nixos-home-server";
 
   my.cpu = "amd";
+
+  my.ssh-luks.enable = true;
+  my.sops.enable = true;
 
   networking.firewall = {
     enable = true;
@@ -23,9 +23,9 @@
     ];
   };
 
-  my.server.minecraft.atm9.enable = true;
+  my.minecraft.server.atm9.enable = true;
 
-  my.server.nextcloud = {
+  my.nextcloud.server = {
     enable = true;
     domain = "nixos-home-server.shetland-pangolin.ts.net";
     extraTrustedDomains = [

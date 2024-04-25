@@ -1,5 +1,7 @@
 { config, lib, pkgs, ... }: {
-  config = lib.mkIf config.my.server.mysql.enable {
+  options.my.mysql = lib.my.mkEnableOption false;
+
+  config = lib.mkIf config.my.mysql.enable {
     services.mysql = {
       enable = true;
       package = pkgs.mariadb;

@@ -1,9 +1,21 @@
 { config, lib, pkgs, ... }: {
-  config = lib.mkIf config.my.server.nextcloud.enable {
+  options.my.nextcloud.server = {
+    enable = lib.my.mkBoolOption false;
+    domain = lib.mkOption {
+      type = lib.types.str;
+      default = "";
+    };
+    extraTrustedDomains = lib.mkOption {
+      type = lib.listOf lib.types.str;
+      default = [];
+    };
+  };
+
+  config = lib.mkIf config.my.nextcloud.server.enable {
     services = {
       nextcloud = {
         enable = true;
-        hostName = config.my.server.nextcloud.domain;
+        hostName = config.my.nextcloud.server.domain;
         package = pkgs.nextcloud28;
         # Install and configure the database automatically
         database.createLocally = true;
@@ -21,7 +33,7 @@
         settings = {
           overwriteProtocol = "https";
           defaultPhoneRegion = "US";
-          trusted_domains = config.my.server.nextcloud.extraTrustedDomains;
+          trusted_domains = config.my.nextcloud.server.extraTrustedDomains;
         };
         # Suggested by Nextcloud's health check
         phpOptions."opcache.interned_strings_buffer" = "16";

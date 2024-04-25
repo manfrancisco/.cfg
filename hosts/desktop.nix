@@ -1,8 +1,6 @@
 { nixvim, ... }:
 {
   imports = [
-    ../common/options.nix
-    ../nixos/sops.nix
     ../nixos
   ];
 
@@ -16,10 +14,11 @@
       autologin.enable = true;
     };
     nvidia.enable = true;
+    sops.enable = true;
     sound.enable = true;
     steam.enable = true;
   };
-  my.server.mysql.enable = true;
+  my.mysql.enable = true;
 
   programs.npm.enable = true;
 

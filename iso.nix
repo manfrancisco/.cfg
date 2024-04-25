@@ -1,8 +1,7 @@
 { nixvim, pkgs, ... }:
 {
   imports = [
-    ./common/options.nix
-    ./nixos/common
+    ./nixos
   ];
 
   home-manager.users.me = { ... }: {

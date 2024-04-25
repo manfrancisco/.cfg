@@ -1,5 +1,6 @@
-{ config, lib, ... }:
-{
+{ config, lib, ... }: {
+  options.my.sound = lib.my.mkEnableOption false;
+
   config = lib.mkIf config.my.sound.enable {
     security.rtkit.enable = true;
     services.pipewire = {

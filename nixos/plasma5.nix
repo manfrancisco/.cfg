@@ -1,5 +1,6 @@
-{ config, lib, pkgs, ... }:
-{
+{ config, lib, pkgs, ... }: {
+  options.my.plasma5 = lib.my.mkEnableOption false;
+
   config = lib.mkIf config.my.plasma5.enable {
     services.xserver = {
       enable = true;

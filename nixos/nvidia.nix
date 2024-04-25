@@ -1,5 +1,6 @@
-{ config, lib, ... }:
-{
+{ config, lib, ... }: {
+  options.my.nvidia = lib.my.mkEnableOption false;
+
   config = lib.mkIf config.my.nvidia.enable {
     hardware.opengl = {
       enable = true;
@@ -18,10 +19,10 @@
 
       # Nvidia power management. Experimental, and can cause sleep/suspend to fail.
       powerManagement = {
-	enable = false;
-	# Fine-grained power management. Turns off GPU when not in use.
-	# Experimental and only works on modern Nvidia GPUs (Turing or newer).
-	finegrained = false;
+        enable = false;
+        # Fine-grained power management. Turns off GPU when not in use.
+        # Experimental and only works on modern Nvidia GPUs (Turing or newer).
+        finegrained = false;
       };
       # Use the NVidia open source kernel module (not to be confused with the
       # independent third-party "nouveau" open source driver).

@@ -1,5 +1,6 @@
-{ config, lib, pkgs, ... }:
-{
+{ config, lib, pkgs, ... }: {
+  options.my.gnome = lib.my.mkEnableOption false;
+
   config = lib.mkIf config.my.gnome.enable {
     services.xserver = {
       enable = true;
