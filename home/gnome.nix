@@ -1,6 +1,10 @@
-{ osConfig, lib, ... }:
-{
-  config = lib.mkIf osConfig.my.desktop.gnome.enable {
+{ config, lib, ... }:
+let
+  lib' = import ../lib.nix { inherit lib; };
+in {
+  options.my.gnome = lib'.mkEnableOption false;
+
+  config = lib.mkIf config.my.gnome.enable {
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         clock-show-weekday = true;

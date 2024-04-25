@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 {
-  config = lib.mkIf config.my.desktop.gnome.enable {
+  config = lib.mkIf config.my.gnome.enable {
     services.xserver = {
       enable = true;
       displayManager.gdm.enable = lib.mkDefault true;

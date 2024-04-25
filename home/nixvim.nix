@@ -1,5 +1,10 @@
-{ config, lib, osConfig, ... }: {
-  config = lib.mkIf osConfig.my.sh.nixvim.enable {
+{ config, lib, ... }:
+let
+  lib' = import ../lib.nix { inherit lib; };
+in {
+  options.my.nixvim = lib'.mkEnableOption false;
+
+  config = lib.mkIf config.my.nixvim.enable {
     programs.nixvim = {
       enable = true;
 

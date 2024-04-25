@@ -1,10 +1,5 @@
-{ lib, osConfig, pkgs, ... }: {
-  imports = [
-    ./waybar.nix
-    ./wofi.nix
-  ];
-
-  config = lib.mkIf osConfig.my.desktop.hyprland.enable {
+{ config, lib, osConfig, pkgs, ... }: {
+  config = lib.mkIf osConfig.my.hyprland.enable {
     home = {
       packages = with pkgs; [
         grim
@@ -16,6 +11,8 @@
         psmisc # killall
         slurp
         swaybg
+        waybar
+        wofi
         (writeShellScriptBin "set-bg" ''
           # Exit if the wrong number of arguments are passed
           [ $# -eq 1 ] || exit 1
@@ -23,14 +20,41 @@
           ${psmisc}/bin/killall -q swaybg
           ${swaybg}/bin/swaybg -i "$1" &>/dev/null & disown
         '')
+        (writeShellScriptBin "waybar-launch" ''
+          CONFIG="${config.xdg.configHome}/waybar/config"
+          STYLESHEET="${config.xdg.configHome}/waybar/style.css"
+          CONFIG_FILES="$CONFIG $STYLESHEET"
+
+          trap "killall .waybar-wrapped" EXIT
+
+          while true; do
+            waybar &
+            # Kill and restart waybar if its config changes
+            inotifywait -e create,modify $CONFIG_FILES
+            killall .waybar-wrapped
+          done
+        '')
+        (writeShellScriptBin "wofi-launch" ''
+          ${psmisc}/bin/killall -q wofi
+          # Wait until the processes have been shut down
+          while pgrep -x wofi >/dev/null; do sleep 1; done
+
+          ${wofi}/bin/wofi --show=drun --lines=5 --prompt="" --hide-scroll --insensitive --columns=2
+        '')
       ];
 
-      file.".zprofile" = lib.mkIf osConfig.my.desktop.hyprland.autologin.enable {
-        text = ''
-          # This script will be run at first login.
-          # If no graphical session is running and we're on tty1, start Hyrland.
-          [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ] && Hyprland
-        '';
+      file = {
+        "${config.xdg.configHome}/wofi/style.css".source = ./cfg/wofi.css;
+        "${config.xdg.configHome}/waybar/config".source = ./cfg/waybar-config;
+        "${config.xdg.configHome}/waybar/style.css".source = ./cfg/waybar.css;
+
+        ".zprofile" = lib.mkIf osConfig.my.hyprland.autologin.enable {
+          text = ''
+            # This script will be run at first login.
+            # If no graphical session is running and we're on tty1, start Hyrland.
+            [ -z "$DISPLAY" ] && [ "$XDG_VTNR" = 1 ] && Hyprland
+          '';
+        };
       };
     };
 
@@ -112,7 +136,7 @@
         ];
 
         env = lib.mkMerge [
-          (lib.mkIf osConfig.my.desktop.nvidia.enable [
+          (lib.mkIf osConfig.my.nvidia.enable [
           "LIBVA_DRIVER_NAME,nvidia"
           "XDG_SESSION_TYPE,wayland"
           "GBM_BACKEND,nvidia-drm"

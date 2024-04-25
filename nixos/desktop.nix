@@ -10,16 +10,14 @@
 
   my = {
     cpu = "amd";
-    desktop = {
+    hyprland = {
       enable = true;
-      hyprland.enable = true;
       # Do not enable when other DE's are enabled
-      hyprland.autologin.enable = true;
-      lutris.enable = true;
-      nvidia.enable = true;
-      steam.enable = true;
+      autologin.enable = true;
     };
-    sh.nixvim.enable = false;
+    nvidia.enable = true;
+    sound.enable = true;
+    steam.enable = true;
   };
   my.server.mysql.enable = true;
 
@@ -29,14 +27,15 @@
 
   home-manager.users.me = { lib, osConfig, pkgs, ... }:
   let
-    ifHyprland = lib.mkIf osConfig.my.desktop.hyprland.enable;
-    ifGnome = lib.mkIf osConfig.my.desktop.gnome.enable;
+    ifHyprland = lib.mkIf osConfig.my.hyprland.enable;
+    ifGnome = lib.mkIf osConfig.my.gnome.enable;
   in {
     imports = [ ../home nixvim ];
 
-    my.sh = {
-      nvim.enable = true;
+    my = {
       btrfs.enable = true;
+      desktop.enable = true;
+      lutris.enable = true;
     };
 
     home.packages = with pkgs; [

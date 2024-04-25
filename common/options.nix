@@ -31,23 +31,18 @@ in {
         };
         mysql.enable = mkBool {};
       };
-      desktop = {
+
+      cinnamon.enable = mkBool {};
+      sound.enable = mkBool {};
+      gnome.enable = mkBool {};
+      hyprland = {
         enable = mkBool {};
-        cinnamon.enable = mkBool {};
-        gnome.enable = mkBool {};
-        hyprland = {
-          enable = mkBool {};
-          # Do not enable when other DE's are enabled
-          autologin.enable = mkBool {};
-        };
-        lutris.enable = mkBool {};
-        nvidia.enable = mkBool {};
-        plasma5.enable = mkBool {};
-        steam.enable = mkBool {};
+        # Do not enable when other DE's are enabled
+        autologin.enable = mkBool {};
       };
-      sh = {
-        nixvim.enable = mkBool { default = true; };
-      };
+      nvidia.enable = mkBool {};
+      plasma5.enable = mkBool {};
+      steam.enable = mkBool {};
     };
   };
 }

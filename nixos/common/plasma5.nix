@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 {
-  config = lib.mkIf config.my.desktop.plasma5.enable {
+  config = lib.mkIf config.my.plasma5.enable {
     services.xserver = {
       enable = true;
       displayManager = {

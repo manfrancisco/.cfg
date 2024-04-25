@@ -1,6 +1,6 @@
 { config, lib, ... }:
 {
-  config = lib.mkIf config.my.desktop.cinnamon.enable {
+  config = lib.mkIf config.my.cinnamon.enable {
     services.xserver = {
       enable = true;
       libinput.enable = true;
