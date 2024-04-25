@@ -44,6 +44,7 @@
           btop
           clang
           eza
+          dust
           fd
           fzf
           gh
