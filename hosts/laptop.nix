@@ -13,7 +13,7 @@
       autologin.enable = true;
     };
     sound.enable = true;
-    steam.enable = true;
+    steam.enable = false;
   };
 
   home-manager.users.me = { pkgs, ... }: {
