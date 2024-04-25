@@ -66,6 +66,7 @@
           home-manager.nixosModules.home-manager
           modded-minecraft-servers.module
           nixos-hardware.nixosModules.apple-t2
+          sops-nix.nixosModules.sops
           ./hosts/laptop.nix
         ];
       };

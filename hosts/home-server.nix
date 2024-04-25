@@ -1,7 +1,7 @@
 { nixvim, ... }:
 {
   imports = [
-    ./nixos
+    ../nixos
   ];
 
   networking.hostName = "nixos-home-server";

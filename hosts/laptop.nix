@@ -1,26 +1,27 @@
 { nixvim, pkgs, ... }:
 {
   imports = [
-    ./nixos
+    ../nixos
   ];
 
   networking.hostName = "nixos-laptop";
 
   my = {
-    desktop = {
+    hyprland = {
       enable = true;
-      hyprland = {
-        enable = true;
-        # Not compatible with desktop managers
-        autologin.enable = true;
-      };
-      lutris.enable = true;
+      # Not compatible with desktop managers
+      autologin.enable = true;
     };
-    sh.nixvim.enable = false;
+    sound.enable = true;
+    steam.enable = true;
   };
 
   home-manager.users.me = { pkgs, ... }: {
     imports = [ ../home nixvim ];
+
+    my = {
+      desktop.enable = true;
+    };
 
     wayland.windowManager.hyprland.settings = {
       "$mod" = "Super";
@@ -62,7 +63,7 @@
       buildCommand = ''
         dir="$out/lib/firmware/brcm";
         mkdir -p "$dir"
-        cp -r ${./common/firmware/brcm}/* "$dir"
+        cp -r ${../nixos/firmware/brcm}/* "$dir"
       '';
     })
   ];
