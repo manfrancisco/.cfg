@@ -26,7 +26,7 @@
             rcon-password = "12345";
             motd = "Welcome to BIG Minecraft";
           };
-          rsyncSSHKeys = import ../../common/ssh-keys.nix;
+          rsyncSSHKeys = import ../common/ssh-keys.nix;
         };
       };
     };

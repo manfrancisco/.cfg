@@ -42,7 +42,7 @@
           home-manager.nixosModules.home-manager
           modded-minecraft-servers.module
           sops-nix.nixosModules.sops
-          ./nixos/desktop.nix
+          ./hosts/desktop.nix
         ];
       };
       nixos-home-server = lib.nixosSystem {
@@ -54,7 +54,7 @@
           home-manager.nixosModules.home-manager
           modded-minecraft-servers.module
           sops-nix.nixosModules.sops
-          ./nixos/home-server.nix
+          ./hosts/home-server.nix
         ];
       };
       nixos-laptop = lib.nixosSystem {
@@ -66,7 +66,7 @@
           home-manager.nixosModules.home-manager
           modded-minecraft-servers.module
           nixos-hardware.nixosModules.apple-t2
-          ./nixos/laptop.nix
+          ./hosts/laptop.nix
         ];
       };
     };

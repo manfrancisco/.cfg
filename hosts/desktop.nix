@@ -2,8 +2,8 @@
 {
   imports = [
     ../common/options.nix
-    ./common/sops.nix
-    ./common
+    ../nixos/sops.nix
+    ../nixos
   ];
 
   networking.hostName = "nixos-desktop";

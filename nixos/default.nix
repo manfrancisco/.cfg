@@ -18,7 +18,7 @@
   users.users.me = {
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" ];
-    openssh.authorizedKeys.keys = import ../../common/ssh-keys.nix;
+    openssh.authorizedKeys.keys = import ../common/ssh-keys.nix;
   };
 
   networking.networkmanager.enable = true;
