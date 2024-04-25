@@ -1,8 +1,5 @@
-{ config, lib, ... }:
-let
-  lib' = import ../lib.nix { inherit lib; };
-in {
-  options.my.gnome = lib'.mkEnableOption false;
+{ config, lib, ... }: {
+  options.my.gnome = lib.my.mkEnableOption false;
 
   config = lib.mkIf config.my.gnome.enable {
     dconf.settings = {

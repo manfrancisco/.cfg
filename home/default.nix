@@ -6,15 +6,13 @@
     ./nixvim.nix
   ];
 
-  options.my = let
-   lib' = import ../lib.nix { inherit lib; };
-  in {
-    btrfs = lib'.mkEnableOption false;
-    desktop = lib'.mkEnableOption false;
-    gpg = lib'.mkEnableOption true;
-    nvim = lib'.mkEnableOption true;
-    pass = lib'.mkEnableOption true;
-    zsh = lib'.mkEnableOption true;
+  options.my = {
+    btrfs = lib.my.mkEnableOption false;
+    desktop = lib.my.mkEnableOption false;
+    gpg = lib.my.mkEnableOption true;
+    nvim = lib.my.mkEnableOption true;
+    pass = lib.my.mkEnableOption true;
+    zsh = lib.my.mkEnableOption true;
   };
 
   config = lib.mkMerge [

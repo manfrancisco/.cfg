@@ -29,10 +29,15 @@
     nixvim,
     sops-nix,
     ...
-  }: {
+  }: let
+    lib = nixpkgs.lib.extend (final: prev: { my = import ./lib.nix { lib = final; }; } // home-manager.lib);
+  in{
     nixosConfigurations = {
-      nixos-desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit (nixvim.homeManagerModules) nixvim; };
+      nixos-desktop = lib.nixosSystem {
+        specialArgs = {
+          inherit (nixvim.homeManagerModules) nixvim;
+          inherit lib;
+        };
         modules = [
           home-manager.nixosModules.home-manager
           modded-minecraft-servers.module
@@ -40,8 +45,11 @@
           ./nixos/desktop.nix
         ];
       };
-      nixos-home-server = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit (nixvim.homeManagerModules) nixvim; };
+      nixos-home-server = lib.nixosSystem {
+        specialArgs = {
+          inherit (nixvim.homeManagerModules) nixvim;
+          inherit lib;
+        };
         modules = [
           home-manager.nixosModules.home-manager
           modded-minecraft-servers.module
@@ -49,8 +57,11 @@
           ./nixos/home-server.nix
         ];
       };
-      nixos-laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit (nixvim.homeManagerModules) nixvim; };
+      nixos-laptop = lib.nixosSystem {
+        specialArgs = {
+          inherit (nixvim.homeManagerModules) nixvim;
+          inherit lib;
+        };
         modules = [
           home-manager.nixosModules.home-manager
           modded-minecraft-servers.module
@@ -63,7 +74,10 @@
       iso = nixos-generators.nixosGenerate {
         system = "x86_64-linux";
         format = "iso";
-        specialArgs = { inherit (nixvim.homeManagerModules) nixvim; };
+        specialArgs = {
+          inherit (nixvim.homeManagerModules) nixvim;
+          inherit lib;
+        };
         modules = [
           home-manager.nixosModules.home-manager
           modded-minecraft-servers.module
