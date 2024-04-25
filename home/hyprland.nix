@@ -166,8 +166,11 @@
 
         input = {
           kb_layout = "us";
-          follow_mouse = "1";
+          repeat_rate = 30;
+          repeat_delay = 200;
           numlock_by_default = true;
+
+          follow_mouse = "1";
 
           touchpad = {
             natural_scroll = true;
