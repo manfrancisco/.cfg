@@ -13,12 +13,12 @@
       # Do not enable when other DE's are enabled
       autologin.enable = true;
     };
+    mysql.enable = true;
     nvidia.enable = true;
     sops.enable = true;
     sound.enable = true;
     steam.enable = true;
   };
-  my.mysql.enable = true;
 
   programs.npm.enable = true;
 

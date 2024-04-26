@@ -1,9 +1,10 @@
 {
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs.url = "nixpkgs/nixos-23.11";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
@@ -12,7 +13,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     nixvim = {
       url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     modded-minecraft-servers.url = "github:frantisekhanzlikbl/nixos-modded-minecraft-servers/patch-1";
     sops-nix = {
@@ -26,20 +27,28 @@
     nixos-generators,
     nixos-hardware,
     nixpkgs,
+    nixpkgs-unstable,
     nixvim,
     sops-nix,
     ...
   }: let
-    lib = nixpkgs.lib.extend (final: prev: { my = import ./lib.nix { lib = final; }; } // home-manager.lib);
+    mkLib = pkgs: pkgs.lib.extend (final: prev: { my = import ./lib.nix { lib = final; }; } // home-manager.lib);
+    lib = mkLib nixpkgs;
+    lib-unstable = mkLib nixpkgs-unstable;
+    pkgs-unstable = import nixpkgs-unstable {
+      system = "x86_64-linux";
+      config.allowUnfree = true;
+      config.joypixels.acceptLicense = true;
+    };
   in{
     nixosConfigurations = {
       nixos-desktop = lib.nixosSystem {
         specialArgs = {
           inherit (nixvim.homeManagerModules) nixvim;
-          inherit lib;
+          inherit lib lib-unstable pkgs-unstable;
         };
         modules = [
-          home-manager.nixosModules.home-manager
+          home-manager.nixosModules.home-manager { home-manager.extraSpecialArgs = { pkgs = pkgs-unstable; }; }
           modded-minecraft-servers.module
           sops-nix.nixosModules.sops
           ./hosts/desktop.nix
@@ -48,7 +57,7 @@
       nixos-home-server = lib.nixosSystem {
         specialArgs = {
           inherit (nixvim.homeManagerModules) nixvim;
-          inherit lib;
+          inherit lib lib-unstable pkgs-unstable;
         };
         modules = [
           home-manager.nixosModules.home-manager
@@ -60,7 +69,7 @@
       nixos-laptop = lib.nixosSystem {
         specialArgs = {
           inherit (nixvim.homeManagerModules) nixvim;
-          inherit lib;
+          inherit lib lib-unstable pkgs-unstable;
         };
         modules = [
           home-manager.nixosModules.home-manager
@@ -77,7 +86,7 @@
         format = "iso";
         specialArgs = {
           inherit (nixvim.homeManagerModules) nixvim;
-          inherit lib;
+          inherit lib lib-unstable pkgs-unstable;
         };
         modules = [
           home-manager.nixosModules.home-manager

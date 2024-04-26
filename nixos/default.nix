@@ -7,7 +7,7 @@
     ./hyprland.nix
     ./minecraft.nix
     ./mysql.nix
-    ./nextcloud-server.nix
+    # ./nextcloud-server.nix
     ./nvidia.nix
     ./plasma5.nix
     ./sound.nix

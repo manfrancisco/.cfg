@@ -1,4 +1,11 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib-unstable, ... } @args:
+let
+  lib = lib-unstable;
+  pkgs = args.pkgs-unstable;
+in {
+  disabledModules = [ "services/web-apps/nextcloud.nix" ];
+  imports = [ "${pkgs.path}/nixos/modules/services/web-apps/nextcloud.nix" ];
+
   options.my.nextcloud.server = {
     enable = lib.my.mkBoolOption false;
     domain = lib.mkOption {
@@ -6,7 +13,7 @@
       default = "";
     };
     extraTrustedDomains = lib.mkOption {
-      type = lib.listOf lib.types.str;
+      type = lib.types.listOf lib.types.str;
       default = [];
     };
   };
