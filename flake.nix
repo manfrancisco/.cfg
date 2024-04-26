@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "nixpkgs/nixos-23.11";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -26,11 +27,13 @@
     nixos-generators,
     nixos-hardware,
     nixpkgs,
+    nixpkgs-stable,
     nixvim,
     sops-nix,
     ...
   }: let
     lib = nixpkgs.lib.extend (final: prev: { my = import ./lib.nix { lib = final; }; } // home-manager.lib);
+    pkgs-stable = import nixpkgs-stable { system = "x86_64-linux"; };
   in{
     nixosConfigurations = {
       nixos-desktop = lib.nixosSystem {
@@ -39,7 +42,7 @@
           inherit lib;
         };
         modules = [
-          home-manager.nixosModules.home-manager
+          home-manager.nixosModules.home-manager { home-manager.extraSpecialArgs = { inherit pkgs-stable; }; }
           modded-minecraft-servers.module
           sops-nix.nixosModules.sops
           ./hosts/desktop.nix
