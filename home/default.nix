@@ -1,10 +1,5 @@
 { config, lib, pkgs, ... }: {
-  imports = [
-    ./gnome.nix
-    ./hyprland.nix
-    ./lutris.nix
-    ./nixvim.nix
-  ];
+  imports = [ ./gnome.nix ./hyprland.nix ./lutris.nix ./nixvim.nix ];
 
   options.my = {
     btrfs = lib.my.mkEnableOption false;
@@ -35,9 +30,7 @@
           '';
           "${config.xdg.configHome}/zsh/abbr.zsh".source = ./cfg/abbr.zsh;
         };
-        sessionVariables = {
-          FLAKE="/home/me/.nix";
-        };
+        sessionVariables = { FLAKE = "/home/me/.nix"; };
         packages = with pkgs; [
           bat
           bitwarden
@@ -69,9 +62,7 @@
         ];
       };
     }
-    (lib.mkIf config.my.btrfs.enable {
-      home.packages = [ pkgs.btrfs-progs ];
-    })
+    (lib.mkIf config.my.btrfs.enable { home.packages = [ pkgs.btrfs-progs ]; })
     (lib.mkIf config.my.gpg.enable {
       home.packages = [ pkgs.pinentry ];
 
@@ -83,30 +74,15 @@
       };
     })
     (lib.mkIf config.my.nvim.enable {
-      home.packages = with pkgs; [
-        neovim
-        gnumake
-        unzip
-      ];
+      home.packages = with pkgs; [ neovim gnumake unzip ];
     })
-    (lib.mkIf config.my.pass.enable {
-      home.packages = [ pkgs.pass ];
-    })
-    (lib.mkIf config.my.zsh.enable {
-      programs.zsh.enable = true;
-    })
+    (lib.mkIf config.my.pass.enable { home.packages = [ pkgs.pass ]; })
+    (lib.mkIf config.my.zsh.enable { programs.zsh.enable = true; })
     (lib.mkIf config.my.desktop.enable {
       home = {
-        packages = with pkgs; [
-          firefox
-          gimp
-          transmission-gtk
-          wl-clipboard
-        ];
+        packages = with pkgs; [ firefox gimp transmission-gtk wl-clipboard ];
 
-        file = {
-          ".config/kitty/kitty.conf".source = ./cfg/kitty.conf;
-        };
+        file = { ".config/kitty/kitty.conf".source = ./cfg/kitty.conf; };
       };
       programs.browserpass.enable = config.my.pass.enable;
       services.gpg-agent.pinentryPackage = pkgs.pinentry-qt;

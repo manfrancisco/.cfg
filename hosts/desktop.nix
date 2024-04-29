@@ -1,8 +1,5 @@
-{ nixvim, ... }:
-{
-  imports = [
-    ../nixos
-  ];
+{ nixvim, ... }: {
+  imports = [ ../nixos ];
 
   networking.hostName = "nixos-desktop";
 
@@ -25,59 +22,55 @@
   programs.nix-ld.enable = true;
 
   home-manager.users.me = { lib, osConfig, pkgs, ... }:
-  let
-    ifHyprland = lib.mkIf osConfig.my.hyprland.enable;
-    ifGnome = lib.mkIf osConfig.my.gnome.enable;
-  in {
-    imports = [ ../home nixvim ];
+    let
+      ifHyprland = lib.mkIf osConfig.my.hyprland.enable;
+      ifGnome = lib.mkIf osConfig.my.gnome.enable;
+    in {
+      imports = [ ../home nixvim ];
 
-    my = {
-      btrfs.enable = true;
-      desktop.enable = true;
-      lutris.enable = true;
-    };
+      my = {
+        btrfs.enable = true;
+        desktop.enable = true;
+        lutris.enable = true;
+      };
 
-    home.packages = with pkgs; [
-      godot_4
-      insomnia # api endpoint tester
-      libreoffice
-      mpv # video player
-      nodejs
-      prismlauncher # modded minecraft launcher
-      rcon # minecraft remote console
-      stress # cpu stress tester
-    ];
-
-    wayland.windowManager.hyprland.settings = ifHyprland {
-      monitor = [
-        "DP-3, 1920x1080, 0x0, 1"
-        "HDMI-A-1, 1920x1080, 1920x0, 1"
+      home.packages = with pkgs; [
+        godot_4
+        insomnia # api endpoint tester
+        libreoffice
+        mpv # video player
+        nodejs
+        prismlauncher # modded minecraft launcher
+        rcon # minecraft remote console
+        stress # cpu stress tester
       ];
-      workspace = [
-        "1, monitor:DP-3"
-        "2, monitor:DP-3"
-        "3, monitor:DP-3"
-        "4, monitor:DP-3"
-        "5, monitor:DP-3"
-        "6, monitor:HDMI-A-1"
-        "7, monitor:HDMI-A-1"
-        "8, monitor:HDMI-A-1"
-        "9, monitor:HDMI-A-1"
-        "10, monitor:HDMI-A-1"
-      ];
-    };
 
-    dconf.settings = ifGnome {
-      "org/gnome/desktop/input-sources" = {
-        # Switch left Alt with left Win
-        xkb-options = [ "altwin:swap_lalt_lwin" ];
+      wayland.windowManager.hyprland.settings = ifHyprland {
+        monitor =
+          [ "DP-3, 1920x1080, 0x0, 1" "HDMI-A-1, 1920x1080, 1920x0, 1" ];
+        workspace = [
+          "1, monitor:DP-3"
+          "2, monitor:DP-3"
+          "3, monitor:DP-3"
+          "4, monitor:DP-3"
+          "5, monitor:DP-3"
+          "6, monitor:HDMI-A-1"
+          "7, monitor:HDMI-A-1"
+          "8, monitor:HDMI-A-1"
+          "9, monitor:HDMI-A-1"
+          "10, monitor:HDMI-A-1"
+        ];
+      };
+
+      dconf.settings = ifGnome {
+        "org/gnome/desktop/input-sources" = {
+          # Switch left Alt with left Win
+          xkb-options = [ "altwin:swap_lalt_lwin" ];
+        };
       };
     };
-  };
 
-  sops.secrets.luks-key-data = {
-    sopsFile = ../secrets/nixos-desktop.yaml;
-  };
+  sops.secrets.luks-key-data = { sopsFile = ../secrets/nixos-desktop.yaml; };
 
   fileSystems = {
     "/" = {

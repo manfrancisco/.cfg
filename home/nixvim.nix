@@ -60,12 +60,17 @@
         }
         {
           event = [ "TextYankPost" ];
-          command = ''lua vim.highlight.on_yank { higroup="IncSearch", timeout=500 }'';
+          command =
+            ''lua vim.highlight.on_yank { higroup="IncSearch", timeout=500 }'';
         }
       ];
 
       keymaps = let
-        map = mode: key: action: { mode = mode; key = key; action = action; };
+        map = mode: key: action: {
+          mode = mode;
+          key = key;
+          action = action;
+        };
         nmap = key: action: map [ "n" ] key action;
         nvmap = key: action: map [ "n" "v" ] key action;
         imap = key: action: map [ "i" ] key action;
@@ -81,9 +86,10 @@
         # Redo
         (nmap "R" "<C-r>")
         # Copy and paste
-        (nvmap "<leader>y" "\"+y" // desc "Cop[y] selection to clipboard")
-        (nvmap "<leader>p" "\"+p" // desc "[P]aste from clipboard")
-        (nvmap "<leader>P" "\"+P" // desc "[P]aste from clipboard (on line above)")
+        (nvmap "<leader>y" ''"+y'' // desc "Cop[y] selection to clipboard")
+        (nvmap "<leader>p" ''"+p'' // desc "[P]aste from clipboard")
+        (nvmap "<leader>P" ''"+P''
+          // desc "[P]aste from clipboard (on line above)")
         # Copy to end of line
         (nmap "Y" "y$")
         # Enter newline without entering insert mode
@@ -105,7 +111,8 @@
         (nmap "<C-k>" "<C-w>k")
         # Open neo-tree
         (nmap "<leader>f" ":Neotree toggle<Cr>" // desc "Toggle neo-tree")
-        (nmap "<leader>b" ":Neotree buffers<Cr>" // desc "Show open [B]uffers in neo-tree")
+        (nmap "<leader>b" ":Neotree buffers<Cr>"
+          // desc "Show open [B]uffers in neo-tree")
       ];
 
       plugins = {

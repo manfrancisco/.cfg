@@ -1,8 +1,5 @@
-{ nixvim, pkgs, ... }:
-{
-  imports = [
-    ../nixos
-  ];
+{ nixvim, pkgs, ... }: {
+  imports = [ ../nixos ];
 
   networking.hostName = "nixos-laptop";
 
@@ -19,20 +16,20 @@
   home-manager.users.me = { pkgs, ... }: {
     imports = [ ../home nixvim ];
 
-    my = {
-      desktop.enable = true;
-    };
+    my = { desktop.enable = true; };
 
     wayland.windowManager.hyprland.settings = {
       "$mod" = "Super";
       bind = [
-          # Screen backlight controls
-          ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
-          ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+        # Screen backlight controls
+        ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
 
-          # Keyboard backlight controls
-          '',XF86KbdBrightnessUp, exec, brightnessctl -d "apple::kbd_backlight" set 20%+''
-          '',XF86KbdBrightnessDown, exec, brightnessctl -d "apple::kbd_backlight" set 20%-''
+        # Keyboard backlight controls
+        ''
+          ,XF86KbdBrightnessUp, exec, brightnessctl -d "apple::kbd_backlight" set 20%+''
+        ''
+          ,XF86KbdBrightnessDown, exec, brightnessctl -d "apple::kbd_backlight" set 20%-''
       ];
     };
 

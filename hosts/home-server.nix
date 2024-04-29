@@ -1,8 +1,5 @@
-{ nixvim, ... }:
-{
-  imports = [
-    ../nixos
-  ];
+{ nixvim, ... }: {
+  imports = [ ../nixos ];
 
   networking.hostName = "nixos-home-server";
 
@@ -16,28 +13,18 @@
     allowedTCPPorts = [ 22 80 443 ];
   };
 
-  home-manager.users.me = { ... }: {
-    imports = [
-      nixvim
-      ../home
-    ];
-  };
+  home-manager.users.me = { ... }: { imports = [ nixvim ../home ]; };
 
   my.minecraft.server.atm9.enable = true;
 
   my.nextcloud.server = {
     enable = true;
     domain = "nixos-home-server.shetland-pangolin.ts.net";
-    extraTrustedDomains = [
-      "nixos-home-server"
-      "10.0.0.2"
-    ];
+    extraTrustedDomains = [ "nixos-home-server" "10.0.0.2" ];
   };
 
   sops.secrets = {
-    luks-key-data = {
-      sopsFile = ../secrets/nixos-home-server.yaml;
-    };
+    luks-key-data = { sopsFile = ../secrets/nixos-home-server.yaml; };
     nextcloud-admin-pass = {
       sopsFile = ../secrets/nixos-home-server.yaml;
       owner = "nextcloud";
@@ -47,7 +34,8 @@
     };
   };
 
-  boot.initrd.luks.devices."root".device = "/dev/disk/by-uuid/a4422541-92d3-4c39-8a04-8d06479bd716";
+  boot.initrd.luks.devices."root".device =
+    "/dev/disk/by-uuid/a4422541-92d3-4c39-8a04-8d06479bd716";
 
   fileSystems = {
     "/" = {

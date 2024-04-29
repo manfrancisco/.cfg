@@ -1,5 +1,4 @@
-{ config, lib, pkgs, ... }:
-{
+{ config, lib, pkgs, ... }: {
   imports = [
     ./arch.nix
     ./cinnamon.nix
@@ -15,9 +14,7 @@
     ./tailscale.nix
   ];
 
-  options.my = {
-    sops = lib.my.mkEnableOption false;
-  };
+  options.my = { sops = lib.my.mkEnableOption false; };
 
   config = lib.mkMerge [
     {
@@ -69,13 +66,11 @@
         };
       };
 
-      swapDevices = lib.mkDefault [
-        {
-          device = "/var/lib/swapfile";
-          # In megabytes
-          size = 10*1024;
-        }
-      ];
+      swapDevices = lib.mkDefault [{
+        device = "/var/lib/swapfile";
+        # In megabytes
+        size = 10 * 1024;
+      }];
 
       hardware = {
         enableRedistributableFirmware = true;

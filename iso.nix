@@ -1,12 +1,7 @@
-{ nixvim, pkgs, ... }:
-{
-  imports = [
-    ./nixos
-  ];
+{ nixvim, pkgs, ... }: {
+  imports = [ ./nixos ];
 
-  home-manager.users.me = { ... }: {
-    imports = [ ./home nixvim ];
-  };
+  home-manager.users.me = { ... }: { imports = [ ./home nixvim ]; };
 
   environment.systemPackages = with pkgs; [
     python3

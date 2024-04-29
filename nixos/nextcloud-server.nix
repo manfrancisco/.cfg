@@ -7,7 +7,7 @@
     };
     extraTrustedDomains = lib.mkOption {
       type = lib.listOf lib.types.str;
-      default = [];
+      default = [ ];
     };
   };
 
