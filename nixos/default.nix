@@ -12,6 +12,7 @@
     ./sound.nix
     ./steam.nix
     ./tailscale.nix
+    ./virtualization.nix
   ];
 
   options.my = { sops = lib.my.mkEnableOption false; };

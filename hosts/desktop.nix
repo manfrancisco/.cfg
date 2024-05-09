@@ -14,6 +14,7 @@
     sops.enable = true;
     sound.enable = true;
     steam.enable = true;
+    virtualization.enable = true;
   };
   my.mysql.enable = true;
 
