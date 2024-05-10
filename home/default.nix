@@ -86,6 +86,13 @@
       };
       programs.browserpass.enable = config.my.pass.enable;
       services.gpg-agent.pinentryPackage = pkgs.pinentry-qt;
+      gtk = {
+        enable = true;
+        theme = {
+          name = "Adwaita-dark";
+          package = pkgs.gnome.gnome-themes-extra;
+        };
+      };
     })
   ];
 }
