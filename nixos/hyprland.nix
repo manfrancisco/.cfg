@@ -9,7 +9,7 @@
     hardware = {
       opengl.enable = true;
       # Most wayland compositors need this
-      nvidia.modesetting.enable = true;
+      nvidia.modesetting.enable = config.my.nvidia.enable;
     };
     # GTK apps expect dconf to exist
     programs.dconf.enable = true;
