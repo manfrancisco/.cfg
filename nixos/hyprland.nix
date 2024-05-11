@@ -11,5 +11,7 @@
       # Most wayland compositors need this
       nvidia.modesetting.enable = true;
     };
+    # GTK apps expect dconf to exist
+    programs.dconf.enable = true;
   };
 }
