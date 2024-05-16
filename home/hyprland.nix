@@ -84,6 +84,11 @@
           "$mod, P, pseudo"
           "$mod Shift, P, exit"
 
+          # Screenshots
+          ",Print, exec, $HOME/scripts/screenshot-all-monitors"
+          "$mod, Print, exec, $HOME/scripts/screenshot-active-window"
+          "Shift, Print, exec, $HOME/scripts/screenshot-selection"
+
           # Volume controls
           ",XF86AudioRaiseVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ +5%"
           ",XF86AudioLowerVolume, exec, pactl set-sink-volume @DEFAULT_SINK@ -5%"
