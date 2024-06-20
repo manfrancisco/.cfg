@@ -73,7 +73,7 @@ alias gst="git stash"
 alias lg="lazygit"
 
 ## Tmux
-alias ta="tmux new -As"
+alias ta="tmux new -As default"
 
 ## Other
 alias cls="clear; printf '\e[3J'"
