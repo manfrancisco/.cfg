@@ -1,0 +1,17 @@
+[user]
+    email = m@mdorst.net
+    name = Michael Dorst
+    user = git
+[core]
+    pager = bat -p
+    editor = nvim
+[color]
+    ui = always
+[credential]
+    helper = store
+[init]
+    defaultBranch = main
+[pull]
+    rebase = false
+[push]
+    default = current
