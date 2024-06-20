@@ -25,43 +25,57 @@ export VISUAL=lvim
 alias c="cargo"
 alias cb="cargo build"
 alias cbr="cargo build --release"
+alias ccl="cargo clippy"
 alias cr="cargo run"
 alias crr="cargo run --release"
 alias ct="cargo test"
+
+## Eza
+if command -v eza &> /dev/null; then
+    alias l="eza --git -l"
+    alias la="eza --git -al"
+    alias lt="eza --git -lTL2"
+    alias lt3="eza --git -lTL3"
+    alias lt4="eza --git -lTL4"
+    alias lt5="eza --git -lTL5"
+    alias lta="eza --git -laTL2"
+    alias lta3="eza --git -laTL3"
+    alias lta4="eza --git -laTL4"
+    alias lta5="eza --git -laTL5"
+else
+    alias l="ls -l"
+    alias la="ls -la"
+fi
 
 ## Git
 alias g="git"
 alias gs="git status -su"
 alias ga="git add"
 alias gaa="git add -A"
+alias gb="git branch"
 alias gc="git commit"
 alias gca="git add -A && git commit"
+alias gcb="git checkout -b"
 alias gco="git checkout"
-alias gst="git stash"
 alias gd="git diff"
 alias gds="git diff --stat"
+alias gdw="git diff --word-diff=color"
 alias gl="git log --oneline --graph"
 alias gla="git log --oneline --graph --branches --remotes --tags HEAD"
 alias gll="git log --graph"
-alias gb="git branch"
+alias glla="git log --graph --branches --remotes --tags HEAD"
 alias gr="git reset"
 alias grh="git reset --hard"
-alias grhh="git reset --hard HEAD"
 alias grah="git add -A && git reset --hard HEAD"
+alias gst="git stash"
 
-## Exa
-if command -v exa &> /dev/null; then
-    alias ls="exa --git -l"
-    alias lsa="exa --git -al"
-    alias lst="exa --git -lTL2"
-    alias lsta="exa --git -laTL2"
-else
-    alias ls="ls -l"
-    alias lsa="ls -la"
-fi
+## Lazygit
+alias lg="lazygit"
+
+## Tmux
+alias ta="tmux new -As"
 
 ## Other
-alias e="lvim"
 alias cls="clear; printf '\e[3J'"
 
 # Functions
@@ -73,7 +87,11 @@ function mcd() {
         return
     fi
     mkdir -p $1
-    cd $1
+    if command -v zoxide &> /dev/null; then
+        j $1
+    else
+        cd $1
+    fi
 }
 
 # Path
