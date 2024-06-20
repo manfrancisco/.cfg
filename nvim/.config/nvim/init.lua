@@ -115,6 +115,24 @@ require('lazy').setup({
   -- "gc" to comment visual regions/lines
   { 'numToStr/Comment.nvim', opts = {} },
 
+  -- Navigate seamlessly between vim and tmux panes
+  {
+    'christoomey/vim-tmux-navigator',
+    cmd = {
+      'TmuxNavigateLeft',
+      'TmuxNavigateDown',
+      'TmuxNavigateUp',
+      'TmuxNavigateRight',
+      'TmuxNavigatePrevious',
+    },
+    keys = {
+      { '<M-h>', '<Cmd>TmuxNavigateLeft<Cr>' },
+      { '<M-j>', '<Cmd>TmuxNavigateDown<Cr>' },
+      { '<M-k>', '<Cmd>TmuxNavigateUp<Cr>' },
+      { '<M-l>', '<Cmd>TmuxNavigateRight<Cr>' },
+    },
+  },
+
   {
     'lewis6991/gitsigns.nvim',
     opts = {
