@@ -1,0 +1,18 @@
+# set editing-mode vi
+$if mode=vi
+
+# Keymap for command mode
+set keymap vi-command
+Control-l: clear-screen
+
+
+# Keymap for insert mode
+set keymap vi-insert
+Control-l: clear-screen
+
+$endif
+
+# Arrow up
+"\e[A": history-substring-search-backward
+# Arrow down
+"\e[B": history-substring-search-forward
