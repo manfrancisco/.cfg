@@ -109,3 +109,7 @@ fi
 if command -v zoxide &> /dev/null; then
     eval "$(zoxide init bash --cmd j)"
 fi
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH
